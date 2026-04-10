@@ -1,0 +1,117 @@
+:host {
+  display: block;
+}
+
+.search-panel {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-4);
+}
+
+.search-field {
+  width: min(100%, 24rem);
+}
+
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1rem;
+}
+
+.client-card {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--ccd-border);
+  border-radius: var(--radius-lg);
+  background: var(--ccd-surface-1);
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.client-card:hover,
+.client-card:focus-visible {
+  border-color: var(--ccd-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.client-card__header {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.client-logo {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.18), rgba(0, 201, 167, 0.18));
+  color: var(--ccd-text);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.client-name {
+  color: var(--ccd-text);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.client-sub,
+.meta-item {
+  color: var(--ccd-text-muted);
+  font-size: var(--text-xs);
+}
+
+.client-sub {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.meta-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  font-size: 0.9rem;
+}
+
+.client-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--ccd-border);
+}
+
+.stat-mini {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.mini-label {
+  color: var(--ccd-text-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mini-value {
+  color: var(--ccd-text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.mini-value.primary {
+  color: var(--ccd-primary);
+}

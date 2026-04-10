@@ -1,0 +1,92 @@
+<header class="ccd-topbar">
+  <div class="topbar-left">
+    <button
+      type="button"
+      class="ccd-btn btn-ghost btn-sm topbar-icon-btn topbar-mobile-toggle"
+      (click)="layout.toggleSidebar()"
+      aria-label="Toggle navigation"
+      matTooltip="Menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <div class="topbar-context">
+      <span class="caption">{{ pageSubtitle }}</span>
+      <strong class="topbar-title">{{ pageTitle }}</strong>
+    </div>
+  </div>
+
+  <div class="topbar-right">
+    <button
+      type="button"
+      class="ccd-btn btn-ghost btn-sm topbar-icon-btn"
+      (click)="theme.toggleTheme()"
+      [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+      [matTooltip]="theme.isDark() ? 'Light mode' : 'Dark mode'"
+    >
+      <mat-icon>{{ theme.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    </button>
+
+    <div class="notification-wrap">
+      <button
+        type="button"
+        class="ccd-btn btn-ghost btn-sm topbar-icon-btn"
+        matTooltip="Notifications"
+        aria-label="Open notifications"
+        [matMenuTriggerFor]="notificationsMenu"
+      >
+        <mat-icon>notifications_none</mat-icon>
+        @if (unreadCount) {
+          <span class="topbar-badge">{{ unreadCount }}</span>
+        }
+      </button>
+
+      <mat-menu #notificationsMenu="matMenu" xPosition="before" yPosition="below" [overlapTrigger]="false" panelClass="ccd-notification-panel">
+        <div class="notification-menu" (click)="$event.stopPropagation()">
+          <div class="notification-menu__head">
+            <strong>Notifications</strong>
+            <span>{{ unreadCount }} unread</span>
+          </div>
+
+          @for (item of notifications; track item.id) {
+            <button type="button" class="notification-menu__item" mat-menu-item>
+              <mat-icon>{{ item.icon }}</mat-icon>
+              <span class="notification-copy">
+                <span class="notification-item__title">{{ item.title }}</span>
+                <span class="notification-item__body">{{ item.body }}</span>
+                <small>{{ item.time }}</small>
+              </span>
+            </button>
+          }
+
+          <button mat-menu-item routerLink="/audit">
+            <span>Open activity log</span>
+          </button>
+        </div>
+      </mat-menu>
+    </div>
+
+    @if (user$ | async; as user) {
+      <button type="button" class="user-btn" [matMenuTriggerFor]="userMenu" aria-label="Open account menu">
+        <div class="topbar-avatar">{{ userInitials(user.name) }}</div>
+        <div class="topbar-user-info">
+          <div class="user-name">{{ user.name }}</div>
+          <div class="user-biz truncate">{{ displayRole(user.role) }} · {{ user.businessName }}</div>
+        </div>
+        <mat-icon class="chevron">expand_more</mat-icon>
+      </button>
+    }
+
+    <mat-menu #userMenu="matMenu" xPosition="before">
+      <button *ccdRole="['Admin', 'SuperAdmin']" mat-menu-item routerLink="/settings">
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <mat-divider />
+      <button mat-menu-item (click)="onLogout()">
+        <mat-icon color="warn">logout</mat-icon>
+        <span>Log out</span>
+      </button>
+    </mat-menu>
+  </div>
+</header>

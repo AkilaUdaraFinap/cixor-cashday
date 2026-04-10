@@ -1,0 +1,58 @@
+<div class="auth-form">
+  <div class="auth-copy">
+    <span class="ccd-badge badge-primary">Secure sign in</span>
+    <h2 class="auth-title">Welcome back</h2>
+    <p class="auth-subtitle">Sign in to manage invoices, cash flow, and client operations.</p>
+  </div>
+
+  @if (error$ | async; as err) {
+    <div class="auth-error" role="alert">
+      <mat-icon>error_outline</mat-icon>
+      <span>{{ err }}</span>
+    </div>
+  }
+
+  <form class="auth-form__fields" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <ccd-ui-input
+      formControlName="email"
+      label="Work email"
+      type="email"
+      autocomplete="email"
+      placeholder="name@company.com"
+      icon="mail_outline"
+      hint="Use the email linked to your business account."
+      [error]="getFieldError('email')"
+    />
+
+    <ccd-ui-input
+      formControlName="password"
+      label="Password"
+      type="password"
+      autocomplete="current-password"
+      placeholder="Enter your password"
+      icon="lock_outline"
+      [showPasswordToggle]="true"
+      [error]="getFieldError('password')"
+    />
+
+    <div class="auth-meta">
+      <span class="auth-hint">Protected with business-grade encryption.</span>
+      <a routerLink="/auth/set-password">Forgot password?</a>
+    </div>
+
+    <ccd-ui-button
+      type="submit"
+      size="lg"
+      [fullWidth]="true"
+      [loading]="(loading$ | async) ?? false"
+      [disabled]="form.invalid || ((loading$ | async) ?? false)"
+    >
+      Sign in
+    </ccd-ui-button>
+  </form>
+
+  <p class="auth-link">
+    Don't have an account?
+    <a routerLink="/auth/register">Create account</a>
+  </p>
+</div>

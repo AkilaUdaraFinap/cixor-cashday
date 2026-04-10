@@ -1,0 +1,47 @@
+<div class="dialog-shell">
+  <div class="dialog-header">
+    <div>
+      <h2 class="dialog-title">{{ isEdit ? 'Edit user' : 'Invite user' }}</h2>
+      <p class="dialog-subtitle">{{ isEdit ? 'Adjust permissions and profile details.' : 'Send a secure invitation to a new teammate.' }}</p>
+    </div>
+    <button type="button" class="dialog-close" (click)="close()" aria-label="Close user form">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="dialog-form">
+    <div class="dialog-body">
+      <div class="form-grid-2">
+        <ccd-ui-input formControlName="firstName" label="First name" placeholder="Jane" [error]="getFieldError('firstName')" />
+        <ccd-ui-input formControlName="lastName" label="Last name" placeholder="Doe" [error]="getFieldError('lastName')" />
+      </div>
+
+      <ccd-ui-input
+        formControlName="email"
+        label="Email"
+        type="email"
+        placeholder="jane@company.com"
+        [readonly]="isEdit"
+        [error]="getFieldError('email')"
+      />
+
+      <div class="form-field">
+        <label class="ccd-label" for="user-role">Role</label>
+        <select id="user-role" formControlName="role" class="ccd-input">
+          @for (r of roles; track r) {
+            <option [value]="r">{{ r }}</option>
+          }
+        </select>
+      </div>
+
+      @if (!isEdit) {
+        <p class="dialog-note">The user will receive an invitation email with a password setup link.</p>
+      }
+    </div>
+
+    <div class="dialog-footer">
+      <ccd-ui-button type="button" variant="ghost" (click)="close()">Cancel</ccd-ui-button>
+      <ccd-ui-button type="submit" [disabled]="form.invalid">{{ isEdit ? 'Save changes' : 'Send invite' }}</ccd-ui-button>
+    </div>
+  </form>
+</div>

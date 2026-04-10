@@ -1,0 +1,111 @@
+<div class="dialog-shell">
+  <header class="dialog-header">
+    <div>
+      <p class="dialog-eyebrow">Client profile</p>
+      <h2 class="dialog-title">{{ data?.client ? 'Edit client' : 'Create client' }}</h2>
+      <p class="dialog-subtitle">Capture the key business and billing details for this account.</p>
+    </div>
+
+    <button type="button" class="dialog-close" (click)="close()" aria-label="Close client form">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="dialog-form">
+    <div class="dialog-body">
+      <section class="form-section">
+        <div class="section-heading">
+          <h3>Business details</h3>
+          <p>Use the registered company information exactly as it appears in official records.</p>
+        </div>
+
+        <div class="form-grid form-grid--two">
+          <ccd-ui-input
+            formControlName="name"
+            label="Company name"
+            placeholder="Acme Corporation"
+            icon="business"
+            [error]="getFieldError('name')"
+          />
+
+          <ccd-ui-input
+            formControlName="registrationNumber"
+            label="Registration number"
+            placeholder="2020/000001/07"
+            icon="badge"
+            [error]="getFieldError('registrationNumber')"
+          />
+
+          <ccd-ui-input
+            formControlName="email"
+            type="email"
+            label="Finance email"
+            placeholder="accounts@acme.co.za"
+            icon="mail"
+            [error]="getFieldError('email')"
+          />
+
+          <ccd-ui-input
+            formControlName="phone"
+            type="tel"
+            label="Phone number"
+            placeholder="+27 11 000 0000"
+            icon="call"
+          />
+        </div>
+      </section>
+
+      <section class="form-section">
+        <div class="section-heading">
+          <h3>Commercial settings</h3>
+          <p>Optional fields help your team manage credit exposure and customer metadata.</p>
+        </div>
+
+        <div class="form-grid form-grid--two">
+          <ccd-ui-input
+            formControlName="vatNumber"
+            label="VAT number"
+            placeholder="4123456789"
+            icon="receipt_long"
+          />
+
+          <ccd-ui-input
+            formControlName="creditLimit"
+            type="number"
+            inputMode="decimal"
+            label="Credit limit (ZAR)"
+            placeholder="500000"
+            icon="payments"
+          />
+
+          <div class="form-field form-field--full">
+            <label class="ccd-label" for="client-address">Physical address</label>
+            <textarea
+              id="client-address"
+              formControlName="address"
+              class="ccd-input ccd-textarea"
+              rows="3"
+              placeholder="123 Business Park, Sandton, 2196"
+            ></textarea>
+          </div>
+
+          <ccd-ui-input
+            formControlName="website"
+            type="url"
+            label="Website"
+            placeholder="https://acme.co.za"
+            icon="language"
+            class="form-field--full"
+          />
+        </div>
+      </section>
+    </div>
+
+    <footer class="dialog-footer">
+      <ccd-ui-button type="button" variant="ghost" (click)="close()">Cancel</ccd-ui-button>
+      <ccd-ui-button type="submit" [disabled]="form.invalid">
+        {{ data?.client ? 'Save changes' : 'Create client' }}
+      </ccd-ui-button>
+    </footer>
+  </form>
+</div>

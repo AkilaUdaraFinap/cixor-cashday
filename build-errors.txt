@@ -1,0 +1,4044 @@
+- Building...
+
+Application bundle generation failed. [6.694 seconds]
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/app/app.config.ts:5:29:
+      5 Γöé import { provideStore } from '@ngrx/store';
+        Γò╡                              ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.config.ts:5:29:
+      5 Γöé import { provideStore } from '@ngrx/store';
+        Γò╡                              ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/effects"
+
+    src/app/app.config.ts:6:31:
+      6 Γöé import { provideEffects } from '@ngrx/effects';
+        Γò╡                                ~~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/effects" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/effects' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.config.ts:6:31:
+      6 Γöé import { provideEffects } from '@ngrx/effects';
+        Γò╡                                ~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store-devtools"
+
+    src/app/app.config.ts:7:37:
+      7 Γöé import { provideStoreDevtools } from '@ngrx/store-devtools';
+        Γò╡                                      ~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store-devtools" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store-devtools' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.config.ts:7:37:
+      7 Γöé import { provideStoreDevtools } from '@ngrx/store-devtools';
+        Γò╡                                      ~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "../core/interceptors/auth.interceptor"
+
+    src/app/app.config.ts:18:32:
+      18 Γöé ... { authInterceptor } from '../core/interceptors/auth.interceptor';
+         Γò╡                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '../core/interceptors/auth.interceptor' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.config.ts:18:32:
+      18 Γöé ... { authInterceptor } from '../core/interceptors/auth.interceptor';
+         Γò╡                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "../core/interceptors/error.interceptor"
+
+    src/app/app.config.ts:19:33:
+      19 Γöé ... errorInterceptor } from '../core/interceptors/error.interceptor';
+         Γò╡                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '../core/interceptors/error.interceptor' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.config.ts:19:33:
+      19 Γöé ... errorInterceptor } from '../core/interceptors/error.interceptor';
+         Γò╡                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "../core/guards/auth.guard"
+
+    src/app/app.routes.ts:1:26:
+      1 Γöé import { authGuard } from '../core/guards/auth.guard';
+        Γò╡                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "../core/guards/role.guard"
+
+    src/app/app.routes.ts:2:26:
+      2 Γöé import { roleGuard } from '../core/guards/role.guard';
+        Γò╡                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '../core/guards/auth.guard' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.routes.ts:2:26:
+      2 Γöé import { authGuard } from '../core/guards/auth.guard';
+        Γò╡                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '../core/guards/role.guard' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.routes.ts:3:26:
+      3 Γöé import { roleGuard } from '../core/guards/role.guard';
+        Γò╡                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/snack-bar' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/core/services/notification.service.ts:2:28:
+      2 Γöé import { MatSnackBar } from '@angular/material/snack-bar';
+        Γò╡                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'snackBar' of class 'NotificationService'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/app/core/services/notification.service.ts:6:22:
+      6 Γöé   constructor(private snackBar: MatSnackBar) {}
+        Γò╡                       ~~~~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/app/core/services/notification.service.ts:6:32:
+      6 Γöé   constructor(private snackBar: MatSnackBar) {}
+        Γò╡                                 ~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/dialog' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/shared/components/confirm-dialog/confirm-dialog.component.ts:3:63:
+      3 Γöé ...e, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+        Γò╡                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/button' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/shared/components/confirm-dialog/confirm-dialog.component.ts:4:32:
+      4 Γöé import { MatButtonModule } from '@angular/material/button';
+        Γò╡                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/dialog"
+
+    src/app/shared/components/confirm-dialog/confirm-dialog.component.ts:4:49:
+      4 Γöé ...MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+        Γò╡                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/dialog" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/shared/components/confirm-dialog/confirm-dialog.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/button"
+
+    src/app/shared/components/confirm-dialog/confirm-dialog.component.ts:5:32:
+      5 Γöé import { MatButtonModule } from '@angular/material/button';
+        Γò╡                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/button" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/app/shared/components/confirm-dialog/confirm-dialog.component.ts:6:30:
+      6 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'dialogRef' of class 'ConfirmDialogComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/app/shared/components/confirm-dialog/confirm-dialog.component.ts:48:11:
+      48 Γöé     public dialogRef: MatDialogRef<ConfirmDialogComponent>,
+         Γò╡            ~~~~~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/app/shared/components/confirm-dialog/confirm-dialog.component.ts:48:22:
+      48 Γöé     public dialogRef: MatDialogRef<ConfirmDialogComponent>,
+         Γò╡                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/shared/components/empty-state/empty-state.component.ts:3:30:
+      3 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/app/shared/components/empty-state/empty-state.component.ts:4:30:
+      4 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS-991010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value is of type '[CommonModule, (not statically analyzable)]'. [plugin angular-compiler]
+
+    src/app/shared/components/empty-state/empty-state.component.ts:8:11:
+      8 Γöé   imports: [CommonModule, MatIconModule],
+        Γò╡            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/progress-spinner' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/shared/components/loading-overlay/loading-overlay.component.ts:3:41:
+      3 Γöé ...tProgressSpinnerModule } from '@angular/material/progress-spinner';
+        Γò╡                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/progress-spinner"
+
+    src/app/shared/components/loading-overlay/loading-overlay.component.ts:4:41:
+      4 Γöé ...tProgressSpinnerModule } from '@angular/material/progress-spinner';
+        Γò╡                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/progress-spinner" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS-991010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value is of type '[CommonModule, (not statically analyzable)]'. [plugin angular-compiler]
+
+    src/app/shared/components/loading-overlay/loading-overlay.component.ts:8:11:
+      8 Γöé   imports: [CommonModule, MatProgressSpinnerModule],
+        Γò╡            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/shared/components/page-header/page-header.component.ts:3:30:
+      3 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/app/shared/components/page-header/page-header.component.ts:4:30:
+      4 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS-991010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value is of type '[CommonModule, (not statically analyzable)]'. [plugin angular-compiler]
+
+    src/app/shared/components/page-header/page-header.component.ts:8:11:
+      8 Γöé   imports: [CommonModule, MatIconModule],
+        Γò╡            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/shared/directives/ccd-role.directive.ts:2:22:
+      2 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "../../store/auth/auth.selectors"
+
+    src/app/shared/directives/ccd-role.directive.ts:3:31:
+      3 Γöé import { selectUserRole } from '../../store/auth/auth.selectors';
+        Γò╡                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '../../store/auth/auth.selectors' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/shared/directives/ccd-role.directive.ts:4:31:
+      4 Γöé import { selectUserRole } from '../../store/auth/auth.selectors';
+        Γò╡                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '../core/models/auth.models' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/shared/directives/ccd-role.directive.ts:5:25:
+      5 Γöé import { UserRole } from '../core/models/auth.models';
+        Γò╡                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'CcdRoleDirective'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/app/shared/directives/ccd-role.directive.ts:16:12:
+      16 Γöé     private store: Store,
+         Γò╡             ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/app/shared/directives/ccd-role.directive.ts:16:19:
+      16 Γöé     private store: Store,
+         Γò╡                    ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'role' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/app/shared/directives/ccd-role.directive.ts:20:59:
+      20 Γöé     this.sub = this.store.select(selectUserRole).subscribe(role => {
+         Γò╡                                                            ~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/acceptance-portal/acceptance-portal.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/acceptance-portal/acceptance-portal.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/stepper"
+
+    src/features/acceptance-portal/acceptance-portal.component.ts:6:33:
+      6 Γöé import { MatStepperModule } from '@angular/material/stepper';
+        Γò╡                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/stepper" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/stepper' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/acceptance-portal/acceptance-portal.component.ts:6:33:
+      6 Γöé import { MatStepperModule } from '@angular/material/stepper';
+        Γò╡                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-991010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value is of type '[CommonModule, ReactiveFormsModule, (not statically analyzable), (not statically analyzable), OtpInputComponent, WaterfallDisplayComponent, CurrencyFormatPipe]'. [plugin angular-compiler]
+
+    src/features/acceptance-portal/acceptance-portal.component.ts:18:11:
+      18 Γöé   imports: [
+         Γò╡            ^
+
+
+X [ERROR] TS-991010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value is of type '[CommonModule, ReactiveFormsModule, (not statically analyzable), (not statically analyzable), OtpInputComponent, WaterfallDisplayComponent, CurrencyFormatPipe]'. [plugin angular-compiler]
+
+    src/features/acceptance-portal/acceptance-portal.component.ts:18:11:
+      18 Γöé   imports: [
+         Γò╡            ^
+
+
+X [ERROR] TS2554: Expected 1 arguments, but got 2. [plugin angular-compiler]
+
+    src/features/acceptance-portal/acceptance-portal.component.ts:260:40:
+      260 Γöé     this.portalService.verifyOtp(token, otp).subscribe({
+          Γò╡                                         ~~~
+
+
+X [ERROR] TS2554: Expected 1 arguments, but got 2. [plugin angular-compiler]
+
+    src/features/acceptance-portal/acceptance-portal.component.ts:275:37:
+      275 Γöé ...ortalService.accept(token, this.confidenceForm.value).subscribe({
+          Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2345: Argument of type 'string' is not assignable to parameter of type 'RejectionRequest'. [plugin angular-compiler]
+
+    src/features/acceptance-portal/acceptance-portal.component.ts:287:30:
+      287 Γöé     this.portalService.reject(token).subscribe({
+          Γò╡                               ~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/audit/audit.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/audit/audit.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/audit/audit.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'AuditComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/audit/audit.component.ts:118:47:
+      118 Γöé   constructor(private fb: FormBuilder, private store: Store) {}
+          Γò╡                                                ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/audit/audit.component.ts:118:54:
+      118 Γöé   constructor(private fb: FormBuilder, private store: Store) {}
+          Γò╡                                                       ~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/auth/login/login.component.ts:5:22:
+      5 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/form-field"
+
+    src/features/auth/login/login.component.ts:7:35:
+      7 Γöé import { MatFormFieldModule } from '@angular/material/form-field';
+        Γò╡                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/form-field" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/form-field' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/auth/login/login.component.ts:7:35:
+      7 Γöé import { MatFormFieldModule } from '@angular/material/form-field';
+        Γò╡                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/input"
+
+    src/features/auth/login/login.component.ts:8:31:
+      8 Γöé import { MatInputModule } from '@angular/material/input';
+        Γò╡                                ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/input" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/input' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/auth/login/login.component.ts:8:31:
+      8 Γöé import { MatInputModule } from '@angular/material/input';
+        Γò╡                                ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/auth/login/login.component.ts:9:30:
+      9 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/auth/login/login.component.ts:9:30:
+      9 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'LoginComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/auth/login/login.component.ts:74:47:
+      74 Γöé   constructor(private fb: FormBuilder, private store: Store) {
+         Γò╡                                                ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/auth/login/login.component.ts:74:54:
+      74 Γöé   constructor(private fb: FormBuilder, private store: Store) {
+         Γò╡                                                       ~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/auth/register/register.component.ts:5:22:
+      5 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/form-field"
+
+    src/features/auth/register/register.component.ts:6:35:
+      6 Γöé import { MatFormFieldModule } from '@angular/material/form-field';
+        Γò╡                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/form-field" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/form-field' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/auth/register/register.component.ts:6:35:
+      6 Γöé import { MatFormFieldModule } from '@angular/material/form-field';
+        Γò╡                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/input"
+
+    src/features/auth/register/register.component.ts:7:31:
+      7 Γöé import { MatInputModule } from '@angular/material/input';
+        Γò╡                                ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/input" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/input' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/auth/register/register.component.ts:7:31:
+      7 Γöé import { MatInputModule } from '@angular/material/input';
+        Γò╡                                ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/auth/register/register.component.ts:8:30:
+      8 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/auth/register/register.component.ts:8:30:
+      8 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'RegisterComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/auth/register/register.component.ts:88:47:
+      88 Γöé   constructor(private fb: FormBuilder, private store: Store) {
+         Γò╡                                                ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/auth/register/register.component.ts:88:54:
+      88 Γöé   constructor(private fb: FormBuilder, private store: Store) {
+         Γò╡                                                       ~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/auth/set-password/set-password.component.ts:5:22:
+      5 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/form-field"
+
+    src/features/auth/set-password/set-password.component.ts:5:35:
+      5 Γöé import { MatFormFieldModule } from '@angular/material/form-field';
+        Γò╡                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/form-field" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] Could not resolve "@angular/material/input"
+
+    src/features/auth/set-password/set-password.component.ts:6:31:
+      6 Γöé import { MatInputModule } from '@angular/material/input';
+        Γò╡                                ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/input" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/form-field' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/auth/set-password/set-password.component.ts:6:35:
+      6 Γöé import { MatFormFieldModule } from '@angular/material/form-field';
+        Γò╡                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/auth/set-password/set-password.component.ts:7:30:
+      7 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/input' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/auth/set-password/set-password.component.ts:7:31:
+      7 Γöé import { MatInputModule } from '@angular/material/input';
+        Γò╡                                ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/auth/set-password/set-password.component.ts:8:30:
+      8 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'SetPasswordComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/auth/set-password/set-password.component.ts:78:47:
+      78 Γöé ...ate fb: FormBuilder, private store: Store, private route: Activ...
+         Γò╡                                 ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/auth/set-password/set-password.component.ts:78:54:
+      78 Γöé ... FormBuilder, private store: Store, private route: ActivatedRou...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "ng-apexcharts"
+
+    src/features/bank/bank.component.ts:4:35:
+      4 Γöé import { NgApexchartsModule } from 'ng-apexcharts';
+        Γò╡                                    ~~~~~~~~~~~~~~~
+
+  You can mark the path "ng-apexcharts" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module 'ng-apexcharts' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:4:35:
+      4 Γöé import { NgApexchartsModule } from 'ng-apexcharts';
+        Γò╡                                    ~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/bank/bank.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../store/bank/bank.actions"' has no exported member named 'selectBankAccount'. Did you mean 'selectAccount'? [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:9:55:
+      9 Γöé ...sactions, loadCashFlow, selectBankAccount } from '../../store/ba...
+        Γò╡                            ~~~~~~~~~~~~~~~~~
+
+  'selectAccount' is declared here.
+
+    src/store/bank/bank.actions.ts:17:13:
+      17 Γöé export const selectAccount = createAction('[Bank] Select Account',...
+         Γò╡              ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../store/bank/bank.selectors"' has no exported member named 'selectAllAccounts'. Did you mean 'selectBankAccounts'? [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:11:2:
+      11 Γöé   selectAllAccounts, selectSelectedAccountId, selectAllTransactions,
+         Γò╡   ~~~~~~~~~~~~~~~~~
+
+  'selectBankAccounts' is declared here.
+
+    src/store/bank/bank.selectors.ts:6:13:
+      6 Γöé export const selectBankAccounts           = createSelector(selectFe...
+        Γò╡              ~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../store/bank/bank.selectors"' has no exported member named 'selectSelectedAccountId'. Did you mean 'selectSelectedBankAccountId'? [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:11:21:
+      11 Γöé   selectAllAccounts, selectSelectedAccountId, selectAllTransactions,
+         Γò╡                      ~~~~~~~~~~~~~~~~~~~~~~~
+
+  'selectSelectedBankAccountId' is declared here.
+
+    src/store/bank/bank.selectors.ts:12:13:
+      12 Γöé export const selectSelectedBankAccountId  = createSelector(selectF...
+         Γò╡              ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../store/bank/bank.selectors"' has no exported member named 'selectAllTransactions'. Did you mean 'selectBankTransactions'? [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:11:46:
+      11 Γöé   selectAllAccounts, selectSelectedAccountId, selectAllTransactions,
+         Γò╡                                               ~~~~~~~~~~~~~~~~~~~~~
+
+  'selectBankTransactions' is declared here.
+
+    src/store/bank/bank.selectors.ts:7:13:
+      7 Γöé export const selectBankTransactions       = createSelector(selectFe...
+        Γò╡              ~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../store/bank/bank.selectors"' has no exported member named 'selectCashFlow'. Did you mean 'selectBankCashFlow'? [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:12:21:
+      12 Γöé   selectBankLoading, selectCashFlow,
+         Γò╡                      ~~~~~~~~~~~~~~
+
+  'selectBankCashFlow' is declared here.
+
+    src/store/bank/bank.selectors.ts:8:13:
+      8 Γöé export const selectBankCashFlow           = createSelector(selectFe...
+        Γò╡              ~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2493: Tuple type '[any]' of length '1' has no element at index '1'. [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:134:15:
+      134 Γöé     map(([txs, q]) => !q ? txs : txs.filter(t =>
+          Γò╡                ^
+
+
+X [ERROR] TS7006: Parameter 't' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:134:44:
+      134 Γöé     map(([txs, q]) => !q ? txs : txs.filter(t =>
+          Γò╡                                             ^
+
+
+X [ERROR] TS2339: Property 'toLowerCase' does not exist on type 'never'. [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:135:46:
+      135 Γöé       t.description?.toLowerCase().includes(q.toLowerCase()) ||
+          Γò╡                                               ~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'toLowerCase' does not exist on type 'never'. [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:136:44:
+      136 Γöé       t.reference?.toLowerCase().includes(q.toLowerCase()),
+          Γò╡                                             ~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'BankComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:140:22:
+      140 Γöé   constructor(private store: Store) {}
+          Γò╡                       ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/bank/bank.component.ts:140:29:
+      140 Γöé   constructor(private store: Store) {}
+          Γò╡                              ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'accounts' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/bank/bank.component.ts:144:29:
+      144 Γöé     this.accounts$.subscribe(accounts => {
+          Γò╡                              ~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/clients/client-detail/client-detail.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/clients/client-detail/client-detail.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/clients/client-detail/client-detail.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/dialog' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/clients/client-detail/client-detail.component.ts:6:26:
+      6 Γöé import { MatDialog } from '@angular/material/dialog';
+        Γò╡                           ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../../store/clients/clients.actions"' has no exported member named 'loadClientById'. Did you mean 'loadClient'? [plugin angular-compiler]
+
+    src/features/clients/client-detail/client-detail.component.ts:8:2:
+      8 Γöé   loadClientById, addOfficer, removeOfficer,
+        Γò╡   ~~~~~~~~~~~~~~
+
+  'loadClient' is declared here.
+
+    src/store/clients/clients.actions.ts:8:13:
+      8 Γöé export const loadClient        = createAction('[Clients] Load One',...
+        Γò╡              ~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../../store/clients/clients.selectors"' has no exported member named 'selectClientLoading'. Did you mean 'selectClientsLoading'? [plugin angular-compiler]
+
+    src/features/clients/client-detail/client-detail.component.ts:10:31:
+      10 Γöé ...selectSelectedClient, selectClientLoading } from '../../../stor...
+         Γò╡                          ~~~~~~~~~~~~~~~~~~~
+
+  'selectClientsLoading' is declared here.
+
+    src/store/clients/clients.selectors.ts:8:13:
+      8 Γöé export const selectClientsLoading  = createSelector(selectFeature, ...
+        Γò╡              ~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'ClientDetailComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/clients/client-detail/client-detail.component.ts:123:12:
+      123 Γöé     private store: Store,
+          Γò╡             ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/clients/client-detail/client-detail.component.ts:123:19:
+      123 Γöé     private store: Store,
+          Γò╡                    ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'ok' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/clients/client-detail/client-detail.component.ts:155:31:
+      155 Γöé     }).afterClosed().subscribe(ok => {
+          Γò╡                                ~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/clients/client-form-modal/client-form-modal.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/dialog"
+
+    src/features/clients/client-form-modal/client-form-modal.component.ts:5:49:
+      5 Γöé ...MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+        Γò╡                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/dialog" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/dialog' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/clients/client-form-modal/client-form-modal.component.ts:5:63:
+      5 Γöé ...MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+        Γò╡                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/clients/client-form-modal/client-form-modal.component.ts:6:30:
+      6 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/clients/client-form-modal/client-form-modal.component.ts:6:30:
+      6 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'ClientFormModalComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/clients/client-form-modal/client-form-modal.component.ts:88:12:
+      88 Γöé     private store: Store,
+         Γò╡             ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/clients/client-form-modal/client-form-modal.component.ts:88:19:
+      88 Γöé     private store: Store,
+         Γò╡                    ~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/clients/client-list/client-list.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/clients/client-list/client-list.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/clients/client-list/client-list.component.ts:6:30:
+      6 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/dialog' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/clients/client-list/client-list.component.ts:7:26:
+      7 Γöé import { MatDialog } from '@angular/material/dialog';
+        Γò╡                           ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2305: Module '"../../../store/clients/clients.actions"' has no exported member 'deleteClient'. [plugin angular-compiler]
+
+    src/features/clients/client-list/client-list.component.ts:9:22:
+      9 Γöé import { loadClients, deleteClient } from '../../../store/clients/c...
+        Γò╡                       ~~~~~~~~~~~~
+
+
+X [ERROR] TS2305: Module '"../../../store/clients/clients.selectors"' has no exported member 'selectAllClients'. [plugin angular-compiler]
+
+    src/features/clients/client-list/client-list.component.ts:10:9:
+      10 Γöé import { selectAllClients, selectClientLoading } from '../../../st...
+         Γò╡          ~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../../store/clients/clients.selectors"' has no exported member named 'selectClientLoading'. Did you mean 'selectClientsLoading'? [plugin angular-compiler]
+
+    src/features/clients/client-list/client-list.component.ts:10:27:
+      10 Γöé ...t { selectAllClients, selectClientLoading } from '../../../stor...
+         Γò╡                          ~~~~~~~~~~~~~~~~~~~
+
+  'selectClientsLoading' is declared here.
+
+    src/store/clients/clients.selectors.ts:8:13:
+      8 Γöé export const selectClientsLoading  = createSelector(selectFeature, ...
+        Γò╡              ~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'ClientListComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/clients/client-list/client-list.component.ts:99:22:
+      99 Γöé   constructor(private store: Store, public router: Router, private...
+         Γò╡                       ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/clients/client-list/client-list.component.ts:99:29:
+      99 Γöé   constructor(private store: Store, public router: Router, private...
+         Γò╡                              ~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/clients/officer-form-modal/officer-form-modal.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/dialog"
+
+    src/features/clients/officer-form-modal/officer-form-modal.component.ts:5:49:
+      5 Γöé ...MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+        Γò╡                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/dialog" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/dialog' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/clients/officer-form-modal/officer-form-modal.component.ts:5:63:
+      5 Γöé ...MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+        Γò╡                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/clients/officer-form-modal/officer-form-modal.component.ts:6:30:
+      6 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/clients/officer-form-modal/officer-form-modal.component.ts:6:30:
+      6 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'OfficerFormModalComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/clients/officer-form-modal/officer-form-modal.component.ts:78:12:
+      78 Γöé     private store: Store,
+         Γò╡             ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/clients/officer-form-modal/officer-form-modal.component.ts:78:19:
+      78 Γöé     private store: Store,
+         Γò╡                    ~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/consent-portal/consent-portal.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/consent-portal/consent-portal.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-991010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value is of type '[CommonModule, ReactiveFormsModule, (not statically analyzable), OtpInputComponent, CurrencyFormatPipe]'. [plugin angular-compiler]
+
+    src/features/consent-portal/consent-portal.component.ts:15:11:
+      15 Γöé   imports: [CommonModule, ReactiveFormsModule, MatIconModule, OtpI...
+         Γò╡            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2554: Expected 1 arguments, but got 2. [plugin angular-compiler]
+
+    src/features/consent-portal/consent-portal.component.ts:206:40:
+      206 Γöé     this.portalService.verifyOtp(token, otp).subscribe({
+          Γò╡                                         ~~~
+
+
+X [ERROR] TS2554: Expected 1 arguments, but got 2. [plugin angular-compiler]
+
+    src/features/consent-portal/consent-portal.component.ts:218:37:
+      218 Γöé ...s.portalService.accept(token, this.consentForm.value).subscribe({
+          Γò╡                                  ~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/dashboard/dashboard.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "ng-apexcharts"
+
+    src/features/dashboard/dashboard.component.ts:4:35:
+      4 Γöé import { NgApexchartsModule } from 'ng-apexcharts';
+        Γò╡                                    ~~~~~~~~~~~~~~~
+
+  You can mark the path "ng-apexcharts" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module 'ng-apexcharts' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/dashboard/dashboard.component.ts:4:35:
+      4 Γöé import { NgApexchartsModule } from 'ng-apexcharts';
+        Γò╡                                    ~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/dashboard/dashboard.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/dashboard/dashboard.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'DashboardComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/dashboard/dashboard.component.ts:184:22:
+      184 Γöé   constructor(private store: Store) {}
+          Γò╡                       ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/dashboard/dashboard.component.ts:184:29:
+      184 Γöé   constructor(private store: Store) {}
+          Γò╡                              ~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/expenses/expense-form-modal/expense-form-modal.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/dialog"
+
+    src/features/expenses/expense-form-modal/expense-form-modal.component.ts:5:32:
+      5 Γöé import { MatDialogModule } from '@angular/material/dialog';
+        Γò╡                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/dialog" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/dialog' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/expenses/expense-form-modal/expense-form-modal.component.ts:5:46:
+      5 Γöé ... { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+        Γò╡                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/expenses/expense-form-modal/expense-form-modal.component.ts:6:30:
+      6 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/expenses/expense-form-modal/expense-form-modal.component.ts:6:30:
+      6 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2693: 'ExpenseCategory' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/expenses/expense-form-modal/expense-form-modal.component.ts:93:29:
+      93 Γöé   categories = Object.values(ExpenseCategory);
+         Γò╡                              ~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'ExpenseFormModalComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/expenses/expense-form-modal/expense-form-modal.component.ts:97:12:
+      97 Γöé     private store: Store,
+         Γò╡             ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/expenses/expense-form-modal/expense-form-modal.component.ts:97:19:
+      97 Γöé     private store: Store,
+         Γò╡                    ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'exp' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/expenses/expense-form-modal/expense-form-modal.component.ts:112:54:
+      112 Γöé     this.store.select(selectEditingExpense).subscribe(exp => {
+          Γò╡                                                       ~~~
+
+
+X [ERROR] TS7006: Parameter 'exp' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/expenses/expense-form-modal/expense-form-modal.component.ts:128:54:
+      128 Γöé     this.store.select(selectEditingExpense).subscribe(exp => {
+          Γò╡                                                       ~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/expenses/expense-list/expense-list.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/menu"
+
+    src/features/expenses/expense-list/expense-list.component.ts:6:30:
+      6 Γöé import { MatMenuModule } from '@angular/material/menu';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/menu" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/menu' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:6:30:
+      6 Γöé import { MatMenuModule } from '@angular/material/menu';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/dialog' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:7:26:
+      7 Γöé import { MatDialog } from '@angular/material/dialog';
+        Γò╡                           ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2305: Module '"../../../store/expenses/expenses.actions"' has no exported member 'editExpense'. [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:10:79:
+      10 Γöé ...pense, rejectExpense, deleteExpense, openExpenseForm, editExpense,
+         Γò╡                                                          ~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../../store/expenses/expenses.selectors"' has no exported member named 'selectAllExpenses'. Did you mean 'selectExpenses'? [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:13:2:
+      13 Γöé   selectAllExpenses, selectExpenseLoading, selectExpenseSummary,
+         Γò╡   ~~~~~~~~~~~~~~~~~
+
+  'selectExpenses' is declared here.
+
+    src/store/expenses/expenses.selectors.ts:6:13:
+      6 Γöé export const selectExpenses        = createSelector(selectFeature, ...
+        Γò╡              ~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../../store/expenses/expenses.selectors"' has no exported member named 'selectExpenseLoading'. Did you mean 'selectExpensesLoading'? [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:13:21:
+      13 Γöé   selectAllExpenses, selectExpenseLoading, selectExpenseSummary,
+         Γò╡                      ~~~~~~~~~~~~~~~~~~~~
+
+  'selectExpensesLoading' is declared here.
+
+    src/store/expenses/expenses.selectors.ts:8:13:
+      8 Γöé export const selectExpensesLoading = createSelector(selectFeature, ...
+        Γò╡              ~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2693: 'ExpenseStatus' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:146:13:
+      146 Γöé     { value: ExpenseStatus.Pending, label: 'Pending' },
+          Γò╡              ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2693: 'ExpenseStatus' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:147:13:
+      147 Γöé     { value: ExpenseStatus.Approved, label: 'Approved' },
+          Γò╡              ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2693: 'ExpenseStatus' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:148:13:
+      148 Γöé     { value: ExpenseStatus.Rejected, label: 'Rejected' },
+          Γò╡              ~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'ExpenseListComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:151:22:
+      151 Γöé   constructor(private store: Store, private dialog: MatDialog) {}
+          Γò╡                       ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/expenses/expense-list/expense-list.component.ts:151:29:
+      151 Γöé   constructor(private store: Store, private dialog: MatDialog) {}
+          Γò╡                              ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'ok' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:178:31:
+      178 Γöé     }).afterClosed().subscribe(ok => { if (ok) this.store.dispatc...
+          Γò╡                                ~~
+
+
+X [ERROR] TS7006: Parameter 'ok' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:184:31:
+      184 Γöé     }).afterClosed().subscribe(ok => { if (ok) this.store.dispatc...
+          Γò╡                                ~~
+
+
+X [ERROR] TS7006: Parameter 'ok' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/expenses/expense-list/expense-list.component.ts:190:31:
+      190 Γöé     }).afterClosed().subscribe(ok => { if (ok) this.store.dispatc...
+          Γò╡                                ~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/dialog' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:6:26:
+      6 Γöé import { MatDialog } from '@angular/material/dialog';
+        Γò╡                           ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../../store/invoices/invoices.actions"' has no exported member named 'loadInvoiceById'. Did you mean 'loadInvoice'? [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:7:9:
+      7 Γöé import { loadInvoiceById, sendInvoice, requestFunding, markPaid, de...
+        Γò╡          ~~~~~~~~~~~~~~~
+
+  'loadInvoice' is declared here.
+
+    src/store/invoices/invoices.actions.ts:8:13:
+      8 Γöé export const loadInvoice        = createAction('[Invoices] Load One...
+        Γò╡              ~~~~~~~~~~~
+
+
+X [ERROR] TS2305: Module '"../../../store/invoices/invoices.actions"' has no exported member 'markPaid'. [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:7:55:
+      7 Γöé ...endInvoice, requestFunding, markPaid, deleteInvoice } from '../....
+        Γò╡                                ~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../../store/invoices/invoices.selectors"' has no exported member named 'selectInvoiceLoading'. Did you mean 'selectInvoicesLoading'? [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:8:32:
+      8 Γöé ...electSelectedInvoice, selectInvoiceLoading } from '../../../stor...
+        Γò╡                          ~~~~~~~~~~~~~~~~~~~~
+
+  'selectInvoicesLoading' is declared here.
+
+    src/store/invoices/invoices.selectors.ts:8:13:
+      8 Γöé export const selectInvoicesLoading = createSelector(selectFeature, ...
+        Γò╡              ~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2693: 'InvoiceStatus' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:18:22:
+      18 Γöé const STATUS_STEPS = [InvoiceStatus.Draft, InvoiceStatus.Sent, Inv...
+         Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2693: 'InvoiceStatus' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:18:43:
+      18 Γöé ... = [InvoiceStatus.Draft, InvoiceStatus.Sent, InvoiceStatus.Acce...
+         Γò╡                             ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2693: 'InvoiceStatus' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:18:63:
+      18 Γöé ...aft, InvoiceStatus.Sent, InvoiceStatus.Accepted, InvoiceStatus....
+         Γò╡                             ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2693: 'InvoiceStatus' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:18:87:
+      18 Γöé ..., InvoiceStatus.Sent, InvoiceStatus.Accepted, InvoiceStatus.Paid];
+         Γò╡                                                  ~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'InvoiceDetailComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:171:12:
+      171 Γöé     private store: Store,
+          Γò╡             ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:171:19:
+      171 Γöé     private store: Store,
+          Γò╡                    ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'ok' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:191:31:
+      191 Γöé     }).afterClosed().subscribe(ok => { if (ok) this.store.dispatc...
+          Γò╡                                ~~
+
+
+X [ERROR] TS7006: Parameter 'ok' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:197:31:
+      197 Γöé     }).afterClosed().subscribe(ok => { if (ok) this.store.dispatc...
+          Γò╡                                ~~
+
+
+X [ERROR] TS7006: Parameter 'ok' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:203:31:
+      203 Γöé     }).afterClosed().subscribe(ok => { if (ok) this.store.dispatc...
+          Γò╡                                ~~
+
+
+X [ERROR] TS7006: Parameter 'ok' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/invoices/invoice-detail/invoice-detail.component.ts:209:31:
+      209 Γöé     }).afterClosed().subscribe(ok => { if (ok) this.store.dispatc...
+          Γò╡                                ~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/invoices/invoice-form/invoice-form.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/invoices/invoice-form/invoice-form.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/invoices/invoice-form/invoice-form.component.ts:8:30:
+      8 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../../store/invoices/invoices.selectors"' has no exported member named 'selectInvoiceLoading'. Did you mean 'selectInvoicesLoading'? [plugin angular-compiler]
+
+    src/features/invoices/invoice-form/invoice-form.component.ts:11:32:
+      11 Γöé ...electSelectedInvoice, selectInvoiceLoading } from '../../../sto...
+         Γò╡                          ~~~~~~~~~~~~~~~~~~~~
+
+  'selectInvoicesLoading' is declared here.
+
+    src/store/invoices/invoices.selectors.ts:8:13:
+      8 Γöé export const selectInvoicesLoading = createSelector(selectFeature, ...
+        Γò╡              ~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2305: Module '"../../../store/clients/clients.selectors"' has no exported member 'selectAllClients'. [plugin angular-compiler]
+
+    src/features/invoices/invoice-form/invoice-form.component.ts:12:9:
+      12 Γöé import { selectAllClients } from '../../../store/clients/clients.s...
+         Γò╡          ~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../../store/invoices/invoices.actions"' has no exported member named 'loadInvoiceById'. Did you mean 'loadInvoice'? [plugin angular-compiler]
+
+    src/features/invoices/invoice-form/invoice-form.component.ts:14:9:
+      14 Γöé import { loadInvoiceById } from '../../../store/invoices/invoices....
+         Γò╡          ~~~~~~~~~~~~~~~
+
+  'loadInvoice' is declared here.
+
+    src/store/invoices/invoices.actions.ts:8:13:
+      8 Γöé export const loadInvoice        = createAction('[Invoices] Load One...
+        Γò╡              ~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'InvoiceFormComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/invoices/invoice-form/invoice-form.component.ts:163:12:
+      163 Γöé     private store: Store,
+          Γò╡             ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/invoices/invoice-form/invoice-form.component.ts:163:19:
+      163 Γöé     private store: Store,
+          Γò╡                    ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'inv' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/invoices/invoice-form/invoice-form.component.ts:191:18:
+      191 Γöé       ).subscribe(inv => {
+          Γò╡                   ~~~
+
+
+X [ERROR] TS7006: Parameter 'l' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/invoices/invoice-form/invoice-form.component.ts:200:30:
+      200 Γöé         inv.lineItems.forEach(l => {
+          Γò╡                               ^
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:6:30:
+      6 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:6:30:
+      6 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/menu"
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:7:30:
+      7 Γöé import { MatMenuModule } from '@angular/material/menu';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/menu" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/menu' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:7:30:
+      7 Γöé import { MatMenuModule } from '@angular/material/menu';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/dialog' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:8:26:
+      8 Γöé import { MatDialog } from '@angular/material/dialog';
+        Γò╡                           ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2305: Module '"../../../store/invoices/invoices.selectors"' has no exported member 'selectAllInvoices'. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:14:2:
+      14 Γöé   selectAllInvoices, selectInvoiceLoading, selectInvoicePagination...
+         Γò╡   ~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../../store/invoices/invoices.selectors"' has no exported member named 'selectInvoiceLoading'. Did you mean 'selectInvoicesLoading'? [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:14:21:
+      14 Γöé   selectAllInvoices, selectInvoiceLoading, selectInvoicePagination...
+         Γò╡                      ~~~~~~~~~~~~~~~~~~~~
+
+  'selectInvoicesLoading' is declared here.
+
+    src/store/invoices/invoices.selectors.ts:8:13:
+      8 Γöé export const selectInvoicesLoading = createSelector(selectFeature, ...
+        Γò╡              ~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2305: Module '"../../../store/invoices/invoices.selectors"' has no exported member 'selectInvoicePagination'. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:14:43:
+      14 Γöé ...electInvoiceLoading, selectInvoicePagination, selectInvoiceFilter,
+         Γò╡                         ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2693: 'InvoiceStatus' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:155:13:
+      155 Γöé     { value: InvoiceStatus.Draft, label: 'Draft' },
+          Γò╡              ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2693: 'InvoiceStatus' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:156:13:
+      156 Γöé     { value: InvoiceStatus.Sent, label: 'Sent' },
+          Γò╡              ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2693: 'InvoiceStatus' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:157:13:
+      157 Γöé     { value: InvoiceStatus.Accepted, label: 'Accepted' },
+          Γò╡              ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2693: 'InvoiceStatus' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:158:13:
+      158 Γöé     { value: InvoiceStatus.Paid, label: 'Paid' },
+          Γò╡              ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2693: 'InvoiceStatus' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:159:13:
+      159 Γöé     { value: InvoiceStatus.Overdue, label: 'Overdue' },
+          Γò╡              ~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'InvoiceListComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:162:22:
+      162 Γöé   constructor(private store: Store, public router: Router, privat...
+          Γò╡                       ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:162:29:
+      162 Γöé   constructor(private store: Store, public router: Router, privat...
+          Γò╡                              ~~~~~
+
+
+X [ERROR] TS2693: 'InvoiceStatus' only refers to a type, but is being used as a value here. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:178:64:
+      178 Γöé ...e(inv.dueDate) < new Date() && inv.status !== InvoiceStatus.Paid;
+          Γò╡                                                  ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'ok' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:195:32:
+      195 Γöé     ref.afterClosed().subscribe(ok => { if (ok) this.store.dispat...
+          Γò╡                                 ~~
+
+
+X [ERROR] TS7006: Parameter 'ok' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:202:32:
+      202 Γöé     ref.afterClosed().subscribe(ok => { if (ok) this.store.dispat...
+          Γò╡                                 ~~
+
+
+X [ERROR] TS7006: Parameter 'ok' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/invoices/invoice-list/invoice-list.component.ts:209:32:
+      209 Γöé     ref.afterClosed().subscribe(ok => { if (ok) this.store.dispat...
+          Γò╡                                 ~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/settings/settings.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/settings/settings.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/settings/settings.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/snack-bar' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/settings/settings.component.ts:6:28:
+      6 Γöé import { MatSnackBar } from '@angular/material/snack-bar';
+        Γò╡                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'SettingsComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/settings/settings.component.ts:149:47:
+      149 Γöé ...ate fb: FormBuilder, private store: Store, private snack: MatS...
+          Γò╡                                 ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/settings/settings.component.ts:149:54:
+      149 Γöé ... FormBuilder, private store: Store, private snack: MatSnackBar...
+          Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'user' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/settings/settings.component.ts:169:25:
+      169 Γöé     this.user$.subscribe(user => {
+          Γò╡                          ~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/users/user-form-modal/user-form-modal.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/dialog"
+
+    src/features/users/user-form-modal/user-form-modal.component.ts:5:32:
+      5 Γöé import { MatDialogModule } from '@angular/material/dialog';
+        Γò╡                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/dialog" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/dialog' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/users/user-form-modal/user-form-modal.component.ts:5:46:
+      5 Γöé ... { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+        Γò╡                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/users/user-form-modal/user-form-modal.component.ts:6:30:
+      6 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/users/user-form-modal/user-form-modal.component.ts:6:30:
+      6 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2459: Module '"../../../app/core/models/user.models"' declares 'UserRole' locally, but it is not exported. [plugin angular-compiler]
+
+    src/features/users/user-form-modal/user-form-modal.component.ts:9:9:
+      9 Γöé import { UserRole } from '../../../app/core/models/user.models';
+        Γò╡          ~~~~~~~~
+
+  'UserRole' is declared here.
+
+    src/app/core/models/user.models.ts:1:9:
+      1 Γöé import { UserRole } from './auth.models';
+        Γò╡          ~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'UserFormModalComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/users/user-form-modal/user-form-modal.component.ts:78:12:
+      78 Γöé     private store: Store,
+         Γò╡             ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/users/user-form-modal/user-form-modal.component.ts:78:19:
+      78 Γöé     private store: Store,
+         Γò╡                    ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'user' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/users/user-form-modal/user-form-modal.component.ts:90:51:
+      90 Γöé     this.store.select(selectEditingUser).subscribe(user => {
+         Γò╡                                                    ~~~~
+
+
+X [ERROR] TS7006: Parameter 'user' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/users/user-form-modal/user-form-modal.component.ts:101:51:
+      101 Γöé     this.store.select(selectEditingUser).subscribe(user => {
+          Γò╡                                                    ~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/users/users.component.ts:3:22:
+      3 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/features/users/users.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/users/users.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/menu"
+
+    src/features/users/users.component.ts:6:30:
+      6 Γöé import { MatMenuModule } from '@angular/material/menu';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/menu" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/menu' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/users/users.component.ts:6:30:
+      6 Γöé import { MatMenuModule } from '@angular/material/menu';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/dialog' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/features/users/users.component.ts:7:26:
+      7 Γöé import { MatDialog } from '@angular/material/dialog';
+        Γò╡                           ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2305: Module '"../../store/users/users.actions"' has no exported member 'editUser'. [plugin angular-compiler]
+
+    src/features/users/users.component.ts:9:64:
+      9 Γöé ...resendInvite, openUserForm, editUser } from '../../store/users/u...
+        Γò╡                                ~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../store/users/users.selectors"' has no exported member named 'selectAllUsers'. Did you mean 'selectUsers'? [plugin angular-compiler]
+
+    src/features/users/users.component.ts:10:9:
+      10 Γöé import { selectAllUsers, selectUserLoading } from '../../store/use...
+         Γò╡          ~~~~~~~~~~~~~~
+
+  'selectUsers' is declared here.
+
+    src/store/users/users.selectors.ts:6:13:
+      6 Γöé export const selectUsers        = createSelector(selectFeature, sel...
+        Γò╡              ~~~~~~~~~~~
+
+
+X [ERROR] TS2724: '"../../store/users/users.selectors"' has no exported member named 'selectUserLoading'. Did you mean 'selectUsersLoading'? [plugin angular-compiler]
+
+    src/features/users/users.component.ts:10:25:
+      10 Γöé import { selectAllUsers, selectUserLoading } from '../../store/use...
+         Γò╡                          ~~~~~~~~~~~~~~~~~
+
+  'selectUsersLoading' is declared here.
+
+    src/store/users/users.selectors.ts:8:13:
+      8 Γöé export const selectUsersLoading = createSelector(selectFeature, s =...
+        Γò╡              ~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'UsersComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/features/users/users.component.ts:101:22:
+      101 Γöé   constructor(private store: Store, private dialog: MatDialog) {}
+          Γò╡                       ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/features/users/users.component.ts:101:29:
+      101 Γöé   constructor(private store: Store, private dialog: MatDialog) {}
+          Γò╡                              ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'ok' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/features/users/users.component.ts:123:31:
+      123 Γöé     }).afterClosed().subscribe(ok => { if (ok) this.store.dispatc...
+          Γò╡                                ~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/layout/shell/shell.component.ts:4:22:
+      4 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'ShellComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/layout/shell/shell.component.ts:29:22:
+      29 Γöé   constructor(private store: Store) {}
+         Γò╡                       ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/layout/shell/shell.component.ts:29:29:
+      29 Γöé   constructor(private store: Store) {}
+         Γò╡                              ~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/layout/sidebar/sidebar.component.ts:4:22:
+      4 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/layout/sidebar/sidebar.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/layout/sidebar/sidebar.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/tooltip"
+
+    src/layout/sidebar/sidebar.component.ts:6:33:
+      6 Γöé import { MatTooltipModule } from '@angular/material/tooltip';
+        Γò╡                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/tooltip" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/tooltip' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/layout/sidebar/sidebar.component.ts:6:33:
+      6 Γöé import { MatTooltipModule } from '@angular/material/tooltip';
+        Γò╡                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'SidebarComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/layout/sidebar/sidebar.component.ts:181:22:
+      181 Γöé   constructor(private store: Store) {}
+          Γò╡                       ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/layout/sidebar/sidebar.component.ts:181:29:
+      181 Γöé   constructor(private store: Store) {}
+          Γò╡                              ~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/layout/topbar/topbar.component.ts:4:22:
+      4 Γöé import { Store } from '@ngrx/store';
+        Γò╡                       ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/icon"
+
+    src/layout/topbar/topbar.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/icon" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/icon' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/layout/topbar/topbar.component.ts:5:30:
+      5 Γöé import { MatIconModule } from '@angular/material/icon';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/menu"
+
+    src/layout/topbar/topbar.component.ts:6:30:
+      6 Γöé import { MatMenuModule } from '@angular/material/menu';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/menu" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/menu' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/layout/topbar/topbar.component.ts:6:30:
+      6 Γöé import { MatMenuModule } from '@angular/material/menu';
+        Γò╡                               ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@angular/material/button"
+
+    src/layout/topbar/topbar.component.ts:7:32:
+      7 Γöé import { MatButtonModule } from '@angular/material/button';
+        Γò╡                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "@angular/material/button" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@angular/material/button' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/layout/topbar/topbar.component.ts:7:32:
+      7 Γöé import { MatButtonModule } from '@angular/material/button';
+        Γò╡                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'store' of class 'TopbarComponent'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/layout/topbar/topbar.component.ts:96:22:
+      96 Γöé   constructor(private store: Store) {}
+         Γò╡                       ~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/layout/topbar/topbar.component.ts:96:29:
+      96 Γöé   constructor(private store: Store) {}
+         Γò╡                              ~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/audit/audit.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/audit/audit.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/effects' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/audit/audit.effects.ts:2:46:
+      2 Γöé import { Actions, createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                               ~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/effects"
+
+    src/store/audit/audit.effects.ts:3:37:
+      3 Γöé import { createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                      ~~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/effects" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'actions$' of class 'AuditEffects'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/store/audit/audit.effects.ts:18:22:
+      18 Γöé   constructor(private actions$: Actions, private auditService: Aud...
+         Γò╡                       ~~~~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/store/audit/audit.effects.ts:18:32:
+      18 Γöé ...nstructor(private actions$: Actions, private auditService: Audi...
+         Γò╡                                ~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/entity"
+
+    src/store/audit/audit.reducer.ts:1:36:
+      1 Γöé import { createEntityAdapter } from '@ngrx/entity';
+        Γò╡                                     ~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/entity" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/entity' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/audit/audit.reducer.ts:1:64:
+      1 Γöé ...ateEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+        Γò╡                                                        ~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/audit/audit.reducer.ts:2:34:
+      2 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/audit/audit.reducer.ts:2:34:
+      2 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/audit/audit.reducer.ts:26:20:
+      26 Γöé   on(loadAuditLogs, state => ({ ...state, loading: true, error: nu...
+         Γò╡                     ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/audit/audit.reducer.ts:27:28:
+      27 Γöé   on(loadAuditLogsSuccess, (state, { result }) =>
+         Γò╡                             ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'result' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/audit/audit.reducer.ts:27:37:
+      27 Γöé   on(loadAuditLogsSuccess, (state, { result }) =>
+         Γò╡                                      ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/audit/audit.reducer.ts:30:28:
+      30 Γöé   on(loadAuditLogsFailure, (state, { error }) => ({ ...state, load...
+         Γò╡                             ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/audit/audit.reducer.ts:30:37:
+      30 Γöé ...dAuditLogsFailure, (state, { error }) => ({ ...state, loading: ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/audit/audit.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/audit/audit.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/audit/audit.selectors.ts:7:67:
+      7 Γöé ...ectAuditLoading = createSelector(selectAuditState, s => s.loading);
+        Γò╡                                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/audit/audit.selectors.ts:8:67:
+      8 Γöé ...electAuditError   = createSelector(selectAuditState, s => s.error);
+        Γò╡                                                         ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/audit/audit.selectors.ts:9:70:
+      9 Γöé ...st selectAuditPagination = createSelector(selectAuditState, s => ({
+        Γò╡                                                                ^
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/auth/auth.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/auth/auth.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/effects' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/auth/auth.effects.ts:2:46:
+      2 Γöé import { Actions, createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                               ~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/effects"
+
+    src/store/auth/auth.effects.ts:3:37:
+      3 Γöé import { createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                      ~~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/effects" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'actions$' of class 'AuthEffects'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/store/auth/auth.effects.ts:83:12:
+      83 Γöé     private actions$: Actions,
+         Γò╡             ~~~~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/store/auth/auth.effects.ts:83:22:
+      83 Γöé     private actions$: Actions,
+         Γò╡                       ~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/auth/auth.reducer.ts:1:34:
+      1 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/auth/auth.reducer.ts:1:34:
+      1 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.reducer.ts:24:4:
+      24 Γöé     state => ({ ...state, loading: true, error: null })),
+         Γò╡     ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.reducer.ts:27:5:
+      27 Γöé     (state, { user, tokens }) => ({ ...state, loading: false, user...
+         Γò╡      ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'user' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.reducer.ts:27:14:
+      27 Γöé     (state, { user, tokens }) => ({ ...state, loading: false, user...
+         Γò╡               ~~~~
+
+
+X [ERROR] TS7031: Binding element 'tokens' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.reducer.ts:27:20:
+      27 Γöé     (state, { user, tokens }) => ({ ...state, loading: false, user...
+         Γò╡                     ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.reducer.ts:30:5:
+      30 Γöé     (state, { error }) => ({ ...state, loading: false, error })),
+         Γò╡      ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.reducer.ts:30:14:
+      30 Γöé     (state, { error }) => ({ ...state, loading: false, error })),
+         Γò╡               ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.reducer.ts:32:34:
+      32 Γöé ...AuthActions.registerSuccess, state => ({ ...state, loading: fal...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.reducer.ts:36:33:
+      36 Γöé ...(AuthActions.loadMeSuccess, (state, { user }) => ({ ...state, u...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'user' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.reducer.ts:36:42:
+      36 Γöé ...Actions.loadMeSuccess, (state, { user }) => ({ ...state, user })),
+         Γò╡                                     ~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.reducer.ts:39:33:
+      39 Γöé ...(AuthActions.clearAuthError, state => ({ ...state, error: null ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/auth/auth.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/auth/auth.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.selectors.ts:6:68:
+      6 Γöé ...electAuthUser         = createSelector(selectFeature, s => s.user);
+        Γò╡                                                          ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.selectors.ts:7:68:
+      7 Γöé ...ectAuthTokens       = createSelector(selectFeature, s => s.tokens);
+        Γò╡                                                        ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.selectors.ts:8:68:
+      8 Γöé ...ctAuthLoading      = createSelector(selectFeature, s => s.loading);
+        Γò╡                                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.selectors.ts:9:68:
+      9 Γöé ...lectAuthError        = createSelector(selectFeature, s => s.error);
+        Γò╡                                                         ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.selectors.ts:10:68:
+      10 Γöé ...rSuccess  = createSelector(selectFeature, s => s.registerSuccess);
+         Γò╡                                              ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.selectors.ts:11:68:
+      11 Γöé ...ctIsAuthenticated  = createSelector(selectFeature, s => !!s.user);
+         Γò╡                                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/auth/auth.selectors.ts:12:68:
+      12 Γöé ...erRole         = createSelector(selectFeature, s => s.user?.role);
+         Γò╡                                                   ^
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/bank/bank.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/bank/bank.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/effects' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/bank/bank.effects.ts:2:46:
+      2 Γöé import { Actions, createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                               ~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/effects"
+
+    src/store/bank/bank.effects.ts:3:37:
+      3 Γöé import { createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                      ~~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/effects" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'actions$' of class 'BankEffects'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/store/bank/bank.effects.ts:40:22:
+      40 Γöé   constructor(private actions$: Actions, private svc: BankService) {}
+         Γò╡                       ~~~~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/store/bank/bank.effects.ts:40:32:
+      40 Γöé   constructor(private actions$: Actions, private svc: BankService) {}
+         Γò╡                                 ~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/entity"
+
+    src/store/bank/bank.reducer.ts:1:36:
+      1 Γöé import { createEntityAdapter } from '@ngrx/entity';
+        Γò╡                                     ~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/entity" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/entity' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:1:64:
+      1 Γöé ...ateEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+        Γò╡                                                        ~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/bank/bank.reducer.ts:2:34:
+      2 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:2:34:
+      2 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:31:4:
+      31 Γöé     state => ({ ...state, loading: true, error: null })),
+         Γò╡     ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:32:35:
+      32 Γöé ...ctions.loadAccountsSuccess, (state, { accounts }) => ({ ...stat...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'accounts' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:32:44:
+      32 Γöé ...dAccountsSuccess, (state, { accounts }) => ({ ...state, loading...
+         Γò╡                                ~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:33:39:
+      33 Γöé   on(Actions.loadTransactionsSuccess, (state, { result }) =>
+         Γò╡                                        ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'result' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:33:48:
+      33 Γöé   on(Actions.loadTransactionsSuccess, (state, { result }) =>
+         Γò╡                                                 ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:35:35:
+      35 Γöé ...ctions.loadCashFlowSuccess, (state, { points }) => ({ ...state,...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'points' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:35:44:
+      35 Γöé ...adCashFlowSuccess, (state, { points }) => ({ ...state, loading:...
+         Γò╡                                 ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:37:5:
+      37 Γöé     (state, { error }) => ({ ...state, loading: false, error })),
+         Γò╡      ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:37:14:
+      37 Γöé     (state, { error }) => ({ ...state, loading: false, error })),
+         Γò╡               ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:38:29:
+      38 Γöé   on(Actions.setBankFilter, (state, { filter }) => ({ ...state, fi...
+         Γò╡                              ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'filter' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:38:38:
+      38 Γöé ...ons.setBankFilter, (state, { filter }) => ({ ...state, filter: ...
+         Γò╡                                 ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:39:29:
+      39 Γöé   on(Actions.selectAccount, (state, { accountId }) => ({ ...state,...
+         Γò╡                              ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'accountId' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.reducer.ts:39:38:
+      39 Γöé ...s.selectAccount, (state, { accountId }) => ({ ...state, selecte...
+         Γò╡                               ~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/bank/bank.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/bank/bank.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.selectors.ts:6:74:
+      6 Γöé ...ccounts           = createSelector(selectFeature, s => s.accounts);
+        Γò╡                                                      ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.selectors.ts:8:74:
+      8 Γöé ...ashFlow           = createSelector(selectFeature, s => s.cashFlow);
+        Γò╡                                                      ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.selectors.ts:9:74:
+      9 Γöé ...nkTotal              = createSelector(selectFeature, s => s.total);
+        Γò╡                                                         ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.selectors.ts:10:74:
+      10 Γöé ...oading            = createSelector(selectFeature, s => s.loading);
+         Γò╡                                                      ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.selectors.ts:11:74:
+      11 Γöé ...Filter             = createSelector(selectFeature, s => s.filter);
+         Γò╡                                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.selectors.ts:12:74:
+      12 Γöé ...ountId  = createSelector(selectFeature, s => s.selectedAccountId);
+         Γò╡                                            ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.selectors.ts:14:17:
+      14 Γöé   selectFeature, s => s.accounts.find(a => a.id === s.selectedAcco...
+         Γò╡                  ^
+
+
+X [ERROR] TS7006: Parameter 'a' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/bank/bank.selectors.ts:14:38:
+      14 Γöé ...tFeature, s => s.accounts.find(a => a.id === s.selectedAccountI...
+         Γò╡                                   ^
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/clients/clients.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/clients/clients.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/effects' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/clients/clients.effects.ts:2:46:
+      2 Γöé import { Actions, createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                               ~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/effects"
+
+    src/store/clients/clients.effects.ts:3:37:
+      3 Γöé import { createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                      ~~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/effects" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'actions$' of class 'ClientsEffects'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/store/clients/clients.effects.ts:101:12:
+      101 Γöé     private actions$: Actions,
+          Γò╡             ~~~~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/store/clients/clients.effects.ts:101:22:
+      101 Γöé     private actions$: Actions,
+          Γò╡                       ~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/entity"
+
+    src/store/clients/clients.reducer.ts:1:36:
+      1 Γöé import { createEntityAdapter } from '@ngrx/entity';
+        Γò╡                                     ~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/entity" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/entity' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:1:64:
+      1 Γöé ...ateEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+        Γò╡                                                        ~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/clients/clients.reducer.ts:2:34:
+      2 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:2:34:
+      2 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:28:26:
+      28 Γöé   on(Actions.loadClients, state => ({ ...state, loading: true, err...
+         Γò╡                           ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:29:34:
+      29 Γöé   on(Actions.loadClientsSuccess, (state, { result }) =>
+         Γò╡                                   ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'result' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:29:43:
+      29 Γöé   on(Actions.loadClientsSuccess, (state, { result }) =>
+         Γò╡                                            ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:31:34:
+      31 Γöé ...Actions.loadClientsFailure, (state, { error }) => ({ ...state, ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:31:43:
+      31 Γöé ...oadClientsFailure, (state, { error }) => ({ ...state, loading: ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:33:25:
+      33 Γöé   on(Actions.loadClient, state => ({ ...state, loading: true })),
+         Γò╡                          ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:34:33:
+      34 Γöé ...(Actions.loadClientSuccess, (state, { client }) => ({ ...state,...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'client' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:34:42:
+      34 Γöé ...loadClientSuccess, (state, { client }) => ({ ...state, loading:...
+         Γò╡                                 ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:35:33:
+      35 Γöé ...(Actions.loadClientFailure, (state, { error }) => ({ ...state, ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:35:42:
+      35 Γöé ...loadClientFailure, (state, { error }) => ({ ...state, loading: ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:38:4:
+      38 Γöé     state => ({ ...state, saving: true, error: null })),
+         Γò╡     ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:40:35:
+      40 Γöé   on(Actions.createClientSuccess, (state, { client }) =>
+         Γò╡                                    ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'client' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:40:44:
+      40 Γöé   on(Actions.createClientSuccess, (state, { client }) =>
+         Γò╡                                             ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:42:35:
+      42 Γöé   on(Actions.updateClientSuccess, (state, { client }) => ({
+         Γò╡                                    ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'client' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:42:44:
+      42 Γöé   on(Actions.updateClientSuccess, (state, { client }) => ({
+         Γò╡                                             ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:48:33:
+      48 Γöé   on(Actions.addOfficerSuccess, (state, { clientId, officer }) => {
+         Γò╡                                  ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'clientId' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:48:42:
+      48 Γöé   on(Actions.addOfficerSuccess, (state, { clientId, officer }) => {
+         Γò╡                                           ~~~~~~~~
+
+
+X [ERROR] TS7031: Binding element 'officer' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:48:52:
+      48 Γöé   on(Actions.addOfficerSuccess, (state, { clientId, officer }) => {
+         Γò╡                                                     ~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:59:36:
+      59 Γöé ...(Actions.updateOfficerSuccess, (state, { clientId, officer }) => {
+         Γò╡                                    ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'clientId' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:59:45:
+      59 Γöé ...(Actions.updateOfficerSuccess, (state, { clientId, officer }) => {
+         Γò╡                                             ~~~~~~~~
+
+
+X [ERROR] TS7031: Binding element 'officer' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:59:55:
+      59 Γöé ...(Actions.updateOfficerSuccess, (state, { clientId, officer }) => {
+         Γò╡                                                       ~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'o' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:66:53:
+      66 Γöé ...e.selectedClient!.officers.map(o => o.id === officer.id ? offic...
+         Γò╡                                   ^
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:70:36:
+      70 Γöé ...ctions.removeOfficerSuccess, (state, { clientId, officerId }) => {
+         Γò╡                                  ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'clientId' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:70:45:
+      70 Γöé ...ctions.removeOfficerSuccess, (state, { clientId, officerId }) => {
+         Γò╡                                           ~~~~~~~~
+
+
+X [ERROR] TS7031: Binding element 'officerId' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:70:55:
+      70 Γöé ...ctions.removeOfficerSuccess, (state, { clientId, officerId }) => {
+         Γò╡                                                     ~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'o' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:77:56:
+      77 Γöé ...s: state.selectedClient!.officers.filter(o => o.id !== officerId),
+         Γò╡                                             ^
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:83:5:
+      83 Γöé     (state, { error }) => ({ ...state, saving: false, error })),
+         Γò╡      ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:83:14:
+      83 Γöé     (state, { error }) => ({ ...state, saving: false, error })),
+         Γò╡               ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:85:31:
+      85 Γöé   on(Actions.setClientFilter, (state, { filter }) => ({ ...state, ...
+         Γò╡                                ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'filter' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:85:40:
+      85 Γöé ...s.setClientFilter, (state, { filter }) => ({ ...state, filter: ...
+         Γò╡                                 ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.reducer.ts:86:34:
+      86 Γöé ...Actions.clearSelectedClient, state => ({ ...state, selectedClie...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/clients/clients.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/clients/clients.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.selectors.ts:7:67:
+      7 Γöé ...electClientsTotal    = createSelector(selectFeature, s => s.total);
+        Γò╡                                                         ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.selectors.ts:8:67:
+      8 Γöé ...ectClientsLoading  = createSelector(selectFeature, s => s.loading);
+        Γò╡                                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.selectors.ts:9:67:
+      9 Γöé ...lectClientsSaving   = createSelector(selectFeature, s => s.saving);
+        Γò╡                                                        ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.selectors.ts:10:67:
+      10 Γöé ...ectClientFilter    = createSelector(selectFeature, s => s.filter);
+         Γò╡                                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/clients/clients.selectors.ts:11:67:
+      11 Γöé ...tedClient  = createSelector(selectFeature, s => s.selectedClient);
+         Γò╡                                               ^
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/dashboard/dashboard.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/effects' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.effects.ts:2:46:
+      2 Γöé import { Actions, createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                               ~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/effects"
+
+    src/store/dashboard/dashboard.effects.ts:3:37:
+      3 Γöé import { createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                      ~~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/effects" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'actions$' of class 'DashboardEffects'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.effects.ts:20:22:
+      20 Γöé   constructor(private actions$: Actions, private dashSvc: Dashboar...
+         Γò╡                       ~~~~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/store/dashboard/dashboard.effects.ts:20:32:
+      20 Γöé ...nstructor(private actions$: Actions, private dashSvc: Dashboard...
+         Γò╡                                ~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/dashboard/dashboard.reducer.ts:1:34:
+      1 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.reducer.ts:1:34:
+      1 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.reducer.ts:15:44:
+      15 Γöé ...ctions.loadDashboard,        state => ({ ...state, loading: tru...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.reducer.ts:16:45:
+      16 Γöé ...tions.loadDashboardSuccess, (state, { data }) => ({ ...state, l...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'data' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.reducer.ts:16:54:
+      16 Γöé ...adDashboardSuccess, (state, { data }) => ({ ...state, loading: ...
+         Γò╡                                  ~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.reducer.ts:17:45:
+      17 Γöé ...tions.loadDashboardFailure, (state, { error }) => ({ ...state, ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.reducer.ts:17:54:
+      17 Γöé ...dDashboardFailure, (state, { error }) => ({ ...state, loading: ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/dashboard/dashboard.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.selectors.ts:6:68:
+      6 Γöé ...electDashboardData    = createSelector(selectFeature, s => s.data);
+        Γò╡                                                          ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.selectors.ts:7:68:
+      7 Γöé ...ctDashboardLoading = createSelector(selectFeature, s => s.loading);
+        Γò╡                                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.selectors.ts:8:68:
+      8 Γöé ...dKPI     = createSelector(selectFeature, s => s.data?.kpi ?? null);
+        Γò╡                                             ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.selectors.ts:9:68:
+      9 Γöé ...ging   = createSelector(selectFeature, s => s.data?.aging ?? null);
+        Γò╡                                           ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.selectors.ts:10:68:
+      10 Γöé ... createSelector(selectFeature, s => s.data?.revenueByMonth ?? []);
+         Γò╡                                   ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.selectors.ts:11:68:
+      11 Γöé ...   = createSelector(selectFeature, s => s.data?.topClients ?? []);
+         Γò╡                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/dashboard/dashboard.selectors.ts:12:68:
+      12 Γöé ... createSelector(selectFeature, s => s.data?.recentActivity ?? []);
+         Γò╡                                   ^
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/expenses/expenses.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/expenses/expenses.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/effects' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/expenses/expenses.effects.ts:2:46:
+      2 Γöé import { Actions, createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                               ~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/effects"
+
+    src/store/expenses/expenses.effects.ts:3:37:
+      3 Γöé import { createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                      ~~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/effects" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'actions$' of class 'ExpensesEffects'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/store/expenses/expenses.effects.ts:92:12:
+      92 Γöé     private actions$: Actions,
+         Γò╡             ~~~~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/store/expenses/expenses.effects.ts:92:22:
+      92 Γöé     private actions$: Actions,
+         Γò╡                       ~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/entity"
+
+    src/store/expenses/expenses.reducer.ts:1:36:
+      1 Γöé import { createEntityAdapter } from '@ngrx/entity';
+        Γò╡                                     ~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/entity" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/entity' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:1:64:
+      1 Γöé ...ateEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+        Γò╡                                                        ~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/expenses/expenses.reducer.ts:2:34:
+      2 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:2:34:
+      2 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:32:27:
+      32 Γöé   on(Actions.loadExpenses, state => ({ ...state, loading: true, er...
+         Γò╡                            ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:33:35:
+      33 Γöé   on(Actions.loadExpensesSuccess, (state, { result }) =>
+         Γò╡                                    ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'result' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:33:44:
+      33 Γöé   on(Actions.loadExpensesSuccess, (state, { result }) =>
+         Γò╡                                             ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:35:35:
+      35 Γöé ...ctions.loadExpensesFailure, (state, { error }) => ({ ...state, ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:35:44:
+      35 Γöé ...adExpensesFailure, (state, { error }) => ({ ...state, loading: ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:37:41:
+      37 Γöé ....loadExpenseSummarySuccess, (state, { summary }) => ({ ...state...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'summary' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:37:50:
+      37 Γöé ...seSummarySuccess, (state, { summary }) => ({ ...state, summary ...
+         Γò╡                                ~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:40:4:
+      40 Γöé     state => ({ ...state, saving: true, error: null })),
+         Γò╡     ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:42:36:
+      42 Γöé   on(Actions.createExpenseSuccess, (state, { expense }) =>
+         Γò╡                                     ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'expense' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:42:45:
+      42 Γöé   on(Actions.createExpenseSuccess, (state, { expense }) =>
+         Γò╡                                              ~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:45:5:
+      45 Γöé     (state, { expense }) => adapter.updateOne({ id: expense.id, ch...
+         Γò╡      ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'expense' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:45:14:
+      45 Γöé     (state, { expense }) => adapter.updateOne({ id: expense.id, ch...
+         Γò╡               ~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:46:36:
+      46 Γöé   on(Actions.deleteExpenseSuccess, (state, { id }) =>
+         Γò╡                                     ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'id' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:46:45:
+      46 Γöé   on(Actions.deleteExpenseSuccess, (state, { id }) =>
+         Γò╡                                              ~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:51:5:
+      51 Γöé     (state, { error }) => ({ ...state, saving: false, error })),
+         Γò╡      ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:51:14:
+      51 Γöé     (state, { error }) => ({ ...state, saving: false, error })),
+         Γò╡               ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:53:32:
+      53 Γöé   on(Actions.setExpenseFilter, (state, { filter }) => ({ ...state,...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'filter' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:53:41:
+      53 Γöé ....setExpenseFilter, (state, { filter }) => ({ ...state, filter: ...
+         Γò╡                                 ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:54:32:
+      54 Γöé   on(Actions.openExpenseForm,  (state, { expense }) => ({ ...state...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'expense' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:54:41:
+      54 Γöé ...openExpenseForm,  (state, { expense }) => ({ ...state, formOpen...
+         Γò╡                                ~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.reducer.ts:55:31:
+      55 Γöé   on(Actions.closeExpenseForm, state => ({ ...state, formOpen: fal...
+         Γò╡                                ~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/expenses/expenses.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/expenses/expenses.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.selectors.ts:7:67:
+      7 Γöé ...electExpensesTotal   = createSelector(selectFeature, s => s.total);
+        Γò╡                                                         ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.selectors.ts:8:67:
+      8 Γöé ...ectExpensesLoading = createSelector(selectFeature, s => s.loading);
+        Γò╡                                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.selectors.ts:9:67:
+      9 Γöé ...lectExpensesSaving  = createSelector(selectFeature, s => s.saving);
+        Γò╡                                                        ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.selectors.ts:10:67:
+      10 Γöé ...ctExpenseSummary  = createSelector(selectFeature, s => s.summary);
+         Γò╡                                                      ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.selectors.ts:11:67:
+      11 Γöé ...ectExpenseFilter   = createSelector(selectFeature, s => s.filter);
+         Γò╡                                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.selectors.ts:12:67:
+      12 Γöé ...tExpenseFormOpen = createSelector(selectFeature, s => s.formOpen);
+         Γò╡                                                     ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/expenses/expenses.selectors.ts:13:67:
+      13 Γöé ...ngExpense  = createSelector(selectFeature, s => s.editingExpense);
+         Γò╡                                               ^
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/index.ts:1:33:
+      1 Γöé import { ActionReducerMap } from '@ngrx/store';
+        Γò╡                                  ~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/invoices/invoices.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/invoices/invoices.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/effects' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/invoices/invoices.effects.ts:2:46:
+      2 Γöé import { Actions, createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                               ~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/effects"
+
+    src/store/invoices/invoices.effects.ts:3:37:
+      3 Γöé import { createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                      ~~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/effects" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'actions$' of class 'InvoicesEffects'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/store/invoices/invoices.effects.ts:114:12:
+      114 Γöé     private actions$: Actions,
+          Γò╡             ~~~~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/store/invoices/invoices.effects.ts:114:22:
+      114 Γöé     private actions$: Actions,
+          Γò╡                       ~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/entity"
+
+    src/store/invoices/invoices.reducer.ts:1:36:
+      1 Γöé import { createEntityAdapter } from '@ngrx/entity';
+        Γò╡                                     ~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/entity" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/entity' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:1:64:
+      1 Γöé ...ateEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+        Γò╡                                                        ~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/invoices/invoices.reducer.ts:2:34:
+      2 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:2:34:
+      2 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:30:27:
+      30 Γöé   on(Actions.loadInvoices, state => ({ ...state, loading: true, er...
+         Γò╡                            ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:31:35:
+      31 Γöé   on(Actions.loadInvoicesSuccess, (state, { result }) =>
+         Γò╡                                    ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'result' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:31:44:
+      31 Γöé   on(Actions.loadInvoicesSuccess, (state, { result }) =>
+         Γò╡                                             ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:33:35:
+      33 Γöé ...ctions.loadInvoicesFailure, (state, { error }) => ({ ...state, ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:33:44:
+      33 Γöé ...adInvoicesFailure, (state, { error }) => ({ ...state, loading: ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:35:26:
+      35 Γöé   on(Actions.loadInvoice, state => ({ ...state, loading: true })),
+         Γò╡                           ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:36:34:
+      36 Γöé ...Actions.loadInvoiceSuccess, (state, { invoice }) => ({ ...state...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'invoice' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:36:43:
+      36 Γöé ...adInvoiceSuccess, (state, { invoice }) => ({ ...state, loading:...
+         Γò╡                                ~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:37:34:
+      37 Γöé ...Actions.loadInvoiceFailure, (state, { error }) => ({ ...state, ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:37:43:
+      37 Γöé ...oadInvoiceFailure, (state, { error }) => ({ ...state, loading: ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:41:4:
+      41 Γöé     state => ({ ...state, saving: true, error: null })),
+         Γò╡     ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:43:36:
+      43 Γöé   on(Actions.createInvoiceSuccess, (state, { invoice }) =>
+         Γò╡                                     ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'invoice' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:43:45:
+      43 Γöé   on(Actions.createInvoiceSuccess, (state, { invoice }) =>
+         Γò╡                                              ~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:47:5:
+      47 Γöé     (state, { invoice }) => ({
+         Γò╡      ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'invoice' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:47:14:
+      47 Γöé     (state, { invoice }) => ({
+         Γò╡               ~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:53:36:
+      53 Γöé   on(Actions.deleteInvoiceSuccess, (state, { id }) =>
+         Γò╡                                     ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'id' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:53:45:
+      53 Γöé   on(Actions.deleteInvoiceSuccess, (state, { id }) =>
+         Γò╡                                              ~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:58:5:
+      58 Γöé     (state, { error }) => ({ ...state, saving: false, error })),
+         Γò╡      ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:58:14:
+      58 Γöé     (state, { error }) => ({ ...state, saving: false, error })),
+         Γò╡               ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:60:32:
+      60 Γöé   on(Actions.setInvoiceFilter, (state, { filter }) => ({ ...state,...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'filter' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:60:41:
+      60 Γöé ....setInvoiceFilter, (state, { filter }) => ({ ...state, filter: ...
+         Γò╡                                 ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.reducer.ts:61:35:
+      61 Γöé ...ctions.clearSelectedInvoice, state => ({ ...state, selectedInvo...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/invoices/invoices.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/invoices/invoices.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.selectors.ts:7:67:
+      7 Γöé ...electInvoicesTotal   = createSelector(selectFeature, s => s.total);
+        Γò╡                                                         ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.selectors.ts:8:67:
+      8 Γöé ...ectInvoicesLoading = createSelector(selectFeature, s => s.loading);
+        Γò╡                                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.selectors.ts:9:67:
+      9 Γöé ...lectInvoicesSaving  = createSelector(selectFeature, s => s.saving);
+        Γò╡                                                        ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.selectors.ts:10:67:
+      10 Γöé ...lectInvoicesError   = createSelector(selectFeature, s => s.error);
+         Γò╡                                                        ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.selectors.ts:11:67:
+      11 Γöé ...ectInvoiceFilter   = createSelector(selectFeature, s => s.filter);
+         Γò╡                                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/invoices/invoices.selectors.ts:12:67:
+      12 Γöé ...edInvoice = createSelector(selectFeature, s => s.selectedInvoice);
+         Γò╡                                              ^
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/users/users.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/users/users.actions.ts:1:36:
+      1 Γöé import { createAction, props } from '@ngrx/store';
+        Γò╡                                     ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/effects' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/users/users.effects.ts:2:46:
+      2 Γöé import { Actions, createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                               ~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/effects"
+
+    src/store/users/users.effects.ts:3:37:
+      3 Γöé import { createEffect, ofType } from '@ngrx/effects';
+        Γò╡                                      ~~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/effects" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS-992003: No suitable injection token for parameter 'actions$' of class 'UsersEffects'.
+  Consider using the @Inject decorator to specify an injection token. [plugin angular-compiler]
+
+    src/store/users/users.effects.ts:77:12:
+      77 Γöé     private actions$: Actions,
+         Γò╡             ~~~~~~~~
+
+  This type does not have a value, so it cannot be used as injection token.
+
+    src/store/users/users.effects.ts:77:22:
+      77 Γöé     private actions$: Actions,
+         Γò╡                       ~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/entity"
+
+    src/store/users/users.reducer.ts:1:36:
+      1 Γöé import { createEntityAdapter } from '@ngrx/entity';
+        Γò╡                                     ~~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/entity" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/entity' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:1:64:
+      1 Γöé ...ateEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+        Γò╡                                                        ~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/users/users.reducer.ts:2:34:
+      2 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:2:34:
+      2 Γöé import { createReducer, on } from '@ngrx/store';
+        Γò╡                                   ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:30:24:
+      30 Γöé   on(Actions.loadUsers, state => ({ ...state, loading: true, error...
+         Γò╡                         ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:31:32:
+      31 Γöé   on(Actions.loadUsersSuccess, (state, { result }) =>
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'result' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:31:41:
+      31 Γöé   on(Actions.loadUsersSuccess, (state, { result }) =>
+         Γò╡                                          ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:33:32:
+      33 Γöé   on(Actions.loadUsersFailure, (state, { error }) => ({ ...state, ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:33:41:
+      33 Γöé ....loadUsersFailure, (state, { error }) => ({ ...state, loading: ...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:36:4:
+      36 Γöé     state => ({ ...state, saving: true, error: null })),
+         Γò╡     ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:38:33:
+      38 Γöé   on(Actions.createUserSuccess, (state, { user }) =>
+         Γò╡                                  ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'user' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:38:42:
+      38 Γöé   on(Actions.createUserSuccess, (state, { user }) =>
+         Γò╡                                           ~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:40:33:
+      40 Γöé   on(Actions.updateUserSuccess, (state, { user }) =>
+         Γò╡                                  ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'user' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:40:42:
+      40 Γöé   on(Actions.updateUserSuccess, (state, { user }) =>
+         Γò╡                                           ~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:42:37:
+      42 Γöé   on(Actions.deactivateUserSuccess, (state, { id }) =>
+         Γò╡                                      ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'id' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:42:46:
+      42 Γöé   on(Actions.deactivateUserSuccess, (state, { id }) =>
+         Γò╡                                               ~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:44:34:
+      44 Γöé ...Actions.resendInviteSuccess, state => ({ ...state, saving: fals...
+         Γò╡                                 ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:47:5:
+      47 Γöé     (state, { error }) => ({ ...state, saving: false, error })),
+         Γò╡      ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'error' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:47:14:
+      47 Γöé     (state, { error }) => ({ ...state, saving: false, error })),
+         Γò╡               ~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:49:29:
+      49 Γöé   on(Actions.setUserFilter, (state, { filter }) => ({ ...state, fi...
+         Γò╡                              ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'filter' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:49:38:
+      49 Γöé ...ons.setUserFilter, (state, { filter }) => ({ ...state, filter: ...
+         Γò╡                                 ~~~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:50:29:
+      50 Γöé   on(Actions.openUserForm,  (state, { user }) => ({ ...state, form...
+         Γò╡                              ~~~~~
+
+
+X [ERROR] TS7031: Binding element 'user' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:50:38:
+      50 Γöé ...ions.openUserForm,  (state, { user }) => ({ ...state, formOpen:...
+         Γò╡                                  ~~~~
+
+
+X [ERROR] TS7006: Parameter 'state' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.reducer.ts:51:28:
+      51 Γöé   on(Actions.closeUserForm, state => ({ ...state, formOpen: false,...
+         Γò╡                             ~~~~~
+
+
+X [ERROR] Could not resolve "@ngrx/store"
+
+    src/store/users/users.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+  You can mark the path "@ngrx/store" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+X [ERROR] TS2307: Cannot find module '@ngrx/store' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/store/users/users.selectors.ts:1:54:
+      1 Γöé import { createFeatureSelector, createSelector } from '@ngrx/store';
+        Γò╡                                                       ~~~~~~~~~~~~~
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.selectors.ts:7:64:
+      7 Γöé ...t selectUsersTotal   = createSelector(selectFeature, s => s.total);
+        Γò╡                                                         ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.selectors.ts:8:64:
+      8 Γöé ...selectUsersLoading = createSelector(selectFeature, s => s.loading);
+        Γò╡                                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.selectors.ts:9:64:
+      9 Γöé ... selectUsersSaving  = createSelector(selectFeature, s => s.saving);
+        Γò╡                                                        ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.selectors.ts:10:64:
+      10 Γöé ...selectUserFilter   = createSelector(selectFeature, s => s.filter);
+         Γò╡                                                       ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.selectors.ts:11:64:
+      11 Γöé ...lectUserFormOpen = createSelector(selectFeature, s => s.formOpen);
+         Γò╡                                                     ^
+
+
+X [ERROR] TS7006: Parameter 's' implicitly has an 'any' type. [plugin angular-compiler]
+
+    src/store/users/users.selectors.ts:12:64:
+      12 Γöé ...tEditingUser  = createSelector(selectFeature, s => s.editingUser);
+         Γò╡                                                  ^
+
+
+X [ERROR] Can't find stylesheet to import.
+  Γò╖
+6 Γöé @use '@angular/material' as mat;
+  Γöé ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  Γò╡
+  src\styles.scss 6:1  root stylesheet [plugin angular-sass]
+
+    angular:styles/global:styles:1:8:
+      1 Γöé @import 'src/styles.scss';
+        Γò╡         ~~~~~~~~~~~~~~~~~
+
+

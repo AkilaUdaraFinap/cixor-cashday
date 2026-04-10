@@ -1,0 +1,68 @@
+<ccd-page-header title="Clients" subtitle="Manage client accounts and relationships">
+  <ccd-ui-button *ccdRole="['Admin', 'SuperAdmin', 'AccountsManager']" (click)="openNewClient()">
+    <mat-icon>add</mat-icon>
+    New client
+  </ccd-ui-button>
+</ccd-page-header>
+
+<div class="ccd-card mb-4">
+  <div class="search-panel">
+    <ccd-ui-input
+      class="search-field"
+      [formControl]="searchCtrl"
+      label="Search clients"
+      placeholder="Search by business name or email"
+      icon="search"
+      hint="Results update automatically as you type."
+    />
+  </div>
+</div>
+
+@if (loading$ | async) {
+  <ccd-loading [loading]="true" message="Loading clients…" />
+} @else if ((clients$ | async)?.length === 0) {
+  <ccd-empty-state
+    icon="business"
+    title="No clients yet"
+    description="Add your first client to start creating invoices."
+    actionLabel="New Client"
+    (action)="openNewClient()"
+  />
+} @else {
+  <div class="client-grid" aria-label="Client list">
+    @for (client of clients$ | async; track client.id) {
+      <button
+        type="button"
+        class="client-card"
+        [attr.aria-label]="'Open client ' + client.name"
+        (click)="openClient(client.id)"
+      >
+        <div class="client-card__header">
+          <div class="client-logo">{{ client.name[0] }}</div>
+          <div class="client-info">
+            <div class="client-name">{{ client.name }}</div>
+            <div class="client-sub">{{ client.email }}</div>
+          </div>
+        </div>
+
+        <div class="client-meta">
+          <span class="meta-item">
+            <mat-icon class="meta-icon">email</mat-icon>
+            {{ client.email }}
+          </span>
+        </div>
+
+        <div class="client-stats">
+          <div class="stat-mini">
+            <span class="mini-label">Officers</span>
+            <span class="mini-value">{{ client.officerCount }}</span>
+          </div>
+          <div class="stat-mini">
+            <span class="mini-label">Outstanding</span>
+            <span class="mini-value primary">{{ client.outstandingBalance | ccdCurrency }}</span>
+          </div>
+        </div>
+      </button>
+    }
+  </div>
+}

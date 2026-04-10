@@ -1,0 +1,72 @@
+<aside class="ccd-sidebar" aria-label="Primary navigation">
+  <div class="sidebar-logo">
+    <div class="logo-mark">CX</div>
+    <div class="logo-text">
+      <div class="logo-name">CIXOR</div>
+      <div class="logo-sub">CashDay</div>
+    </div>
+  </div>
+
+  <div class="sidebar-summary">
+    <span class="ccd-badge badge-primary">Live workspace</span>
+    <p>Monitor receivables, funding, and client activity from one place.</p>
+  </div>
+
+  <nav class="sidebar-nav" role="navigation">
+    <section class="nav-section">
+      <div class="nav-section-label">Main</div>
+      @for (item of mainNav; track item.route) {
+        <a
+          class="nav-item"
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          [matTooltip]="item.label"
+          matTooltipPosition="right"
+          (click)="closeSidebar()"
+        >
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <span class="nav-label">{{ item.label }}</span>
+        </a>
+      }
+    </section>
+
+    @if (financeNav.length > 0) {
+      <section class="nav-section" *ccdRole="['Admin', 'SuperAdmin', 'AccountsManager']">
+        <div class="nav-section-label">Finance</div>
+        @for (item of financeNav; track item.route) {
+          <a class="nav-item" [routerLink]="item.route" routerLinkActive="active" (click)="closeSidebar()">
+            <mat-icon>{{ item.icon }}</mat-icon>
+            <span class="nav-label">{{ item.label }}</span>
+          </a>
+        }
+      </section>
+    }
+
+    <section class="nav-section" *ccdRole="['Admin', 'SuperAdmin']">
+      <div class="nav-section-label">Admin</div>
+      @for (item of adminNav; track item.route) {
+        <a class="nav-item" [routerLink]="item.route" routerLinkActive="active" (click)="closeSidebar()">
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <span class="nav-label">{{ item.label }}</span>
+        </a>
+      }
+    </section>
+  </nav>
+
+  <div class="sidebar-footer">
+    @if (user$ | async; as user) {
+      <div class="sidebar-user">
+        <div class="user-avatar">{{ userInitials(user.name) }}</div>
+        <div class="user-info">
+          <div class="user-name">{{ user.name }}</div>
+          <div class="user-role">{{ displayRole(user.role) }}</div>
+        </div>
+      </div>
+    }
+
+    <button class="nav-item logout-item" type="button" (click)="onLogout()" matTooltip="Log out" matTooltipPosition="right">
+      <mat-icon>logout</mat-icon>
+      <span class="nav-label">Log out</span>
+    </button>
+  </div>
+</aside>

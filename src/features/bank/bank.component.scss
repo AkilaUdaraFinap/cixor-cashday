@@ -1,0 +1,99 @@
+:host {
+  display: block;
+}
+
+.account-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+}
+
+.account-card {
+  display: grid;
+  gap: 0.35rem;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--ccd-border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, var(--ccd-surface-1), var(--ccd-surface-2));
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.account-card:hover,
+.account-card.selected {
+  border-color: var(--ccd-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.acc-bank,
+.acc-type,
+.acc-number {
+  color: var(--ccd-text-muted);
+  font-size: var(--text-xs);
+}
+
+.acc-bank {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.acc-name {
+  color: var(--ccd-text);
+  font-size: var(--text-base);
+  font-weight: 700;
+}
+
+.acc-number,
+.acc-balance {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.acc-balance {
+  color: var(--ccd-primary);
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.acc-balance.negative {
+  color: var(--ccd-danger);
+}
+
+.bank-table-actions {
+  display: flex;
+  justify-content: flex-end;
+  width: min(100%, 22rem);
+}
+
+.bank-search {
+  width: 100%;
+}
+
+.tx-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tx-type.credit {
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--ccd-success);
+}
+
+.tx-type.debit {
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--ccd-danger);
+}
+
+@media (max-width: 640px) {
+  .bank-table-actions {
+    width: 100%;
+  }
+}

@@ -1,0 +1,128 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 1.5rem;
+  background:
+    radial-gradient(circle at top left, rgba(79, 172, 254, 0.12), transparent 0, transparent 35%),
+    radial-gradient(circle at bottom right, rgba(0, 201, 167, 0.16), transparent 0, transparent 32%),
+    var(--ccd-bg);
+}
+
+.public-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr minmax(20rem, 28rem);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: center;
+  min-height: calc(100vh - 4rem);
+}
+
+.public-layout__panel {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.public-theme-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.public-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, var(--ccd-primary), var(--ccd-secondary));
+  color: #04111f;
+  font-weight: 900;
+  box-shadow: var(--shadow-md);
+}
+
+.brand-name {
+  color: var(--ccd-text);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.brand-tagline {
+  color: var(--ccd-text-muted);
+  font-size: var(--text-sm);
+}
+
+.public-hero {
+  display: grid;
+  gap: 1rem;
+  max-width: 40rem;
+}
+
+.public-hero h1 {
+  color: var(--ccd-text);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.public-hero p {
+  color: var(--ccd-text-muted);
+  font-size: var(--text-base);
+  max-width: 34rem;
+}
+
+.public-highlights {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 0.75rem;
+}
+
+.highlight-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: fit-content;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--ccd-border);
+  border-radius: var(--radius-full);
+  background: var(--ccd-surface-raised);
+  color: var(--ccd-text);
+}
+
+.highlight-item mat-icon {
+  color: var(--ccd-primary);
+}
+
+.public-card {
+  border: 1px solid var(--ccd-border);
+  border-radius: 1.5rem;
+  background: color-mix(in srgb, var(--ccd-surface-1) 94%, transparent);
+  box-shadow: var(--shadow-lg);
+  padding: clamp(1.25rem, 2vw, 2rem);
+  backdrop-filter: blur(12px);
+}
+
+.public-footer {
+  text-align: center;
+  color: var(--ccd-text-disabled);
+  font-size: var(--text-xs);
+  padding-bottom: 0.5rem;
+}
+
+@media (max-width: 960px) {
+  .public-layout {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 3rem;
+  }
+
+  .public-theme-toggle {
+    position: static;
+    justify-self: end;
+  }
+}

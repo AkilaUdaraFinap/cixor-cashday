@@ -1,0 +1,84 @@
+<ccd-page-header title="Users" subtitle="Manage user access, roles, and invitations">
+  <ccd-ui-button (click)="openInvite()">
+    <mat-icon>person_add</mat-icon>
+    Invite user
+  </ccd-ui-button>
+</ccd-page-header>
+
+<div class="ccd-card mb-4">
+  <ccd-ui-input
+    class="users-search"
+    [formControl]="searchCtrl"
+    label="Search users"
+    placeholder="Search by name or email"
+    icon="search"
+    hint="Filter the directory instantly."
+  />
+</div>
+
+@if (loading$ | async) {
+  <ccd-loading [loading]="true" message="Loading users…" />
+} @else if ((users$ | async)?.length === 0) {
+  <ccd-empty-state
+    icon="group"
+    title="No users yet"
+    description="Invite your first teammate to start collaborating."
+    actionLabel="Invite User"
+    (action)="openInvite()"
+  />
+} @else {
+  <ccd-ui-table title="Team directory" subtitle="Permissions and account status at a glance" ariaLabel="Users table">
+    <table class="ccd-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Last login</th>
+          <th class="text-right">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (user of users$ | async; track user.id) {
+          <tr>
+            <td>
+              <div class="user-cell">
+                <div class="user-avatar">{{ user.firstName[0] }}{{ user.lastName[0] }}</div>
+                <div>
+                  <div class="user-name">{{ user.firstName }} {{ user.lastName }}</div>
+                  <div class="text-xs text-muted">{{ displayRole(user.role) }}</div>
+                </div>
+              </div>
+            </td>
+            <td class="text-muted">{{ user.email }}</td>
+            <td>
+              <span class="role-badge" [ngClass]="roleClass(user.role)">{{ displayRole(user.role) }}</span>
+            </td>
+            <td><ccd-status-badge [status]="user.status" /></td>
+            <td class="text-muted text-sm">{{ user.lastLoginAt ? (user.lastLoginAt | date:'d MMM y, HH:mm') : 'Never' }}</td>
+            <td class="text-right">
+              <button type="button" class="icon-btn" [matMenuTriggerFor]="menu" [attr.aria-label]="'Actions for ' + user.firstName + ' ' + user.lastName">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="onEdit(user)">
+                  <mat-icon>edit</mat-icon>
+                  <span>Edit</span>
+                </button>
+                <button mat-menu-item (click)="onResendInvite(user)" [disabled]="user.status !== 'Invited'">
+                  <mat-icon>email</mat-icon>
+                  <span>Resend invite</span>
+                </button>
+                <button mat-menu-item class="danger-item" (click)="onDeactivate(user)" [disabled]="user.status === 'Inactive'">
+                  <mat-icon>block</mat-icon>
+                  <span>Deactivate</span>
+                </button>
+              </mat-menu>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </ccd-ui-table>
+}

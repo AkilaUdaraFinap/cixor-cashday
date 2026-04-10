@@ -1,0 +1,137 @@
+:root {
+  color-scheme: light;
+
+  // Brand colors
+  --ccd-navy: #1b3665;
+  --ccd-gold: #d4af37;
+  --ccd-cyan: #00b4d2;
+  --ccd-mid-blue: #2e6db4;
+  --ccd-primary: #10b981;
+  --ccd-primary-light: #34d399;
+  --ccd-primary-dark: #059669;
+  --ccd-secondary: #3b82f6;
+  --ccd-accent: #f59e0b;
+
+  // Semantic colors
+  --ccd-success: #16a34a;
+  --ccd-warning: #f59e0b;
+  --ccd-danger: #ef4444;
+  --ccd-info: #3b82f6;
+
+  // Surface colors (light theme)
+  --ccd-bg: #f5f7fb;
+  --ccd-surface-1: #ffffff;
+  --ccd-surface-2: #f8fafc;
+  --ccd-surface-3: #eef2ff;
+  --ccd-surface-raised: rgba(255, 255, 255, 0.92);
+  --ccd-border: #e2e8f0;
+  --ccd-border-strong: #cbd5e1;
+  --ccd-text: #0f172a;
+  --ccd-text-muted: #475569;
+  --ccd-text-disabled: #94a3b8;
+  --ccd-ring: rgba(59, 130, 246, 0.2);
+
+  // Chart colors
+  --ccd-chart-actual: #10b981;
+  --ccd-chart-hypo: #3b82f6;
+  --ccd-chart-negative: #ef4444;
+  --ccd-chart-grid: #e2e8f0;
+
+  // Spacing
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  // Type scale
+  --text-xs: 0.72rem;
+  --text-sm: 0.85rem;
+  --text-base: 1rem;
+  --text-lg: 1.15rem;
+  --text-xl: 1.35rem;
+  --text-2xl: 1.6rem;
+  --text-3xl: 2rem;
+
+  // Border radius
+  --radius-sm: 0.35rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-full: 999px;
+
+  // Shadows
+  --shadow-sm: 0 8px 24px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 18px 38px rgba(15, 23, 42, 0.12);
+  --shadow-lg: 0 30px 60px rgba(15, 23, 42, 0.18);
+
+  // Layout
+  --sidebar-width: 17.5rem;
+  --sidebar-collapsed: 4rem;
+  --topbar-height: 4.5rem;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --ccd-bg: #07111f;
+  --ccd-surface-1: #101826;
+  --ccd-surface-2: #162133;
+  --ccd-surface-3: #1e2b42;
+  --ccd-surface-raised: rgba(16, 24, 38, 0.92);
+  --ccd-border: #263244;
+  --ccd-border-strong: #3b4a61;
+  --ccd-text: #e5edf7;
+  --ccd-text-muted: #9fb0c4;
+  --ccd-text-disabled: #6b7c93;
+  --ccd-ring: rgba(16, 185, 129, 0.24);
+  --ccd-chart-grid: #233044;
+  --shadow-sm: 0 8px 20px rgba(2, 6, 23, 0.4);
+  --shadow-md: 0 20px 40px rgba(2, 6, 23, 0.48);
+  --shadow-lg: 0 28px 60px rgba(2, 6, 23, 0.58);
+}
+
+:root[data-theme='cashday-classic'] {
+  color-scheme: light;
+
+  --ccd-navy: #1b3665;
+  --ccd-gold: #d4af37;
+  --ccd-cyan: #00b4d2;
+  --ccd-mid-blue: #2e6db4;
+
+  --ccd-primary: var(--ccd-navy);
+  --ccd-primary-light: #2e6db4;
+  --ccd-primary-dark: #162b52;
+  --ccd-secondary: var(--ccd-cyan);
+  --ccd-accent: var(--ccd-gold);
+
+  --ccd-success: #16a34a;
+  --ccd-warning: #f59e0b;
+  --ccd-danger: #dc2626;
+  --ccd-info: var(--ccd-cyan);
+
+  --ccd-bg: #f5f6fa;
+  --ccd-surface-1: #ffffff;
+  --ccd-surface-2: #f8fafc;
+  --ccd-surface-3: #eef4fb;
+  --ccd-surface-raised: rgba(255, 255, 255, 0.96);
+  --ccd-border: #e5e7eb;
+  --ccd-border-strong: #cfd8e3;
+  --ccd-text: #1a1a2e;
+  --ccd-text-muted: #6b7280;
+  --ccd-text-disabled: #9ca3af;
+  --ccd-ring: rgba(0, 180, 210, 0.24);
+
+  --ccd-chart-actual: #16a34a;
+  --ccd-chart-hypo: #00b4d2;
+  --ccd-chart-negative: #dc2626;
+  --ccd-chart-grid: #e5e7eb;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 12px 28px rgba(27, 54, 101, 0.12);
+  --shadow-lg: 0 22px 40px rgba(27, 54, 101, 0.16);
+}

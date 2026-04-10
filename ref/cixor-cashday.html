@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIXOR CashDay – Business Process Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #1f2937;
+      --border: #30363d;
+      --accent: #00c9a7;
+      --accent2: #4facfe;
+      --accent3: #f7971e;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --danger: #f85149;
+      --success: #3fb950;
+      --warning: #d29922;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, #0d1b2a 0%, #1a2540 50%, #0d2137 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,201,167,.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    header .badge {
+      display: inline-block;
+      background: rgba(0,201,167,.12);
+      border: 1px solid rgba(0,201,167,.3);
+      color: var(--accent);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+    header h1 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    header p {
+      color: var(--text-muted);
+      margin-top: .75rem;
+      font-size: 1rem;
+    }
+    .meta-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .meta-item { text-align: center; }
+    .meta-item .label { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); }
+    .meta-item .value { font-size: .9rem; font-weight: 600; color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    .layout { display: flex; min-height: calc(100vh - 200px); }
+
+    /* ── SIDEBAR ── */
+    nav.sidebar {
+      width: 280px;
+      flex-shrink: 0;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    nav.sidebar::-webkit-scrollbar { width: 4px; }
+    nav.sidebar::-webkit-scrollbar-track { background: transparent; }
+    nav.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    nav.sidebar .nav-title {
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--text-muted);
+      padding: 0 1.25rem .5rem;
+    }
+    nav.sidebar a {
+      display: block;
+      padding: .45rem 1.25rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: .85rem;
+      border-left: 2px solid transparent;
+      transition: all .15s;
+    }
+    nav.sidebar a:hover, nav.sidebar a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+      background: rgba(0,201,167,.06);
+    }
+    nav.sidebar .nav-section { margin-top: 1rem; }
+
+    /* ── MAIN ── */
+    main { flex: 1; padding: 2.5rem 2rem; max-width: 1100px; }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-bottom: 3.5rem;
+      scroll-margin-top: 1rem;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: .75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-num {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #000;
+      font-weight: 800;
+      font-size: .75rem;
+      width: 2rem;
+      height: 2rem;
+      border-radius: .4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-header h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .section-header .tag {
+      margin-left: auto;
+      font-size: .7rem;
+      background: rgba(79,172,254,.12);
+      border: 1px solid rgba(79,172,254,.25);
+      color: var(--accent2);
+      padding: .15rem .6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: .75rem;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent2);
+      margin-bottom: .75rem;
+    }
+    .card p { color: var(--text-muted); font-size: .9rem; }
+
+    /* ── CALLOUT ── */
+    .callout {
+      border-radius: .5rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+      border-left: 3px solid;
+      font-size: .9rem;
+    }
+    .callout.info { background: rgba(79,172,254,.07); border-color: var(--accent2); color: #a8d4f5; }
+    .callout.success { background: rgba(63,185,80,.07); border-color: var(--success); color: #a8e6b0; }
+    .callout.warning { background: rgba(210,153,34,.07); border-color: var(--warning); color: #e8cc8a; }
+    .callout.danger { background: rgba(248,81,73,.07); border-color: var(--danger); color: #f5a8a5; }
+
+    /* ── FORMULA BOX ── */
+    .formula {
+      background: #0d1b2a;
+      border: 1px solid rgba(0,201,167,.3);
+      border-radius: .5rem;
+      padding: 1rem 1.5rem;
+      font-family: 'Courier New', monospace;
+      font-size: .9rem;
+      color: var(--accent);
+      margin: 1rem 0;
+    }
+
+    /* ── TABLES ── */
+    .tbl-wrap { overflow-x: auto; margin: 1rem 0; border-radius: .5rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .85rem;
+    }
+    thead th {
+      background: var(--surface2);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      padding: .65rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    tbody tr { border-bottom: 1px solid rgba(48,54,61,.6); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(255,255,255,.02); }
+    tbody td { padding: .6rem 1rem; color: var(--text); vertical-align: top; }
+    td code { background: rgba(0,201,167,.1); color: var(--accent); padding: .1rem .4rem; border-radius: .25rem; font-size: .82rem; }
+
+    /* ── BADGES ── */
+    .badge-green { background: rgba(63,185,80,.15); color: var(--success); padding: .15rem .5rem; border-radius: .25rem; font-size: .78rem; font-weight: 600; }
+    .badge-red   { background: rgba(248,81,73,.15);  color: var(--danger);  padding: .15rem .5rem; border-radius: .25rem; font-size: .78rem; font-weight: 600; }
+    .badge-blue  { background: rgba(79,172,254,.15); color: var(--accent2); padding: .15rem .5rem; border-radius: .25rem; font-size: .78rem; font-weight: 600; }
+    .badge-gold  { background: rgba(247,151,30,.15); color: var(--accent3); padding: .15rem .5rem; border-radius: .25rem; font-size: .78rem; font-weight: 600; }
+
+    /* ── DIAGRAM CONTAINER ── */
+    .diagram-wrap {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: .75rem;
+      padding: 1.5rem;
+      margin: 1.25rem 0;
+      overflow-x: auto;
+    }
+    .diagram-wrap .diagram-title {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .mermaid { text-align: center; }
+
+    /* ── RISK WATERFALL ── */
+    .waterfall {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin: 1.25rem 0;
+    }
+    .wf-layer {
+      border-radius: .5rem;
+      padding: .9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .wf-layer:nth-child(1) { background: rgba(79,172,254,.12); border: 1px solid rgba(79,172,254,.3); }
+    .wf-layer:nth-child(2) { background: rgba(0,201,167,.12);  border: 1px solid rgba(0,201,167,.3);  margin-left: 2rem; }
+    .wf-layer:nth-child(3) { background: rgba(247,151,30,.12); border: 1px solid rgba(247,151,30,.3);  margin-left: 4rem; }
+    .wf-layer:nth-child(4) { background: rgba(63,185,80,.12);  border: 1px solid rgba(63,185,80,.3);  margin-left: 6rem; }
+    .wf-label { font-weight: 700; font-size: .9rem; }
+    .wf-desc  { font-size: .8rem; color: var(--text-muted); margin-top: .15rem; }
+    .wf-formula { font-size: .8rem; font-family: monospace; color: var(--accent); background: rgba(0,0,0,.3); padding: .25rem .6rem; border-radius: .25rem; white-space: nowrap; }
+    .wf-arrow { text-align: center; color: var(--text-muted); font-size: 1.1rem; margin-left: 1rem; }
+
+    /* ── 90-DAY FORECAST VISUAL ── */
+    .forecast-bar {
+      display: flex;
+      gap: .5rem;
+      margin: 1.25rem 0;
+      flex-wrap: wrap;
+    }
+    .forecast-segment {
+      flex: 1;
+      min-width: 120px;
+      border-radius: .5rem;
+      padding: 1rem;
+      text-align: center;
+    }
+    .forecast-segment:nth-child(1) { background: rgba(0,201,167,.1); border: 1px solid rgba(0,201,167,.3); }
+    .forecast-segment:nth-child(2) { background: rgba(79,172,254,.1); border: 1px solid rgba(79,172,254,.3); }
+    .forecast-segment:nth-child(3) { background: rgba(247,151,30,.1); border: 1px solid rgba(247,151,30,.3); }
+    .forecast-segment .days { font-size: 1.5rem; font-weight: 800; }
+    .forecast-segment .days-label { font-size: .75rem; color: var(--text-muted); }
+    .forecast-segment .detail { font-size: .78rem; margin-top: .5rem; color: var(--text-muted); }
+
+    /* ── RBAC TABLE ── */
+    .rbac td:nth-child(2), .rbac td:nth-child(3), .rbac td:nth-child(4) { text-align: center; }
+
+    /* ── PROCESS STEPS ── */
+    .steps { counter-reset: step; margin: 1rem 0; }
+    .step {
+      display: flex;
+      gap: 1rem;
+      padding: .75rem 0;
+      border-bottom: 1px solid rgba(48,54,61,.4);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      flex-shrink: 0;
+      width: 1.75rem;
+      height: 1.75rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: .1rem;
+    }
+    .step-body .actor { font-size: .72rem; color: var(--accent2); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .2rem; }
+    .step-body .action { font-size: .88rem; color: var(--text); }
+    .step-body .note { font-size: .8rem; color: var(--text-muted); margin-top: .2rem; }
+
+    /* ── GLOSSARY ── */
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .glossary-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: .5rem;
+      padding: .9rem 1rem;
+    }
+    .glossary-item .term { font-weight: 700; color: var(--accent2); font-size: .9rem; }
+    .glossary-item .def  { font-size: .82rem; color: var(--text-muted); margin-top: .35rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav.sidebar { display: none; }
+      main { max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      main { padding: 1.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header>
+  <div class="badge">Highly Confidential · v1.0</div>
+  <h1>CIXOR CashDay</h1>
+  <p>Comprehensive Business Process Document</p>
+  <div class="meta-row">
+    <div class="meta-item"><div class="label">Prepared by</div><div class="value">FINAP Worldwide W.L.L.</div></div>
+    <div class="meta-item"><div class="label">Date</div><div class="value">April 2026</div></div>
+    <div class="meta-item"><div class="label">Version</div><div class="value">1.0</div></div>
+    <div class="meta-item"><div class="label">Classification</div><div class="value">Highly Confidential</div></div>
+  </div>
+</header>
+
+<div class="layout">
+
+<!-- ═══════════ SIDEBAR ═══════════ -->
+<nav class="sidebar">
+  <div class="nav-title">Contents</div>
+  <a href="#overview">Process Architecture</a>
+  <div class="nav-section">
+    <div class="nav-title">Core Processes</div>
+    <a href="#p1">1 · Registration</a>
+    <a href="#p2">2 · Invoice Lifecycle</a>
+    <a href="#p3">3 · Buyer Acceptance</a>
+    <a href="#p4">4 · Risk Waterfall</a>
+    <a href="#p5">5 · 90-Day Forecast</a>
+    <a href="#p6">6 · Liquidation Simulation</a>
+    <a href="#p7">7 · Liquidation Execution</a>
+    <a href="#p8">8 · Settlement</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-title">Supporting Processes</div>
+    <a href="#p9">9 · Expense Management</a>
+    <a href="#p10">10 · Bank Balance</a>
+    <a href="#p11">11 · Clients & Officers</a>
+    <a href="#p12">12 · User & Role Mgmt</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-title">Reference</div>
+    <a href="#audit">Audit Framework</a>
+    <a href="#rbac">RBAC Matrix</a>
+    <a href="#integration">Integration Map</a>
+    <a href="#glossary">Glossary</a>
+  </div>
+</nav>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<main>
+
+  <!-- ── OVERVIEW ── -->
+  <section class="section" id="overview">
+    <div class="section-header">
+      <div class="section-num">0</div>
+      <h2>Process Architecture Overview</h2>
+      <span class="tag">Architecture</span>
+    </div>
+
+    <div class="callout info">
+      CIXOR CashDay (CCD) solves the SME liquidity timing gap by combining a compliant invoice engine, debtor verification, 90-day cash-flow forecasting, and a liquidation simulator into a single daily-use platform.
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">High-Level Process Map</div>
+      <div class="mermaid">
+flowchart TD
+    subgraph Core["Core Processes"]
+      A["🏢 Registration &amp; Identity"] --> B["📄 Invoice Lifecycle"]
+      B --> C["✅ Buyer Acceptance"]
+      C --> D["🔒 Verified Receivable"]
+      D --> E["⚖️ Risk Waterfall"]
+      E --> F["📈 90-Day Forecast"]
+      F --> G["🔬 Liquidation Simulation"]
+      G --> H["💸 Liquidation Execution"]
+      H --> I["🏦 Settlement at Maturity"]
+    end
+
+    subgraph Support["Supporting Processes"]
+      J["💳 Expenses"] --> F
+      K["🏛️ Bank Balance"] --> F
+      L["👥 Clients &amp; Officers"] --> B
+      M["🔑 Users &amp; Roles"] --> A
+    end
+
+    style Core fill:#1a2540,stroke:#30363d,color:#e6edf3
+    style Support fill:#1f2937,stroke:#30363d,color:#e6edf3
+    style A fill:#0d2d50,stroke:#4facfe,color:#e6edf3
+    style D fill:#0d3324,stroke:#00c9a7,color:#e6edf3
+    style I fill:#0d3324,stroke:#3fb950,color:#e6edf3
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Process</th><th>Primary Trigger</th><th>Final Outcome</th></tr></thead>
+        <tbody>
+          <tr><td>Registration</td><td>User submits company sign-up form</td><td><code>CompanyId</code> assigned, JWT issued, user logged in</td></tr>
+          <tr><td>Invoice Creation</td><td>User clicks "New Invoice"</td><td>Invoice in Draft state, CCD Invoice ID assigned</td></tr>
+          <tr><td>Buyer Acceptance</td><td>Debtor officer clicks email link</td><td>Invoice Accepted/Rejected, confidence % recorded</td></tr>
+          <tr><td>Risk Waterfall</td><td>Invoice becomes Verified</td><td>Available to Liquidate amount calculated</td></tr>
+          <tr><td>Forecast Generation</td><td>User loads Dashboard</td><td>90-day cash-flow projection rendered</td></tr>
+          <tr><td>Liquidation Execution</td><td>User confirms liquidation intent</td><td>LiquidityIntent created, buyer consent requested</td></tr>
+          <tr><td>Settlement</td><td>Invoice due date reached</td><td>Payment reconciled, remaining balance remitted</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── PROCESS 1: REGISTRATION ── -->
+  <section class="section" id="p1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Company Registration &amp; Identity Resolution</h2>
+      <span class="tag">Core Platform</span>
+    </div>
+
+    <div class="callout info">
+      Onboards a new SME onto CashDay, resolves identity against CIXOR PayDay ecosystem, and establishes a secure tenant context with a unique <code>CompanyId</code> (bigint).
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Registration Flow &amp; Identity Resolution</div>
+      <div class="mermaid">
+flowchart TD
+    U([User]) --> FORM["Complete Registration Form\nLegal Name · Tax Reg · Business Reg\nEmail Domain · Admin Details"]
+    FORM --> API["POST /api/platform/register"]
+    API --> LOOKUP["GET /internal/payday/company/lookup"]
+
+    LOOKUP --> P1{"Priority 1\nTax Reg Match?"}
+    P1 -->|Yes| EXISTING["Return Existing CompanyId\nMatchPriority = 1"]
+    P1 -->|No| P2{"Priority 2\nBusiness Reg Match?"}
+    P2 -->|Yes| EXISTING2["Return Existing CompanyId\nMatchPriority = 2"]
+    P2 -->|No| P3{"Priority 3\nFuzzy Name + Email?"}
+    P3 -->|Candidate found| CONFIRM{"User Confirms?"}
+    CONFIRM -->|Yes| EXISTING3["Return Existing CompanyId\nMatchPriority = 3"]
+    CONFIRM -->|No| CREATE
+    P3 -->|No match| CREATE["POST /internal/payday/company/create\nNew CompanyId allocated"]
+
+    EXISTING --> LINK
+    EXISTING2 --> LINK
+    EXISTING3 --> LINK
+    CREATE --> LINK
+
+    LINK["Create CompanyLink Record"] --> ADMIN["Create Admin User Account"]
+    ADMIN --> AUDIT["Write Immutable AuditLog\nCompanyRegistered"]
+    AUDIT --> JWT["Issue JWT\nsub · companyId · role · name · email"]
+    JWT --> DONE([User Logged In Dashboard])
+
+    style DONE fill:#0d3324,stroke:#3fb950,color:#e6edf3
+    style JWT fill:#0d2d50,stroke:#4facfe,color:#e6edf3
+    style CREATE fill:#2d1a0d,stroke:#f7971e,color:#e6edf3
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Exception Paths</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Scenario</th><th>Handling</th></tr></thead>
+          <tbody>
+            <tr><td>PayDay HR unavailable</td><td>Polly retry × 3 (exponential backoff) → HTTP 503 on failure. No partial registration.</td></tr>
+            <tr><td>Duplicate registration</td><td>HTTP 409 Conflict: "Company already exists in CashDay."</td></tr>
+            <tr><td>Invalid form data</td><td>HTTP 400 with validation error details.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS 2: INVOICE LIFECYCLE ── -->
+  <section class="section" id="p2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>Invoice Lifecycle Management</h2>
+      <span class="tag">Invoice &amp; Receivables</span>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>Source</th><th>Direction</th><th>Verification</th><th>Liquidation Eligible</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge-blue">System Receivable</span></td><td>Created in CCD UI</td><td>Outgoing</td><td>Can be Verified</td><td><span class="badge-green">Yes (if Verified)</span></td></tr>
+          <tr><td><span class="badge-gold">Manual Receivable</span></td><td>Manually entered</td><td>Outgoing</td><td>Always Unverified</td><td><span class="badge-red">No</span></td></tr>
+          <tr><td><span class="badge-blue">System Payable</span></td><td>Received from CCD user</td><td>Incoming</td><td>Digitally Verified</td><td>N/A (obligation)</td></tr>
+          <tr><td><span class="badge-gold">Manual Payable</span></td><td>Manually entered</td><td>Incoming</td><td>N/A</td><td>Classified as Expense</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Invoice Status State Machine</div>
+      <div class="mermaid">
+stateDiagram-v2
+    [*] --> Draft : Create Invoice
+    Draft --> Draft : Edit
+    Draft --> Deleted : Soft Delete
+    Draft --> Sent : Send (all fields valid)
+    Sent --> Viewed : Officer opens link
+    Sent --> Accepted : OTP verified + accepted
+    Sent --> Rejected : OTP verified + rejected
+    Viewed --> Accepted : OTP verified + accepted
+    Viewed --> Rejected : OTP verified + rejected
+    Accepted --> Liquidated : Buyer consent confirmed
+    Accepted --> Settled : Full payment at maturity
+    Liquidated --> Settled : CCD reconciles payment
+    Settled --> [*]
+
+    note right of Accepted : IsVerified = true\nBuyerConfidencePercent set
+    note right of Liquidated : LiquidityIntent active\nContract rewritten
+      </div>
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Invoice Creation to Sending Flow</div>
+      <div class="mermaid">
+sequenceDiagram
+    participant U as User
+    participant IS as Invoice Service
+    participant PS as Platform Service
+    participant NS as Notification
+    participant RC as Redis Cache
+
+    U->>IS: POST /api/invoices (Save as Draft)
+    IS-->>U: Draft invoice · CcdInvoiceId assigned
+
+    U->>IS: Click "Send"
+    IS->>PS: GET /internal/platform/officer/:id
+    PS-->>IS: Officer email
+    IS->>IS: Generate signed URL token (7-day expiry)
+    IS->>NS: Dispatch acceptance email
+    IS->>IS: Update status → Sent · SentAt recorded
+    IS->>IS: Write InvoiceAuditLog: InvoiceSent
+    IS->>RC: Invalidate forecast cache
+    IS-->>U: Confirmation
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS 3: BUYER ACCEPTANCE ── -->
+  <section class="section" id="p3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Buyer Acceptance &amp; Confidence Declaration</h2>
+      <span class="tag">Invoice &amp; Receivables</span>
+    </div>
+
+    <div class="callout success">
+      Converts a Sent invoice into a Verified Receivable. Buyer declares the undisputed portion (Buyer Confidence %) via OTP-authenticated portal.
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Acceptance Portal Flow – Happy Path</div>
+      <div class="mermaid">
+flowchart LR
+    LINK["Officer clicks\nemail link"] --> TOKEN["GET /acceptance/portal/:token\nValidate token"]
+    TOKEN --> VERIFY["Click 'Verify Identity'"]
+    VERIFY --> OTP_REQ["POST …/otp\nGenerate 6-digit OTP\nHash · store · dispatch"]
+    OTP_REQ --> OTP_ENTER["Officer enters OTP"]
+    OTP_ENTER --> OTP_VAL{"Valid OTP?\n(hash · expiry · single-use)"}
+    OTP_VAL -->|No| OTP_ERR["Show error\nRetry or new OTP"]
+    OTP_VAL -->|Yes| REVIEW["Full Invoice Review Screen\nConfidence Slider 0–100%\nDefault = 100%"]
+    REVIEW --> CHOICE{"Accept or Reject?"}
+    CHOICE -->|Accept| ATOMIC["Atomic Transaction\n✓ Mark OTP used\n✓ Status → Accepted\n✓ IsVerified = true\n✓ BuyerConfidencePercent set\n✓ AcceptanceRecord\n✓ PreConsentAcknowledgement\n✓ Evidence record\n✓ AuditLog entries"]
+    CHOICE -->|Reject| REJECT["Atomic Transaction\n✓ Mark OTP used\n✓ Status → Rejected\n✓ RejectionRecord + reason\n✓ AuditLog entry\n✓ Notify seller"]
+    ATOMIC --> CONFIRM_SCREEN["Show confirmation\nEvidence reference ID"]
+    ATOMIC --> CACHE_INVAL["Invalidate Redis\nforecast cache"]
+
+    style ATOMIC fill:#0d3324,stroke:#3fb950,color:#e6edf3
+    style REJECT fill:#2d1a1a,stroke:#f85149,color:#e6edf3
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>OTP Security Rules</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Scenario</th><th>Behaviour</th></tr></thead>
+          <tbody>
+            <tr><td>Token expired</td><td>"This link has expired. Please contact the sender for a new invoice."</td></tr>
+            <tr><td>OTP expiry (10 min)</td><td>Allow user to request new OTP.</td></tr>
+            <tr><td>OTP reused</td><td>Reject: "Code already used."</td></tr>
+            <tr><td>Rate limit (4th OTP / hr)</td><td>"Too many attempts. Please try again later."</td></tr>
+            <tr><td>DB lost mid-transaction</td><td>Full rollback; invoice remains <code>Sent</code>. Officer can retry.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS 4: RISK WATERFALL ── -->
+  <section class="section" id="p4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>The Risk Waterfall</h2>
+      <span class="tag">Invoice &amp; Receivables</span>
+    </div>
+
+    <div class="callout info">
+      Deterministic, read-only calculation. Applies three layers to convert a Gross invoice amount into the maximum advanceable cash.
+    </div>
+
+    <div class="waterfall">
+      <div class="wf-layer">
+        <div>
+          <div class="wf-label">Layer 1 — Invoice Net-of-Tax Value</div>
+          <div class="wf-desc">System-calculated. Taxes are pass-through obligations, never part of liquidation.</div>
+        </div>
+        <div class="wf-formula">Gross − Tax</div>
+      </div>
+      <div class="wf-arrow">↓</div>
+      <div class="wf-layer">
+        <div>
+          <div class="wf-label">Layer 2 — Eligible Liquidation Value (ELV)</div>
+          <div class="wf-desc">Set by buyer at verification. Represents the undisputed, fully payable portion.</div>
+        </div>
+        <div class="wf-formula">Net × (BuyerConfidence% / 100)</div>
+      </div>
+      <div class="wf-arrow">↓</div>
+      <div class="wf-layer">
+        <div>
+          <div class="wf-label">Layer 3 — Invoice-to-Value Ratio (IVR) Haircut</div>
+          <div class="wf-desc">Platform-level risk haircut set by CCD Admin. Stored in PlatformConfig.</div>
+        </div>
+        <div class="wf-formula">ELV × (IVR% / 100)</div>
+      </div>
+      <div class="wf-arrow">↓</div>
+      <div class="wf-layer">
+        <div>
+          <div class="wf-label">✓ Available to Liquidate</div>
+          <div class="wf-desc">Maximum amount the seller may request for this invoice.</div>
+        </div>
+        <div class="wf-formula">Net × (Confidence/100) × (IVR/100)</div>
+      </div>
+    </div>
+
+    <div class="formula">
+Available to Liquidate = (GrossAmount − TaxAmount) × (BuyerConfidencePercent / 100) × (IvrPercent / 100)
+    </div>
+
+    <div class="card">
+      <h3>Worked Example (LKR)</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Item</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Invoice Gross</td><td>LKR 1,150,000</td></tr>
+            <tr><td>Tax (VAT 15%)</td><td>LKR 150,000</td></tr>
+            <tr><td>Net-of-Tax Value</td><td>LKR 1,000,000</td></tr>
+            <tr><td>Buyer Confidence</td><td>92%</td></tr>
+            <tr><td>ELV</td><td>LKR 920,000</td></tr>
+            <tr><td>Platform IVR</td><td>85%</td></tr>
+            <tr><td><strong>Available to Liquidate</strong></td><td><strong>LKR 782,000</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS 5: FORECAST ── -->
+  <section class="section" id="p5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>90-Day Cash-Flow Forecast Engine</h2>
+      <span class="tag">Cash &amp; Expenses</span>
+    </div>
+
+    <div class="forecast-bar">
+      <div class="forecast-segment">
+        <div class="days" style="color:var(--accent)">30</div>
+        <div class="days-label">Days 1–30</div>
+        <div class="detail">Every day plotted individually. Hover reveals detailed event data points.</div>
+      </div>
+      <div class="forecast-segment">
+        <div class="days" style="color:var(--accent2)">+30</div>
+        <div class="days-label">Days 31–60</div>
+        <div class="detail">Aggregated block. Hover shows aggregated summary; drill-down available.</div>
+      </div>
+      <div class="forecast-segment">
+        <div class="days" style="color:var(--accent3)">+30</div>
+        <div class="days-label">Days 61–90</div>
+        <div class="detail">Aggregated block. Hover shows aggregated summary.</div>
+      </div>
+    </div>
+
+    <div class="formula">
+Day 0 : BankBalance + (OverdraftLimit − OverdraftUsed) = Starting Available Cash
+Day N : PreviousEndBalance + ReceivablesDue(N) − PayablesDue(N) − ExpensesDue(N)
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Dashboard Load &amp; Forecast Computation</div>
+      <div class="mermaid">
+sequenceDiagram
+    participant U as User
+    participant CE as Cash &amp; Expenses Svc
+    participant R as Redis
+    participant CP as Core Platform
+    participant IR as Invoice &amp; Receivables
+
+    U->>CE: GET /api/dashboard
+    CE->>R: Check forecast:{companyId}
+
+    alt Cache HIT (TTL 5 min)
+        R-->>CE: Cached ForecastResult
+        CE-->>U: Response &lt;20ms
+    else Cache MISS
+        CE->>CP: GET /internal/platform/balance
+        CE->>CP: GET /internal/platform/overdraft
+        CE->>IR: GET /internal/invoices/outstanding
+        CE->>CE: Query local expense schedule
+        CP-->>CE: bankBalance
+        CP-->>CE: overdraftLimit, overdraftUsed
+        IR-->>CE: invoices[]
+        CE->>CE: Compute Day 0 startingAvailableCash
+        CE->>CE: Iterate Day 1–90 daily net change
+        CE->>CE: Structure 30-60-90 result
+        CE->>R: Store forecast with TTL 300s
+        CE-->>U: {availableCashToday, forecast[], verifiedInvoices[]}
+    end
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Cache Invalidation Triggers</h3>
+      <p>Redis cache is immediately invalidated on: Invoice status change (Sent/Accepted/Rejected/Liquidated/Settled) · Expense created, updated, or deleted · Bank balance or overdraft updated · IVR configuration changed.</p>
+    </div>
+  </section>
+
+  <!-- ── PROCESS 6: SIMULATION ── -->
+  <section class="section" id="p6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Liquidation Simulation</h2>
+      <span class="tag">Cash &amp; Expenses</span>
+    </div>
+
+    <div class="callout info">
+      Zero-commitment, iterative "what-if" analysis. Overlays a hypothetical cash-flow line on the forecast chart. No database writes during simulation.
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Simulation State Machine</div>
+      <div class="mermaid">
+stateDiagram-v2
+    [*] --> Idle : Dashboard loaded
+    Idle --> Simulating : User enters amount + Simulate
+    Simulating --> Simulating : Adjust amounts / add-remove invoices
+    Simulating --> Idle : Reset Simulation
+    Simulating --> Confirming : Proceed to Liquidation
+    Confirming --> Executing : Confirm &amp; Request Liquidation
+    Confirming --> Simulating : Back to simulation
+    Executing --> [*] : LiquidityIntent created
+
+    note right of Simulating : In-memory only\nRedis session TTL 15 min\nTarget response &lt;200ms
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="actor">User</div><div class="action">Enters amount (0 &lt; amount ≤ AvailableToLiquidate) in simulate field of a verified invoice.</div></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="actor">Angular</div><div class="action">Dispatches <code>runSimulation</code> action with <code>{invoices: [{invoiceId, amount}]}</code>.</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="actor">Cash &amp; Expenses</div><div class="action">Retrieves cached base forecast from Redis. Computes total injection = Σ(requestedAmount) − CCD_Fee.</div></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><div class="actor">Cash &amp; Expenses</div><div class="action">Applies injection to base forecast at settlement date. In-memory arithmetic — zero database I/O.</div></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><div class="actor">Cash &amp; Expenses</div><div class="action">Stores simulation session in Redis (key <code>sim:{companyId}:{sessionId}</code>, TTL 15 min). Returns <code>{actualForecast, hypotheticalForecast, totalInjection, totalFees, netInjection}</code>.</div></div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-body"><div class="actor">Angular</div><div class="action">Renders dashed cyan hypothetical line overlaid on forecast chart.</div></div></div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS 7: LIQUIDATION EXECUTION ── -->
+  <section class="section" id="p7">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Liquidation Execution</h2>
+      <span class="tag">Invoice &amp; Receivables</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Liquidation Lifecycle &amp; Buyer Consent</div>
+      <div class="mermaid">
+flowchart TD
+    MODAL["User reviews Liquidation\nConfirmation Modal\n(breakdown · fees · before/after · settlement path)"]
+    MODAL --> CONFIRM["Click 'Confirm &amp; Request Liquidation'"]
+    CONFIRM --> VALIDATE{"Validate:\nIsVerified?\nAmount ≤ ATL?\nNo active Intent?"}
+    VALIDATE -->|Invalid| ERR([Validation Error])
+    VALIDATE -->|Valid| ATOMIC2["Atomic Transaction\nCreate LiquidityIntent\n• RequestedAmount\n• BuyerConfidenceSnapshot\n• IvrSnapshot · ElvSnapshot · ATL Snapshot\n• CcdFeeAmount · NetCashToSeller\n• BeforeCash · AfterCash\n• BuyerConsentStatus = Pending\n• BuyerConsentExpiry = +48h\n• AuditLog: LiquidityIntentCreated"]
+    ATOMIC2 --> CONSENT_EMAIL["Dispatch Buyer\nConsent Request Email\n(signed URL · 48h expiry)"]
+    CONSENT_EMAIL --> WAITING["Invoice row shows\n'Liquidation Pending'"]
+
+    WAITING --> C_AUTH["Officer: 2FA OTP auth\non consent portal"]
+    C_AUTH --> C_CHOICE{"Confirm or Reject?"}
+
+    C_CHOICE -->|Confirm| C_CONFIRM["BuyerConsentStatus = Confirmed\nContract Rewrite\n→ Payment to CCD\nInvoice.Status = Liquidated\nAuditLog: BuyerConsentConfirmed\nCash Disbursement to seller"]
+    C_CHOICE -->|Reject| C_REJECT["BuyerConsentStatus = Rejected\nNotify seller\nInvoice remains Accepted"]
+    C_CHOICE -->|48h timeout| C_EXPIRE["BuyerConsentStatus = Expired\nNotify seller"]
+
+    style C_CONFIRM fill:#0d3324,stroke:#3fb950,color:#e6edf3
+    style C_REJECT fill:#2d1a1a,stroke:#f85149,color:#e6edf3
+    style C_EXPIRE fill:#2d2007,stroke:#d29922,color:#e6edf3
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>LiquidityIntent – Key Snapshot Fields</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>RequestedAmount</code></td><td>decimal(18,2)</td><td>Amount seller chose to liquidate</td></tr>
+            <tr><td><code>BuyerConfidenceSnapshot</code></td><td>decimal(5,2)</td><td>Buyer confidence % at time of intent</td></tr>
+            <tr><td><code>IvrSnapshot</code></td><td>decimal(5,2)</td><td>IVR % at time of intent</td></tr>
+            <tr><td><code>NetCashToSeller</code></td><td>decimal(18,2)</td><td>RequestedAmount − CcdFeeAmount</td></tr>
+            <tr><td><code>BuyerConsentStatus</code></td><td>nvarchar(20)</td><td>Pending · Confirmed · Rejected · Expired</td></tr>
+            <tr><td><code>ContractJson</code></td><td>nvarchar(max)</td><td>Immutable digital contract (rewritten payment terms)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS 8: SETTLEMENT ── -->
+  <section class="section" id="p8">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>Settlement at Maturity</h2>
+      <span class="tag">Invoice &amp; Receivables</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Settlement Flow (Liquidated Invoice)</div>
+      <div class="mermaid">
+flowchart LR
+    BUYER["Buyer pays\nFull Net-of-Tax Value\nto CCD"] --> RECEIVE["Finance Ops records\npayment receipt"]
+    RECEIVE --> VALIDATE2["Validate payment vs\nInvoice.NetAmount"]
+    VALIDATE2 --> CALC["Calculate:\nCCD Retention = RequestedAmount + Fees\nSeller Remittance = Payment − CCD Retention"]
+    CALC --> REMIT["Remit Seller Remittance\nto seller's bank account"]
+    REMIT --> SETTLE["Invoice.Status = Settled\nWrite AuditLog: InvoiceSettled"]
+    SETTLE --> CACHE2["Invalidate Redis forecast\n(invoice no longer outstanding)"]
+
+    style REMIT fill:#0d3324,stroke:#3fb950,color:#e6edf3
+    style SETTLE fill:#0d3324,stroke:#3fb950,color:#e6edf3
+      </div>
+    </div>
+
+    <div class="callout warning">
+      If payment is less than the full Net value, seller remittance is reduced and the seller remains liable for the shortfall.
+    </div>
+  </section>
+
+  <!-- ── PROCESS 9: EXPENSES ── -->
+  <section class="section" id="p9">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>Expense Management</h2>
+      <span class="tag">Cash &amp; Expenses</span>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>Description</th><th>Forecast Impact</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge-blue">Recurring</span></td><td>Fixed expenses repeating on a schedule (weekly/monthly/quarterly)</td><td>Expanded into daily occurrences for 90-day window</td></tr>
+          <tr><td><span class="badge-gold">One-Off</span></td><td>Planned expenses with a specific due date (equipment, licences)</td><td>Applied on specified due date</td></tr>
+          <tr><td><span class="badge-red">Unplanned</span></td><td>Ad-hoc expenses entered as they occur (emergency repairs)</td><td>Applied on recorded date</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Add Recurring Expense Flow</div>
+      <div class="mermaid">
+flowchart LR
+    A([User]) --> B["Expenses → Recurring → Add Expense"]
+    B --> C["Enter: Name · Amount\nFrequency · Start Date · End Date"]
+    C --> D["POST /api/expenses/recurring"]
+    D --> E["Insert RecurringExpenses record"]
+    E --> F["Write CashAuditLog:\nExpenseCreated"]
+    F --> G["Invalidate Redis forecast cache"]
+    G --> H([Next dashboard load includes new expense projections])
+
+    style H fill:#0d2d50,stroke:#4facfe,color:#e6edf3
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS 10: BANK BALANCE ── -->
+  <section class="section" id="p10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Bank Balance &amp; Overdraft Management</h2>
+      <span class="tag">Core Platform</span>
+    </div>
+
+    <div class="callout info">
+      Maintains the starting point (Day 0) for the 90-day forecast. MVP: manual entry. Available Cash = Bank Balance + (OverdraftLimit − OverdraftUsed).
+    </div>
+
+    <div class="formula">
+Available Cash Today = BankBalance + (OverdraftLimit − OverdraftUsed)
+    </div>
+
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="actor">User (Finance/Admin)</div><div class="action">Navigate to Bank → click "Update Balance".</div></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="actor">User</div><div class="action">Enter new balance and optional note, click "Save".</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="actor">Core Platform</div><div class="action">Insert new record into <code>BankBalanceHistory</code> (append-only, previous balance retained for audit).</div></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><div class="actor">Core Platform</div><div class="action">Update current <code>BankBalance</code> in <code>CompanyConfig</code>. Invalidate Redis forecast cache.</div></div></div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS 11: CLIENTS & OFFICERS ── -->
+  <section class="section" id="p11">
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <h2>Client &amp; Debtor Officer Management</h2>
+      <span class="tag">Core Platform</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Add Client &amp; Officer Flow</div>
+      <div class="mermaid">
+flowchart TD
+    A([User]) --> B["Clients → 'Add Client'\nEnter: company name · legal IDs · address"]
+    B --> C["POST /api/platform/customers\nreturns customerId"]
+    C --> D["Click 'Add Officer'\nEnter: name · email · phone · title"]
+    D --> E["POST /api/platform/customers/:id/officers\nInsert DebtorOfficer record"]
+    E --> F{{"Invoice Creation:\nSelect Customer → Officer\ndropdown filtered by customer"}}
+    F --> G["Officer's email used\nfor acceptance link dispatch"]
+
+    style F fill:#1f2937,stroke:#4facfe,color:#e6edf3
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS 12: USER & ROLES ── -->
+  <section class="section" id="p12">
+    <div class="section-header">
+      <div class="section-num">12</div>
+      <h2>User &amp; Role Management</h2>
+      <span class="tag">Core Platform</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Invite User Flow &amp; Role Life-Cycle</div>
+      <div class="mermaid">
+flowchart LR
+    ADMIN([Admin]) --> INVITE["Users → 'Invite User'\nEnter: email · name · role"]
+    INVITE --> API2["POST /api/platform/users/invite\nCreate User; Status = Invited"]
+    API2 --> EMAIL["Send invitation email\nwith password-set link"]
+    EMAIL --> NEW([Invited User])
+    NEW --> SET["Click link → set password"]
+    SET --> ACTIVE["Status = Active\nJWT issued with role claim"]
+
+    subgraph statuses["User Statuses"]
+      Invited --> Active
+      Active --> Inactive
+    end
+
+    style ACTIVE fill:#0d3324,stroke:#3fb950,color:#e6edf3
+    style statuses fill:#1a2540,stroke:#30363d,color:#e6edf3
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AUDIT FRAMEWORK ── -->
+  <section class="section" id="audit">
+    <div class="section-header">
+      <div class="section-num">★</div>
+      <h2>Audit &amp; Immutability Framework</h2>
+      <span class="tag">All Services</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Audit Principles</div>
+      <div class="mermaid">
+flowchart LR
+    OP["Business Operation"] -->|same DB transaction| AL["Audit Log Entry"]
+    AL --> DENY["DENY DELETE · UPDATE\nat DB level"]
+    DENY --> IMMUTABLE["Immutable Record\nWrite-Only"]
+
+    subgraph tables["Audit Tables"]
+      T1["AuditLog\n(Core Platform)"]
+      T2["InvoiceAuditLog\n(Invoice &amp; Receivables)"]
+      T3["CashAuditLog\n(Cash &amp; Expenses)"]
+    end
+    IMMUTABLE --> tables
+
+    style IMMUTABLE fill:#0d2d1a,stroke:#3fb950,color:#e6edf3
+    style tables fill:#1a2540,stroke:#30363d,color:#e6edf3
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Domain</th><th>Audited Events</th></tr></thead>
+        <tbody>
+          <tr><td>Company</td><td>CompanyRegistered · CompanyLinked · CompanyConfigUpdated</td></tr>
+          <tr><td>Invoice</td><td>InvoiceCreated · Sent · Viewed · OtpIssued · OtpVerified · Accepted · BuyerConfidenceDeclared · Rejected · Liquidated · Settled</td></tr>
+          <tr><td>Liquidity</td><td>LiquidityIntentCreated · BuyerConsentRequested · Confirmed · Rejected · Expired</td></tr>
+          <tr><td>Bank</td><td>BankBalanceUpdated · OverdraftUpdated</td></tr>
+          <tr><td>Expense</td><td>ExpenseCreated · ExpenseUpdated · ExpenseDeleted</td></tr>
+          <tr><td>User</td><td>UserInvited · UserActivated · UserDeactivated · RoleChanged</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── RBAC ── -->
+  <section class="section" id="rbac">
+    <div class="section-header">
+      <div class="section-num">★</div>
+      <h2>Role-Based Access Control Matrix</h2>
+      <span class="tag">Security</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Role Hierarchy</div>
+      <div class="mermaid">
+flowchart TD
+    ADM["🔑 Admin\nFull Access"]
+    FIN["💼 Finance\nDashboard · Invoices · Expenses · Bank · Clients"]
+    SAL["📊 Sales\nDashboard · View Invoices · Create Invoices · View Clients"]
+    ADM -->|includes| FIN
+    FIN -->|includes| SAL
+
+    style ADM fill:#2d1a0d,stroke:#f7971e,color:#e6edf3
+    style FIN fill:#0d2d50,stroke:#4facfe,color:#e6edf3
+    style SAL fill:#0d1f3a,stroke:#8b949e,color:#e6edf3
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table class="rbac">
+        <thead>
+          <tr><th>Feature / Action</th><th>Admin</th><th>Finance</th><th>Sales</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>View Dashboard</td><td><span class="badge-green">✓</span></td><td><span class="badge-green">✓</span></td><td><span class="badge-green">✓</span></td></tr>
+          <tr><td>Create / Edit / Send Invoice</td><td><span class="badge-green">✓</span></td><td><span class="badge-green">✓</span></td><td><span class="badge-gold">Create only</span></td></tr>
+          <tr><td>Delete Draft Invoice</td><td><span class="badge-green">✓</span></td><td><span class="badge-green">✓</span></td><td><span class="badge-red">✗</span></td></tr>
+          <tr><td>View / Manage Expenses</td><td><span class="badge-green">✓</span></td><td><span class="badge-green">✓</span></td><td><span class="badge-red">✗</span></td></tr>
+          <tr><td>Update Bank Balance / Overdraft</td><td><span class="badge-green">✓</span></td><td><span class="badge-green">✓</span></td><td><span class="badge-red">✗</span></td></tr>
+          <tr><td>View / Manage Clients</td><td><span class="badge-green">✓</span></td><td><span class="badge-green">✓</span></td><td><span class="badge-gold">View only</span></td></tr>
+          <tr><td>Initiate / Confirm Liquidation</td><td><span class="badge-green">✓</span></td><td><span class="badge-green">✓</span></td><td><span class="badge-red">✗</span></td></tr>
+          <tr><td>View / Manage Users</td><td><span class="badge-green">✓</span></td><td><span class="badge-red">✗</span></td><td><span class="badge-red">✗</span></td></tr>
+          <tr><td>View / Edit Settings</td><td><span class="badge-green">✓</span></td><td><span class="badge-red">✗</span></td><td><span class="badge-red">✗</span></td></tr>
+          <tr><td>View Audit Log</td><td><span class="badge-green">✓</span></td><td><span class="badge-red">✗</span></td><td><span class="badge-red">✗</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── INTEGRATION MAP ── -->
+  <section class="section" id="integration">
+    <div class="section-header">
+      <div class="section-num">★</div>
+      <h2>Integration &amp; Data Flow</h2>
+      <span class="tag">Architecture</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-title">Service Interaction Map</div>
+      <div class="mermaid">
+flowchart TD
+    FE["Angular Frontend"]
+
+    subgraph CCD["CIXOR CashDay Backend"]
+      CP["Core Platform Service\nCashDay_Platform DB"]
+      IR["Invoice &amp; Receivables Service\nCashDay_Invoice DB"]
+      CE["Cash &amp; Expenses Service\nCashDay_Cash DB"]
+      REDIS[(Redis Cache)]
+    end
+
+    EXT["CIXOR PayDay HR Service"]
+
+    FE -->|REST| CP
+    FE -->|REST| IR
+    FE -->|REST| CE
+
+    CP -->|/internal/payday/company/lookup| EXT
+    CP -->|/internal/payday/company/create| EXT
+
+    CE -->|/internal/platform/balance| CP
+    CE -->|/internal/platform/overdraft| CP
+    CE -->|/internal/platform/config/ivr| CP
+    CE -->|/internal/invoices/outstanding| IR
+    IR -->|/internal/platform/officer/:id| CP
+    IR -->|/internal/platform/config/ivr| CP
+
+    CE <-->|forecast:{companyId}| REDIS
+    CE <-->|sim:{companyId}:{sessionId}| REDIS
+
+    style CCD fill:#1a2540,stroke:#30363d,color:#e6edf3
+    style FE fill:#0d2d50,stroke:#4facfe,color:#e6edf3
+    style EXT fill:#2d1a0d,stroke:#f7971e,color:#e6edf3
+    style REDIS fill:#2d0d0d,stroke:#f85149,color:#e6edf3
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GLOSSARY ── -->
+  <section class="section" id="glossary">
+    <div class="section-header">
+      <div class="section-num">★</div>
+      <h2>Glossary of Business Terms</h2>
+    </div>
+    <div class="glossary-grid">
+      <div class="glossary-item"><div class="term">Available Cash Today</div><div class="def">BankBalance + (OverdraftLimit − OverdraftUsed). Day 0 starting point for the 90-day forecast.</div></div>
+      <div class="glossary-item"><div class="term">Buyer Confidence %</div><div class="def">Percentage of an invoice's net-of-tax value the buyer declares as undisputed and payable in full.</div></div>
+      <div class="glossary-item"><div class="term">CCD Invoice ID</div><div class="def">Unique human-readable identifier assigned to every invoice created in CashDay (e.g. CCD-2026-00123).</div></div>
+      <div class="glossary-item"><div class="term">Debtor Officer</div><div class="def">Individual at the buyer's organisation responsible for invoice acceptance and liquidation consent.</div></div>
+      <div class="glossary-item"><div class="term">Eligible Liquidation Value (ELV)</div><div class="def">Net-of-Tax Value × (BuyerConfidence% / 100). Portion eligible for liquidation after applying buyer confidence.</div></div>
+      <div class="glossary-item"><div class="term">Invoice-to-Value Ratio (IVR)</div><div class="def">Platform-level risk haircut applied by CCD to the ELV to determine the maximum advanceable amount.</div></div>
+      <div class="glossary-item"><div class="term">Liquidity Intent</div><div class="def">Record of the seller's confirmed request to liquidate a verified invoice, including a snapshot of all risk parameters.</div></div>
+      <div class="glossary-item"><div class="term">Manual Receivable</div><div class="def">Invoice entered into CCD for tracking purposes only. Always unverified and ineligible for liquidation.</div></div>
+      <div class="glossary-item"><div class="term">Net-of-Tax Value</div><div class="def">GrossAmount − TaxAmount. The economic value considered for liquidation (taxes are pass-through obligations).</div></div>
+      <div class="glossary-item"><div class="term">System Receivable</div><div class="def">Invoice created and sent through the CCD platform. Eligible for verification and liquidation.</div></div>
+      <div class="glossary-item"><div class="term">Verified Receivable</div><div class="def">Invoice accepted by buyer via OTP with buyer confidence % declared. IsVerified = true. Eligible for liquidation.</div></div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<footer style="background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:.8rem;color:var(--text-muted);">
+  CIXOR CashDay · Business Process Document v1.0 · April 2026 · FINAP Worldwide W.L.L. · <span style="color:var(--danger)">Highly Confidential</span>
+</footer>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'dark',
+    themeVariables: {
+      background: '#0d1117',
+      primaryColor: '#1f2937',
+      primaryTextColor: '#e6edf3',
+      primaryBorderColor: '#30363d',
+      lineColor: '#4facfe',
+      secondaryColor: '#0d2d50',
+      tertiaryColor: '#1a2540',
+      edgeLabelBackground: '#161b22',
+      fontFamily: 'Segoe UI, system-ui, sans-serif',
+      fontSize: '13px',
+    },
+    flowchart: { curve: 'basis', padding: 20 },
+    sequence: { actorMargin: 60, messageMargin: 30 },
+  });
+
+  // Active nav highlighting
+  const sections = document.querySelectorAll('.section');
+  const links    = document.querySelectorAll('nav.sidebar a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const match = document.querySelector(`nav.sidebar a[href="#${e.target.id}"]`);
+        if (match) match.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

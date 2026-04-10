@@ -1,0 +1,412 @@
+<ccd-page-header title="Dashboard" subtitle="Cash forecast, receivables and liquidation planning" />
+
+@if (loading$ | async) {
+  <ccd-loading [loading]="true" message="Loading dashboard…" />
+}
+
+@if (dashboard$ | async; as dashboard) {
+  <section class="hero-grid mb-6 dashboard-section" aria-label="Available cash overview">
+    <article class="hero-card hero-card--primary">
+      <div class="hero-card__eyebrow">Available Cash Today</div>
+      <div class="hero-card__value" [class.negative]="dashboard.availableCashToday < 0">{{ dashboard.availableCashToday | ccdCurrency }}</div>
+      <div class="hero-card__meta">Bank balance + available overdraft</div>
+      <div class="hero-card__details">
+        <span>Balance {{ dashboard.kpi.cashBalance | ccdCurrency }}</span>
+        <span>Overdraft available {{ dashboard.availableOverdraft | ccdCurrency }}</span>
+      </div>
+    </article>
+
+    <article class="hero-card">
+      <div class="hero-card__eyebrow">Verified invoices</div>
+      <div class="hero-card__value">{{ dashboard.verifiedInvoices.length }}</div>
+      <div class="hero-card__meta">{{ totalAvailableToLiquidate(dashboard.verifiedInvoices) | ccdCurrency }} available to liquidate</div>
+    </article>
+
+    <article class="hero-card">
+      <div class="hero-card__eyebrow">Overdraft available</div>
+      <div class="hero-card__value">{{ dashboard.availableOverdraft | ccdCurrency }}</div>
+      <div class="hero-card__meta">Limit {{ dashboard.overdraftLimit | ccdCurrency }} · Used {{ dashboard.overdraftUsed | ccdCurrency }}</div>
+    </article>
+
+    <article class="hero-card">
+      <div class="hero-card__eyebrow">Pending invoices</div>
+      <div class="hero-card__value">{{ dashboard.kpi.pendingInvoices }}</div>
+      <div class="hero-card__meta">{{ dashboard.kpi.totalReceivables | ccdCurrency }} still outstanding</div>
+    </article>
+  </section>
+
+  @if (liquidationPendingMessage) {
+    <div class="status-banner status-banner--success mb-6">
+      <mat-icon>mark_email_read</mat-icon>
+      <div>
+        <strong>Liquidation request submitted.</strong>
+        <span>{{ liquidationPendingMessage }}</span>
+      </div>
+    </div>
+  }
+
+  <section class="dashboard-section mb-6" aria-label="Forecast and liquidation planning">
+    <ccd-ui-card title="90-day cash-flow forecast" subtitle="Base forecast plus hypothetical liquidation impact" [elevated]="true">
+      <div class="forecast-summary">
+        <div class="forecast-chip">
+          <span class="chip-label">Day 0</span>
+          <strong>{{ dashboard.availableCashToday | ccdCurrency }}</strong>
+        </div>
+        <div class="forecast-chip">
+          <span class="chip-label">Day 30</span>
+          <strong>{{ dashboard.forecast[29].projectedCash | ccdCurrency }}</strong>
+        </div>
+        <div class="forecast-chip">
+          <span class="chip-label">Day 60</span>
+          <strong>{{ dashboard.forecast[59].projectedCash | ccdCurrency }}</strong>
+        </div>
+        <div class="forecast-chip">
+          <span class="chip-label">Day 90</span>
+          <strong>{{ dashboard.forecast[89].projectedCash | ccdCurrency }}</strong>
+        </div>
+      </div>
+
+      <div class="forecast-chart-wrap">
+        <apx-chart
+          [series]="getForecastSeries(dashboard)"
+          [chart]="{ type: 'line', height: 360, toolbar: { show: false }, background: 'transparent', foreColor: '#8D96A0', zoom: { enabled: false } }"
+          [stroke]="getForecastStroke()"
+          [dataLabels]="{ enabled: false }"
+          [colors]="getForecastColors()"
+          [xaxis]="getForecastXAxis(dashboard)"
+          [legend]="{ show: true, position: 'top' }"
+          [grid]="{ borderColor: '#21262D' }"
+          [tooltip]="{ shared: true, theme: 'dark', fillSeriesColor: false, style: { fontSize: '12px', fontFamily: 'Inter, sans-serif' } }"
+        />
+      </div>
+
+      <div class="forecast-note">
+        The dashed cyan line appears only during simulation. No funding request is created until you confirm liquidation.
+      </div>
+    </ccd-ui-card>
+  </section>
+
+  <section class="dashboard-section mb-6" aria-label="Verified invoices available for liquidation">
+    <ccd-ui-card title="Verified invoices — available for liquidation" subtitle="Run a what-if simulation before requesting buyer consent">
+      <a card-actions class="ccd-btn btn-ghost btn-sm" routerLink="/invoices">Manage invoices</a>
+
+      @if (dashboard.verifiedInvoices.length) {
+        <div class="verified-note">
+          Enter an amount in <strong>Simulate</strong> to model the cash impact. You can simulate multiple invoices before committing.
+        </div>
+
+        <div class="verified-table-wrap">
+          <table class="verified-table">
+            <thead>
+              <tr>
+                <th>CCD Invoice ID</th>
+                <th>Client</th>
+                <th>Due date</th>
+                <th>Days</th>
+                <th class="text-right">Net value</th>
+                <th>Confidence</th>
+                <th class="text-right">ELV</th>
+                <th class="text-right">Available</th>
+                <th>Simulate</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (invoice of dashboard.verifiedInvoices; track invoice.id) {
+                <tr [class.verified-row--active]="(simulationAmounts[invoice.id] ?? 0) > 0">
+                  <td class="mono">
+                    <a class="table-link" [routerLink]="['/invoices', invoice.id]">{{ invoice.invoiceNumber }}</a>
+                  </td>
+                  <td>
+                    <div class="table-primary">{{ invoice.clientName }}</div>
+                    <div class="table-secondary">Gross {{ invoice.grossAmount | ccdCurrency }}</div>
+                  </td>
+                  <td>{{ invoice.dueDate | date:'d MMM y' }}</td>
+                  <td>
+                    <span
+                      class="maturity-days"
+                      [class.maturity-days--warning]="daysToMaturity(invoice) <= 14 && daysToMaturity(invoice) > 7"
+                      [class.maturity-days--critical]="daysToMaturity(invoice) <= 7"
+                    >
+                      {{ daysToMaturity(invoice) }}
+                    </span>
+                  </td>
+                  <td class="mono text-right">{{ invoice.netOfTax | ccdCurrency }}</td>
+                  <td>
+                    <span
+                      class="confidence-pill"
+                      [class.confidence-pill--high]="invoice.confidenceScore >= 90"
+                      [class.confidence-pill--mid]="invoice.confidenceScore >= 70 && invoice.confidenceScore < 90"
+                      [class.confidence-pill--low]="invoice.confidenceScore < 70"
+                    >
+                      {{ invoice.confidenceScore }}%
+                    </span>
+                  </td>
+                  <td class="mono text-right">{{ invoice.eligibleLiquidationValue | ccdCurrency }}</td>
+                  <td class="mono text-right primary-text">{{ invoice.availableToLiquidate | ccdCurrency }}</td>
+                  <td>
+                    @if (hasPendingIntent(invoice)) {
+                      <span class="inline-status inline-status--pending">Pending</span>
+                    } @else {
+                      <div class="simulate-cell">
+                        <input
+                          type="number"
+                          class="ccd-input simulate-input"
+                          min="0"
+                          [max]="invoice.availableToLiquidate"
+                          [ngModel]="simulationAmounts[invoice.id] ?? null"
+                          (ngModelChange)="setSimulationAmount(invoice.id, $event)"
+                          (blur)="applySimulation(dashboard)"
+                          (keyup.enter)="applySimulation(dashboard)"
+                          placeholder="0"
+                        />
+                        <button
+                          type="button"
+                          class="ccd-btn btn-ghost btn-sm simulate-suggest-btn"
+                          (click)="applySuggestedAmount(invoice, dashboard)"
+                          aria-label="Auto-fill suggested amount"
+                          title="Auto-fill suggested amount"
+                        >
+                          <mat-icon>auto_fix_high</mat-icon>
+                          <span>Fill</span>
+                        </button>
+                      </div>
+                    }
+                  </td>
+                  <td>
+                    @if (hasPendingIntent(invoice)) {
+                      <span class="inline-status inline-status--pending">Liquidation pending</span>
+                    } @else if ((simulationAmounts[invoice.id] ?? 0) > 0) {
+                      <span class="inline-status inline-status--simulating">Simulating</span>
+                    } @else {
+                      <span class="inline-status inline-status--verified">Verified</span>
+                    }
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+
+        @if (simulationSummary) {
+          <div class="simulation-bar">
+            <div>
+              <div class="simulation-bar__title">Simulation active</div>
+              <div class="simulation-bar__meta">
+                {{ simulationSummary.affectedInvoices }} invoice(s) · Requested {{ simulationSummary.totalRequested | ccdCurrency }} · Fees {{ simulationSummary.totalFees | ccdCurrency }} · Net injection <strong>{{ simulationSummary.netInjection | ccdCurrency }}</strong>
+              </div>
+            </div>
+
+            <div class="simulation-bar__actions">
+              <button type="button" class="ccd-btn btn-ghost" (click)="resetSimulation()">Reset simulation</button>
+              @if (user$ | async; as user) {
+                @if (canRequestLiquidation(user.role)) {
+                  <button type="button" class="ccd-btn btn-primary" (click)="openConfirmation()">Proceed to liquidation</button>
+                } @else {
+                  <span class="table-secondary">Only finance roles can request liquidation.</span>
+                }
+              }
+            </div>
+          </div>
+        }
+      } @else {
+        <div class="empty-state">
+          <mat-icon>inventory_2</mat-icon>
+          <div>
+            <strong>No verified invoices yet</strong>
+            <p>Accepted invoices with confidence scoring will appear here for simulation.</p>
+          </div>
+        </div>
+      }
+    </ccd-ui-card>
+  </section>
+
+  <section class="grid-2 mb-6 dashboard-section" aria-label="Revenue and aging insights">
+    <ccd-ui-card *ngIf="revenue$ | async as rev" title="Revenue vs expenses" subtitle="Monthly performance trend" [elevated]="true">
+      <apx-chart
+        [series]="getRevenueSeries(rev)"
+        [chart]="{ type: 'bar', height: 260, toolbar: { show: false }, background: 'transparent', foreColor: '#8D96A0' }"
+        [plotOptions]="{ bar: { borderRadius: 8, columnWidth: '55%' } }"
+        [dataLabels]="{ enabled: false }"
+        [colors]="['#00C9A7', '#4FACFE', '#F7971E']"
+        [xaxis]="getRevenueXAxis(rev)"
+        [legend]="{ show: true, position: 'top' }"
+        [grid]="{ borderColor: '#21262D' }"
+        [fill]="{ opacity: 0.92 }"
+        [tooltip]="{ theme: 'dark', fillSeriesColor: false, style: { fontSize: '12px', fontFamily: 'Inter, sans-serif' } }"
+      />
+    </ccd-ui-card>
+
+    <ccd-ui-card *ngIf="aging$ | async as aging" title="Receivables aging" subtitle="Where collection attention is needed">
+      <div class="aging-list">
+        <div class="aging-row">
+          <span class="aging-label">Current</span>
+          <div class="aging-bar-wrap">
+            <div class="aging-bar green" [style.width.%]="(aging.current.amount / totalAging(aging)) * 100"></div>
+          </div>
+          <span class="aging-amount">{{ aging.current.amount | ccdCurrency }}</span>
+        </div>
+        <div class="aging-row">
+          <span class="aging-label">1-30 days</span>
+          <div class="aging-bar-wrap">
+            <div class="aging-bar yellow" [style.width.%]="(aging.days1_30.amount / totalAging(aging)) * 100"></div>
+          </div>
+          <span class="aging-amount">{{ aging.days1_30.amount | ccdCurrency }}</span>
+        </div>
+        <div class="aging-row">
+          <span class="aging-label">31-60 days</span>
+          <div class="aging-bar-wrap">
+            <div class="aging-bar orange" [style.width.%]="(aging.days31_60.amount / totalAging(aging)) * 100"></div>
+          </div>
+          <span class="aging-amount">{{ aging.days31_60.amount | ccdCurrency }}</span>
+        </div>
+        <div class="aging-row">
+          <span class="aging-label">61-90 days</span>
+          <div class="aging-bar-wrap">
+            <div class="aging-bar red" [style.width.%]="(aging.days61_90.amount / totalAging(aging)) * 100"></div>
+          </div>
+          <span class="aging-amount">{{ aging.days61_90.amount | ccdCurrency }}</span>
+        </div>
+        <div class="aging-row">
+          <span class="aging-label">90+ days</span>
+          <div class="aging-bar-wrap">
+            <div class="aging-bar darkred" [style.width.%]="(aging.over90.amount / totalAging(aging)) * 100"></div>
+          </div>
+          <span class="aging-amount">{{ aging.over90.amount | ccdCurrency }}</span>
+        </div>
+      </div>
+    </ccd-ui-card>
+  </section>
+
+  <section class="grid-2 dashboard-section" aria-label="Client and activity summaries">
+    <ccd-ui-card *ngIf="topClients$ | async as clients" title="Top clients" subtitle="Highest-value relationships this period">
+      <a card-actions class="ccd-btn btn-ghost btn-sm" routerLink="/clients">View all</a>
+
+      @for (client of clients; track client.clientId) {
+        <div class="top-client-row">
+          <div class="client-logo">{{ client.clientName[0] }}</div>
+          <div class="flex-1">
+            <div class="client-name">{{ client.clientName }}</div>
+            <div class="text-xs text-primary">{{ client.totalInvoiced | ccdCurrency }} invoiced</div>
+          </div>
+          <div class="text-right">
+            <div class="text-sm mono">{{ client.outstanding | ccdCurrency }}</div>
+            <div class="text-xs text-muted">outstanding</div>
+          </div>
+        </div>
+      }
+    </ccd-ui-card>
+
+    <ccd-ui-card *ngIf="activity$ | async as acts" title="Recent activity" subtitle="Live updates across the platform">
+      @for (act of acts; track act.id) {
+        <div class="activity-row">
+          <mat-icon class="activity-icon">{{ activityIcon(act.type) }}</mat-icon>
+          <div class="flex-1">
+            <div class="text-sm">{{ act.description }}</div>
+            <div class="text-xs text-muted">{{ act.timestamp | date:'d MMM y, HH:mm' }}</div>
+          </div>
+          @if (act.amount) {
+            <div class="amount-sm">{{ act.amount | ccdCurrency }}</div>
+          }
+        </div>
+      }
+    </ccd-ui-card>
+  </section>
+
+  @if (confirmDialogOpen && simulationSummary) {
+    <div class="dialog-backdrop" (click)="closeConfirmation()">
+      <div class="dialog-card" (click)="$event.stopPropagation()">
+        <div class="dialog-head">
+          <div>
+            <div class="dialog-eyebrow">Liquidation confirmation</div>
+            <h3>Review before requesting buyer consent</h3>
+          </div>
+          <button type="button" class="ccd-btn btn-ghost btn-sm" (click)="closeConfirmation()">Close</button>
+        </div>
+
+        <div class="dialog-table-wrap">
+          <table class="dialog-table">
+            <thead>
+              <tr>
+                <th>Invoice</th>
+                <th>Client</th>
+                <th>Due Date</th>
+                <th class="text-right">Net Value</th>
+                <th class="text-right">Amount</th>
+                <th class="text-right">CCD Fee</th>
+                <th class="text-right">Net to Receive</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (item of selectedSimulationInvoices(dashboard); track item.invoice.id) {
+                <tr>
+                  <td class="mono">{{ item.invoice.invoiceNumber }}</td>
+                  <td>{{ item.invoice.clientName }}</td>
+                  <td>{{ item.invoice.dueDate | date:'d MMM y' }}</td>
+                  <td class="mono text-right">{{ item.invoice.netOfTax | ccdCurrency }}</td>
+                  <td class="mono text-right">{{ item.amount | ccdCurrency }}</td>
+                  <td class="mono text-right">{{ item.fee | ccdCurrency }}</td>
+                  <td class="mono text-right primary-text">{{ item.netToReceive | ccdCurrency }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+
+        <div class="dialog-grid">
+          <div class="dialog-metric">
+            <span>Total cash injection</span>
+            <strong>{{ simulationSummary.totalRequested | ccdCurrency }}</strong>
+          </div>
+          <div class="dialog-metric">
+            <span>Total CCD fees</span>
+            <strong>{{ simulationSummary.totalFees | ccdCurrency }}</strong>
+          </div>
+          <div class="dialog-metric dialog-metric--accent">
+            <span>Net to your bank</span>
+            <strong>{{ simulationSummary.netInjection | ccdCurrency }}</strong>
+          </div>
+        </div>
+
+        <div class="dialog-compare">
+          <div class="dialog-compare__title">Before vs after cash position</div>
+          <div class="dialog-compare__row dialog-compare__row--head">
+            <span></span>
+            <strong>Before</strong>
+            <strong>After</strong>
+          </div>
+          <div class="dialog-compare__row">
+            <span>Available cash today</span>
+            <span>{{ dashboard.availableCashToday | ccdCurrency }}</span>
+            <strong>{{ dashboard.availableCashToday + simulationSummary.netInjection | ccdCurrency }}</strong>
+          </div>
+          <div class="dialog-compare__row">
+            <span>Lowest projected balance</span>
+            <span>{{ lowestProjectedCash(dashboard) | ccdCurrency }} · {{ lowestProjectedCashDate(dashboard) }}</span>
+            <strong>{{ lowestProjectedCash(dashboard, true) | ccdCurrency }} · {{ lowestProjectedCashDate(dashboard, true) }}</strong>
+          </div>
+          <div class="dialog-compare__row">
+            <span>Break-even date</span>
+            <span>{{ breakEvenText(dashboard) }}</span>
+            <strong>{{ breakEvenText(dashboard, true) }}</strong>
+          </div>
+        </div>
+
+        <div class="dialog-callout dialog-callout--warning">
+          <strong>⚠ Settlement path change</strong>
+          <p>If you confirm, payment for the selected invoice(s) will be redirected to CIXOR. You remain liable if the buyer fails to settle on the due date.</p>
+        </div>
+
+        <div class="dialog-callout dialog-callout--info">
+          <strong>ℹ Buyer consent required</strong>
+          <p>Each buyer will receive a consent request. Liquidation remains pending until the debtor officer confirms within 48 hours.</p>
+        </div>
+
+        <div class="dialog-actions">
+          <button type="button" class="ccd-btn btn-ghost" (click)="closeConfirmation()">Back to simulation</button>
+          <button type="button" class="ccd-btn btn-primary" (click)="confirmLiquidation(dashboard)">Confirm &amp; request liquidation</button>
+        </div>
+      </div>
+    </div>
+  }
+}

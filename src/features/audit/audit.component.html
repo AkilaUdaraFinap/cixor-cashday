@@ -1,0 +1,91 @@
+<ccd-page-header title="Audit log" subtitle="A complete record of actions across the system" />
+
+<ccd-ui-card title="Filters" subtitle="Narrow the audit trail by user, action, or date range" class="mb-4">
+  <form [formGroup]="filterForm" class="audit-filter-bar">
+    <div class="form-field">
+      <label class="ccd-label" for="audit-user">User</label>
+      <input id="audit-user" formControlName="userId" class="ccd-input" placeholder="Filter by user" />
+    </div>
+
+    <div class="form-field">
+      <label class="ccd-label" for="audit-action">Action</label>
+      <select id="audit-action" formControlName="action" class="ccd-input">
+        <option value="">All actions</option>
+        @for (a of actionOptions; track a) {
+          <option [value]="a">{{ a }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label class="ccd-label" for="audit-from">From</label>
+      <input id="audit-from" formControlName="dateFrom" type="date" class="ccd-input" />
+    </div>
+
+    <div class="form-field">
+      <label class="ccd-label" for="audit-to">To</label>
+      <input id="audit-to" formControlName="dateTo" type="date" class="ccd-input" />
+    </div>
+
+    <ccd-ui-button type="button" variant="ghost" size="sm" class="audit-clear" (click)="clearFilters()">
+      <mat-icon>clear</mat-icon>
+      Clear
+    </ccd-ui-button>
+  </form>
+</ccd-ui-card>
+
+@if (loading$ | async) {
+  <ccd-loading [loading]="true" message="Loading audit logs…" />
+} @else if ((logs$ | async)?.length === 0) {
+  <ccd-empty-state icon="history" title="No audit records" description="System actions will appear here once activity is logged." />
+} @else {
+  <ccd-ui-table title="Audit history" subtitle="Changes, access events, and operational actions" ariaLabel="Audit table">
+    <table class="ccd-table">
+      <thead>
+        <tr>
+          <th>Timestamp</th>
+          <th>User</th>
+          <th>Action</th>
+          <th>Entity</th>
+          <th>Description</th>
+          <th>IP address</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (log of logs$ | async; track log.id) {
+          <tr>
+            <td class="mono text-sm text-muted">{{ log.createdAt | date:'d MMM y, HH:mm:ss' }}</td>
+            <td>
+              <div class="text-sm font-semi">{{ log.userName }}</div>
+              <div class="text-xs text-muted">{{ log.userEmail }}</div>
+            </td>
+            <td>
+              <span class="action-badge" [class]="actionClass(log.action)">{{ log.action }}</span>
+            </td>
+            <td class="text-sm">
+              {{ log.entityType }}
+              <div class="mono text-xs text-muted">{{ log.entityId }}</div>
+            </td>
+            <td class="text-sm">{{ log.entityLabel || log.entityId || '—' }}</td>
+            <td class="mono text-xs text-muted">{{ log.ipAddress || '—' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+
+    @if (pagination$ | async; as pg) {
+      <div table-footer class="pagination-bar">
+        <span class="text-muted text-sm">{{ pg.totalCount }} entries</span>
+        <div class="pagination-actions">
+          <button type="button" class="icon-btn" [disabled]="pg.page <= 1" (click)="prevPage(pg.page, pg.pageSize)" aria-label="Previous page">
+            <mat-icon>chevron_left</mat-icon>
+          </button>
+          <span class="text-sm">{{ pg.page }} / {{ total(pg) }}</span>
+          <button type="button" class="icon-btn" [disabled]="pg.page >= total(pg)" (click)="nextPage(pg.page, pg.pageSize)" aria-label="Next page">
+            <mat-icon>chevron_right</mat-icon>
+          </button>
+        </div>
+      </div>
+    }
+  </ccd-ui-table>
+}

@@ -1,0 +1,50 @@
+<div class="dialog-shell">
+  <div class="dialog-header">
+    <div>
+      <h2 class="dialog-title">{{ isEdit ? 'Edit expense' : 'Add expense' }}</h2>
+      <p class="dialog-subtitle">Capture accurate spend details and supporting notes.</p>
+    </div>
+    <button type="button" class="dialog-close" (click)="close()" aria-label="Close expense form">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="dialog-form">
+    <div class="dialog-body">
+      <div class="form-field">
+        <label class="ccd-label" for="expense-category">Category</label>
+        <select id="expense-category" formControlName="category" class="ccd-input">
+          <option value="">Select category…</option>
+          @for (cat of categories; track cat) {
+            <option [value]="cat">{{ cat }}</option>
+          }
+        </select>
+        @if (getFieldError('category')) {
+          <span class="field-error">{{ getFieldError('category') }}</span>
+        }
+      </div>
+
+      <ccd-ui-input formControlName="description" label="Description" placeholder="Brief description" [error]="getFieldError('description')" />
+
+      <div class="form-grid-2">
+        <ccd-ui-input formControlName="amount" label="Amount" type="number" inputMode="decimal" placeholder="0.00" [error]="getFieldError('amount')" />
+        <div class="form-field">
+          <label class="ccd-label" for="expense-date">Date</label>
+          <input id="expense-date" formControlName="date" type="date" class="ccd-input" />
+        </div>
+      </div>
+
+      <ccd-ui-input formControlName="receiptUrl" label="Receipt reference" placeholder="Upload link or reference" />
+
+      <div class="form-field">
+        <label class="ccd-label" for="expense-notes">Notes</label>
+        <textarea id="expense-notes" formControlName="notes" class="ccd-input" rows="4" placeholder="Additional context for approvers"></textarea>
+      </div>
+    </div>
+
+    <div class="dialog-footer">
+      <ccd-ui-button type="button" variant="ghost" (click)="close()">Cancel</ccd-ui-button>
+      <ccd-ui-button type="submit" [disabled]="form.invalid">{{ isEdit ? 'Save changes' : 'Add expense' }}</ccd-ui-button>
+    </div>
+  </form>
+</div>

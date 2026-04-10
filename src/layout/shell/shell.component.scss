@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+.ccd-shell {
+  position: relative;
+}
+
+.ccd-shell__backdrop {
+  position: fixed;
+  inset: 0;
+  border: 0;
+  background: rgba(15, 23, 42, 0.56);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 95;
+}
+
+@media (max-width: 960px) {
+  .ccd-shell.sidebar-open .ccd-shell__backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

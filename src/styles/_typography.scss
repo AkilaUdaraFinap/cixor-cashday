@@ -1,0 +1,54 @@
+// Typography helpers
+.font-mono {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+}
+
+.text-xs   { font-size: var(--text-xs); }
+.text-sm   { font-size: var(--text-sm); }
+.text-base { font-size: var(--text-base); }
+.text-lg   { font-size: var(--text-lg); }
+.text-xl   { font-size: var(--text-xl); }
+.text-2xl  { font-size: var(--text-2xl); }
+.text-3xl  { font-size: var(--text-3xl); }
+
+.font-light   { font-weight: 300; }
+.font-normal  { font-weight: 400; }
+.font-medium  { font-weight: 500; }
+.font-semi    { font-weight: 600; }
+.font-bold    { font-weight: 700; }
+.font-extrabold { font-weight: 800; }
+
+.text-primary  { color: var(--ccd-primary) !important; }
+.text-secondary{ color: var(--ccd-secondary) !important; }
+.text-muted    { color: var(--ccd-text-muted) !important; }
+.text-danger   { color: var(--ccd-danger) !important; }
+.text-success  { color: var(--ccd-success) !important; }
+.text-warning  { color: var(--ccd-warning) !important; }
+.text-accent   { color: var(--ccd-accent) !important; }
+
+.caption {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: var(--ccd-text-muted);
+}
+
+.page-title {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--ccd-text);
+  line-height: 1.2;
+}
+
+.section-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--ccd-text);
+}
+
+.card-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--ccd-text);
+}

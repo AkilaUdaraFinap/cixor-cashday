@@ -1,0 +1,195 @@
+<ccd-page-header title="Settings" subtitle="Company, invoice defaults, security, and notification preferences" />
+
+<section class="settings-grid">
+  <div class="settings-stack">
+    <ccd-ui-card title="Company profile" subtitle="Control the default business identity used across invoices and cash forecasts" [elevated]="true">
+      <form class="settings-form" [formGroup]="companyForm" (ngSubmit)="saveCompany()">
+        <div class="form-grid-2">
+          <ccd-ui-input formControlName="businessName" label="Business name" placeholder="Cixor Finance (Pty) Ltd" />
+          <ccd-ui-input formControlName="registrationNumber" label="Registration number" placeholder="2025/123456/07" />
+        </div>
+
+        <div class="form-grid-2">
+          <ccd-ui-input formControlName="vatNumber" label="VAT number" placeholder="4123456789" />
+          <ccd-ui-input formControlName="paymentTerms" type="number" label="Default payment terms (days)" />
+        </div>
+
+        <div class="form-grid-2">
+          <label class="select-input">
+            <span>Country</span>
+            <select class="ccd-input" formControlName="country">
+              <option value="South Africa">South Africa</option>
+              <option value="Sri Lanka">Sri Lanka</option>
+              <option value="Singapore">Singapore</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="United States">United States</option>
+            </select>
+          </label>
+
+          <label class="select-input">
+            <span>Default currency</span>
+            <select class="ccd-input" formControlName="defaultCurrency">
+              <option value="ZAR">ZAR</option>
+              <option value="LKR">LKR</option>
+              <option value="SGD">SGD</option>
+              <option value="GBP">GBP</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-grid-2">
+          <label class="select-input">
+            <span>Locale</span>
+            <select class="ccd-input" formControlName="locale">
+              <option value="en-ZA">English (South Africa)</option>
+              <option value="en-LK">English (Sri Lanka)</option>
+              <option value="en-SG">English (Singapore)</option>
+              <option value="en-GB">English (United Kingdom)</option>
+              <option value="en-US">English (United States)</option>
+            </select>
+          </label>
+        </div>
+
+        <ccd-ui-button type="submit" [disabled]="companyForm.invalid || companyForm.pristine">Save company settings</ccd-ui-button>
+      </form>
+    </ccd-ui-card>
+
+    <ccd-ui-card title="Workspace owner" subtitle="Keep your admin contact details up to date">
+      @if (user$ | async; as user) {
+        <div class="profile-summary">
+          <div class="profile-avatar">{{ user.firstName[0] }}{{ user.lastName[0] }}</div>
+          <div>
+            <div class="profile-name">{{ user.firstName }} {{ user.lastName }}</div>
+            <div class="profile-role">{{ user.role }}</div>
+            <div class="profile-email">{{ user.email }}</div>
+          </div>
+        </div>
+      }
+
+      <form class="settings-form" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+        <div class="form-grid-2">
+          <ccd-ui-input formControlName="firstName" label="First name" placeholder="Jane" [error]="getProfileError('firstName')" />
+          <ccd-ui-input formControlName="lastName" label="Last name" placeholder="Doe" [error]="getProfileError('lastName')" />
+        </div>
+
+        <ccd-ui-input formControlName="email" label="Work email" type="email" [readonly]="true" hint="Email changes are managed by support." />
+        <ccd-ui-input formControlName="phone" label="Phone" type="tel" placeholder="+27 82 000 0000" />
+
+        <ccd-ui-button type="submit" [disabled]="profileForm.invalid || profileForm.pristine">Save profile</ccd-ui-button>
+      </form>
+    </ccd-ui-card>
+  </div>
+
+  <div class="settings-stack">
+    <ccd-ui-card title="Invoice defaults" subtitle="Set numbering, footer content, and reminder cadence for new receivables">
+      <form class="settings-form" [formGroup]="templateForm" (ngSubmit)="saveTemplates()">
+        <div class="form-grid-2">
+          <ccd-ui-input formControlName="invoicePrefix" label="Invoice prefix" placeholder="INV" />
+          <label class="select-input">
+            <span>Reminder cadence</span>
+            <select class="ccd-input" formControlName="reminderCadence">
+              <option value="7 days before due date">7 days before due date</option>
+              <option value="3 days before due date">3 days before due date</option>
+              <option value="On due date">On due date</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="select-input">
+          <span>Footer note</span>
+          <textarea class="ccd-input" rows="3" formControlName="footerNote"></textarea>
+        </label>
+
+        <label class="pref-row pref-row--soft">
+          <div class="pref-copy">
+            <span class="pref-label">Include bank details on invoice</span>
+            <span class="pref-desc">Adds your settlement instructions to PDF and email receipts.</span>
+          </div>
+
+          <span class="pref-switch">
+            <input type="checkbox" formControlName="includeBankDetails" aria-label="Include bank details on invoice" />
+            <span class="pref-switch__track"></span>
+          </span>
+        </label>
+
+        <ccd-ui-button type="submit">Save invoice defaults</ccd-ui-button>
+      </form>
+    </ccd-ui-card>
+
+    <ccd-ui-card title="Security" subtitle="Update your sign-in credentials">
+      <form class="settings-form" [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+        <ccd-ui-input
+          formControlName="currentPassword"
+          label="Current password"
+          type="password"
+          [showPasswordToggle]="true"
+          [error]="getPasswordError('currentPassword')"
+        />
+
+        <ccd-ui-input
+          formControlName="newPassword"
+          label="New password"
+          type="password"
+          [showPasswordToggle]="true"
+          hint="Use at least 8 characters."
+          [error]="getPasswordError('newPassword')"
+        />
+
+        <ccd-ui-input
+          formControlName="confirmPassword"
+          label="Confirm new password"
+          type="password"
+          [showPasswordToggle]="true"
+          [error]="getPasswordError('confirmPassword')"
+        />
+
+        <ccd-ui-button type="submit" [disabled]="passwordForm.invalid">Update password</ccd-ui-button>
+      </form>
+    </ccd-ui-card>
+
+    <ccd-ui-card title="Notifications" subtitle="Choose what your team should be alerted about">
+      <form class="settings-form" [formGroup]="notifForm" (ngSubmit)="saveNotifications()">
+        @for (pref of notifPrefs; track pref.key) {
+          <label class="pref-row">
+            <div class="pref-copy">
+              <span class="pref-label">{{ pref.label }}</span>
+              <span class="pref-desc">{{ pref.desc }}</span>
+            </div>
+
+            <span class="pref-switch">
+              <input type="checkbox" [formControlName]="pref.key" [attr.aria-label]="pref.label" />
+              <span class="pref-switch__track"></span>
+            </span>
+          </label>
+        }
+
+        <ccd-ui-button type="submit">Save preferences</ccd-ui-button>
+      </form>
+    </ccd-ui-card>
+
+    <ccd-ui-card title="Appearance" subtitle="Choose the visual theme for your workspace">
+      <form class="settings-form" [formGroup]="appearanceForm" (ngSubmit)="saveAppearance()">
+        <label class="select-input">
+          <span>Theme</span>
+          <select class="ccd-input" formControlName="theme">
+            @for (option of themeOptions; track option.value) {
+              <option [value]="option.value">{{ option.label }}</option>
+            }
+          </select>
+        </label>
+
+        <div class="text-sm text-muted">
+          @for (option of themeOptions; track option.value) {
+            @if (appearanceForm.get('theme')?.value === option.value) {
+              <span>{{ option.description }}</span>
+            }
+          }
+        </div>
+
+        <ccd-ui-button type="submit" [disabled]="appearanceForm.pristine">Save appearance</ccd-ui-button>
+      </form>
+    </ccd-ui-card>
+  </div>
+</section>

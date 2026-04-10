@@ -1,0 +1,96 @@
+:host {
+  display: block;
+  max-height: min(88vh, 40rem);
+}
+
+.dialog-shell {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  max-height: inherit;
+  overflow: hidden;
+}
+
+.dialog-form {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.dialog-header,
+.dialog-footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+}
+
+.dialog-header {
+  border-bottom: 1px solid var(--ccd-border);
+}
+
+.dialog-footer {
+  border-top: 1px solid var(--ccd-border);
+  justify-content: flex-end;
+}
+
+.dialog-title {
+  margin: 0;
+  color: var(--ccd-text);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.dialog-subtitle,
+.dialog-note {
+  color: var(--ccd-text-muted);
+  font-size: var(--text-sm);
+}
+
+.dialog-subtitle {
+  margin: 0.35rem 0 0;
+}
+
+.dialog-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ccd-text-muted);
+  cursor: pointer;
+}
+
+.dialog-body {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.dialog-note {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--ccd-border);
+  border-radius: var(--radius-md);
+  background: var(--ccd-surface-2);
+}
+
+@media (max-width: 640px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}

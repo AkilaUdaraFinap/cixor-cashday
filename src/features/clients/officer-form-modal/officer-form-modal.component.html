@@ -1,0 +1,73 @@
+<div class="dialog-shell">
+  <header class="dialog-header">
+    <div>
+      <p class="dialog-eyebrow">Authorised representative</p>
+      <h2 class="dialog-title">{{ data.officer ? 'Edit officer' : 'Add officer' }}</h2>
+      <p class="dialog-subtitle">Keep director and signatory contact details accurate for onboarding and compliance.</p>
+    </div>
+
+    <button type="button" class="dialog-close" (click)="close()" aria-label="Close officer form">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="dialog-form">
+    <div class="dialog-body">
+      <div class="form-grid form-grid--two">
+        <ccd-ui-input
+          formControlName="firstName"
+          label="First name"
+          placeholder="Jane"
+          icon="person"
+          [error]="getFieldError('firstName')"
+        />
+
+        <ccd-ui-input
+          formControlName="lastName"
+          label="Last name"
+          placeholder="Doe"
+          icon="badge"
+          [error]="getFieldError('lastName')"
+        />
+
+        <ccd-ui-input
+          formControlName="title"
+          label="Title / position"
+          placeholder="Chief Financial Officer"
+          icon="work_outline"
+        />
+
+        <ccd-ui-input
+          formControlName="idNumber"
+          label="ID number"
+          placeholder="8001015009087"
+          icon="credit_card"
+        />
+
+        <ccd-ui-input
+          formControlName="email"
+          type="email"
+          label="Email address"
+          placeholder="jane@acme.co.za"
+          icon="mail"
+          [error]="getFieldError('email')"
+        />
+
+        <ccd-ui-input
+          formControlName="phone"
+          type="tel"
+          label="Phone number"
+          placeholder="+27 82 000 0000"
+          icon="call"
+        />
+      </div>
+    </div>
+
+    <footer class="dialog-footer">
+      <ccd-ui-button type="button" variant="ghost" (click)="close()">Cancel</ccd-ui-button>
+      <ccd-ui-button type="submit" [disabled]="form.invalid">
+        {{ data.officer ? 'Save changes' : 'Add officer' }}
+      </ccd-ui-button>
+    </footer>
+  </form>
+</div>

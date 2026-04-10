@@ -1,0 +1,138 @@
+<ccd-page-header [title]="isEdit ? 'Edit invoice' : 'Create invoice'" [backRoute]="'/invoices'" />
+
+@if (loading$ | async) {
+  <ccd-loading [loading]="true" message="Preparing invoice workspace..." />
+} @else {
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="invoice-form-layout">
+    <div class="form-column">
+      <ccd-ui-card title="Invoice details" subtitle="Set the customer, dates, and reference information for this bill.">
+        <div class="invoice-grid">
+          <div class="form-field">
+            <label class="ccd-label" for="clientId">Client</label>
+            <select id="clientId" formControlName="clientId" class="ccd-input" [class.input-error]="!!getFieldError('clientId')">
+              <option value="">Select client...</option>
+              @for (client of clients$ | async; track client.id) {
+                <option [value]="client.id">{{ client.name }}</option>
+              }
+            </select>
+            @if (getFieldError('clientId')) {
+              <span class="field-error">{{ getFieldError('clientId') }}</span>
+            }
+          </div>
+
+          <ccd-ui-input
+            formControlName="poNumber"
+            label="Purchase order"
+            placeholder="PO-0001"
+            icon="tag"
+          />
+
+          <div class="form-field">
+            <label class="ccd-label" for="issueDate">Issue date</label>
+            <input id="issueDate" formControlName="issueDate" type="date" class="ccd-input" />
+          </div>
+
+          <div class="form-field">
+            <label class="ccd-label" for="dueDate">Due date</label>
+            <input id="dueDate" formControlName="dueDate" type="date" class="ccd-input" />
+          </div>
+
+          <div class="form-field form-field--full">
+            <label class="ccd-label" for="serviceMonth">Service month</label>
+            <input id="serviceMonth" formControlName="serviceMonth" type="month" class="ccd-input" />
+          </div>
+        </div>
+      </ccd-ui-card>
+
+      <ccd-ui-card title="Line items" subtitle="Break the invoice into billable items with quantities and tax rates.">
+        <div card-actions>
+          <ccd-ui-button type="button" variant="ghost" size="sm" (click)="addLine()">Add line</ccd-ui-button>
+        </div>
+
+        <div class="line-items-header">
+          <span>Description</span>
+          <span>Qty</span>
+          <span>Unit price</span>
+          <span>Tax %</span>
+          <span class="text-right">Line total</span>
+          <span></span>
+        </div>
+
+        <div formArrayName="lineItems" class="line-items-list">
+          @for (line of lineItems.controls; track line; let i = $index) {
+            <div [formGroupName]="i" class="line-item-row">
+              <input formControlName="description" class="ccd-input" placeholder="Description" />
+              <input formControlName="quantity" type="number" min="0" class="ccd-input" placeholder="1" (input)="recalc()" />
+              <input formControlName="unitPrice" type="number" min="0" step="0.01" class="ccd-input" placeholder="0.00" (input)="recalc()" />
+              <input formControlName="taxRate" type="number" min="0" max="100" class="ccd-input" placeholder="15" (input)="recalc()" />
+              <span class="line-total mono">{{ lineTotal(line) | ccdCurrency }}</span>
+              <button
+                type="button"
+                class="icon-delete"
+                (click)="removeLine(i)"
+                [disabled]="lineItems.length === 1"
+                [attr.aria-label]="'Remove line ' + (i + 1)"
+              >
+                <mat-icon>remove_circle_outline</mat-icon>
+              </button>
+            </div>
+          }
+        </div>
+      </ccd-ui-card>
+
+      <ccd-ui-card title="Notes and terms" subtitle="Add internal context and payment instructions for the customer.">
+        <div class="invoice-grid">
+          <div class="form-field form-field--full">
+            <label class="ccd-label" for="notes">Internal notes</label>
+            <textarea
+              id="notes"
+              formControlName="notes"
+              class="ccd-input ccd-textarea"
+              rows="4"
+              placeholder="Notes visible only to your team..."
+            ></textarea>
+          </div>
+
+          <div class="form-field form-field--full">
+            <label class="ccd-label" for="paymentTerms">Payment terms</label>
+            <textarea
+              id="paymentTerms"
+              formControlName="paymentTerms"
+              class="ccd-input ccd-textarea"
+              rows="3"
+              placeholder="Payment due within 30 days of invoice date."
+            ></textarea>
+          </div>
+        </div>
+      </ccd-ui-card>
+    </div>
+
+    <aside class="preview-column">
+      <ccd-ui-card title="Amount breakdown" subtitle="Live preview of the payable total as you edit the invoice." [elevated]="true">
+        <ccd-waterfall [breakdown]="previewWaterfall" />
+
+        <div class="summary-list">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong class="mono">{{ subtotal | ccdCurrency }}</strong>
+          </div>
+          <div class="summary-row">
+            <span>Tax</span>
+            <strong class="mono">{{ taxTotal | ccdCurrency }}</strong>
+          </div>
+          <div class="summary-row summary-row--total">
+            <span>Net payable</span>
+            <strong class="mono">{{ netTotal | ccdCurrency }}</strong>
+          </div>
+        </div>
+
+        <div class="preview-actions">
+          <ccd-ui-button type="button" variant="ghost" [fullWidth]="true" (click)="router.navigate(['/invoices'])">Cancel</ccd-ui-button>
+          <ccd-ui-button type="submit" [loading]="(loading$ | async) ?? false" [disabled]="form.invalid" [fullWidth]="true">
+            {{ isEdit ? 'Save changes' : 'Create invoice' }}
+          </ccd-ui-button>
+        </div>
+      </ccd-ui-card>
+    </aside>
+  </form>
+}

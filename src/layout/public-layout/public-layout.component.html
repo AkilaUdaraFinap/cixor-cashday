@@ -1,0 +1,52 @@
+<div class="public-layout">
+  <button
+    type="button"
+    class="ccd-btn btn-ghost btn-sm public-theme-toggle"
+    (click)="theme.toggleTheme()"
+    [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+  >
+    <mat-icon>{{ theme.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    {{ theme.isDark() ? 'Light mode' : 'Dark mode' }}
+  </button>
+
+  <section class="public-layout__panel">
+    <div class="public-brand">
+      <div class="brand-mark">CX</div>
+      <div>
+        <div class="brand-name">CIXOR CashDay</div>
+        <div class="brand-tagline">Invoice financing made simple</div>
+      </div>
+    </div>
+
+    <div class="public-hero">
+      <span class="ccd-badge badge-secondary">B2B finance operating system</span>
+      <h1>Move faster with a cleaner, smarter cash-flow workflow.</h1>
+      <p>
+        Manage onboarding, invoices, approvals, and collections with a polished experience built for modern finance teams.
+      </p>
+
+      <div class="public-highlights">
+        <div class="highlight-item">
+          <mat-icon>shield</mat-icon>
+          <span>Secure approvals and consent flows</span>
+        </div>
+        <div class="highlight-item">
+          <mat-icon>insights</mat-icon>
+          <span>Live visibility into receivables and funding</span>
+        </div>
+        <div class="highlight-item">
+          <mat-icon>bolt</mat-icon>
+          <span>Operational speed with fewer manual steps</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="public-card" aria-label="Authentication form">
+    <router-outlet />
+  </section>
+</div>
+
+<div class="public-footer">
+  &copy; {{ year }} CIXOR Group. All rights reserved.
+</div>

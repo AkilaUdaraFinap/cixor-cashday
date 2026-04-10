@@ -1,0 +1,109 @@
+<ccd-page-header title="Bank &amp; cash position" subtitle="Monitor operating balances, overdraft headroom, and live cash movement" />
+
+@if (dashboard$ | async; as dashboard) {
+  <section class="grid-3 mb-6" aria-label="Cash position summary">
+    <article class="stat-card">
+      <div class="stat-label">Operating balance</div>
+      <div class="stat-value">{{ dashboard.kpi.cashBalance | ccdCurrency }}</div>
+      <div class="stat-sub">Latest recorded working capital balance</div>
+    </article>
+
+    <article class="stat-card">
+      <div class="stat-label">Overdraft facility</div>
+      <div class="stat-value">{{ dashboard.availableOverdraft | ccdCurrency }}</div>
+      <div class="stat-sub">Limit {{ dashboard.overdraftLimit | ccdCurrency }} · Used {{ dashboard.overdraftUsed | ccdCurrency }}</div>
+    </article>
+
+    <article class="stat-card">
+      <div class="stat-label">Available cash today</div>
+      <div class="stat-value">{{ dashboard.availableCashToday | ccdCurrency }}</div>
+      <div class="stat-sub">Balance + available overdraft</div>
+    </article>
+  </section>
+}
+
+@if (accounts$ | async; as accounts) {
+  <section class="account-cards mb-6" aria-label="Bank accounts">
+    @for (acc of accounts; track acc.id) {
+      <button
+        type="button"
+        class="account-card"
+        [class.selected]="(selectedId$ | async) === acc.id"
+        [attr.aria-pressed]="(selectedId$ | async) === acc.id"
+        (click)="onSelectAccount(acc.id)"
+      >
+        <div class="acc-bank">{{ acc.bankName }}</div>
+        <div class="acc-name">{{ acc.name }}</div>
+        <div class="acc-number">{{ acc.accountNumber }}</div>
+        <div class="acc-balance" [class.negative]="acc.balance < 0">{{ acc.balance | ccdCurrency }}</div>
+        <div class="acc-type">{{ acc.currency }}</div>
+      </button>
+    }
+  </section>
+}
+
+@if (loading$ | async) {
+  <ccd-loading [loading]="true" message="Loading bank data…" />
+} @else {
+  @if (cashFlow$ | async; as cf) {
+    @if (cf.length > 0) {
+      <ccd-ui-card title="Cash flow" subtitle="Net account movement over the last 90 days" class="mb-6">
+        <apx-chart
+          [series]="getCfSeries(cf)"
+          [chart]="chartConfig"
+          [dataLabels]="dataLabelsConfig"
+          [stroke]="strokeConfig"
+          [colors]="chartColors"
+          [fill]="fillConfig"
+          [xaxis]="getCfXAxis(cf)"
+          [yaxis]="yAxisConfig"
+          [grid]="gridConfig"
+          [tooltip]="tooltipConfig"
+        />
+      </ccd-ui-card>
+    }
+  }
+
+  <ccd-ui-table title="Transactions" subtitle="Real-time movement for the selected account" ariaLabel="Bank transactions table">
+    <div table-actions class="bank-table-actions">
+      <ccd-ui-input
+        class="bank-search"
+        [formControl]="searchCtrl"
+        label="Search"
+        placeholder="Find transactions"
+        icon="search"
+      />
+    </div>
+
+    @if ((transactions$ | async)?.length === 0) {
+      <ccd-empty-state icon="swap_horiz" title="No transactions" description="Transactions will appear here once an account is active." />
+    } @else {
+      <table class="ccd-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Reference</th>
+            <th>Type</th>
+            <th class="text-right">Amount</th>
+            <th class="text-right">Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (tx of filteredTx$ | async; track tx.id) {
+            <tr>
+              <td>{{ tx.valueDate | date:'d MMM y' }}</td>
+              <td>{{ tx.description }}</td>
+              <td class="mono text-muted">{{ tx.reference || '-' }}</td>
+              <td><span class="tx-type" [class]="tx.type.toLowerCase()">{{ tx.type }}</span></td>
+              <td class="mono text-right" [class.text-success]="tx.type === 'Credit'" [class.text-danger]="tx.type === 'Debit'">
+                {{ tx.type === 'Credit' ? '+' : '-' }}{{ tx.amount | ccdCurrency }}
+              </td>
+              <td class="mono text-right">{{ tx.runningBalance | ccdCurrency }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  </ccd-ui-table>
+}

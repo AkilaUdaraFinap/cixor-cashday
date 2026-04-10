@@ -1,0 +1,222 @@
+<div class="auth-form onboarding-form">
+  <div class="onboarding-header">
+    <span class="onboarding-kicker">Get started</span>
+    <h2 class="auth-title">Create your CashDay workspace</h2>
+    <p class="auth-subtitle">Set up your company, your admin account, and your finance defaults in a guided flow.</p>
+  </div>
+
+  @if (error$ | async; as err) {
+    <div class="auth-error">{{ err }}</div>
+  }
+
+  @if (success$ | async) {
+    <div class="auth-success">
+      <mat-icon>check_circle</mat-icon>
+      <div>
+        <strong>Workspace created successfully.</strong>
+        <p>Your invite has been prepared. Check your email for the secure link to set your password and enter the dashboard.</p>
+      </div>
+    </div>
+
+    <div class="success-steps mt-4">
+      <div class="success-step"><span>1</span> Open the email invite</div>
+      <div class="success-step"><span>2</span> Set your password</div>
+      <div class="success-step"><span>3</span> Sign in and complete company verification</div>
+    </div>
+  } @else {
+    <div class="stepper" aria-label="Registration progress">
+      @for (step of steps; track step.id) {
+        <button
+          type="button"
+          class="step-pill"
+          [class.active]="currentStep === step.id"
+          [class.complete]="currentStep > step.id"
+          (click)="goToStep(step.id)"
+        >
+          <span>{{ step.id }}</span>
+          <small>{{ step.label }}</small>
+        </button>
+      }
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="onboarding-body">
+      @if (currentStep === 1) {
+        <section class="step-panel">
+          <div>
+            <h3>Business profile</h3>
+            <p>Start with the company you’re registering. You can refine the details before launch.</p>
+          </div>
+
+          <ccd-ui-input
+            formControlName="businessSearch"
+            label="Search or type company name"
+            placeholder="Cixor Finance (Pty) Ltd"
+            icon="search"
+            hint="Use your legal name or trading name."
+            [error]="getFieldError('businessSearch')"
+            (blur)="applyBusinessLookup()"
+          />
+
+          @if (lookupPreview) {
+            <div class="lookup-banner">
+              <mat-icon>domain</mat-icon>
+              <span>{{ lookupPreview }}</span>
+            </div>
+          }
+
+          <div class="form-grid-2">
+            <ccd-ui-input formControlName="businessName" label="Legal business name" placeholder="Cixor Finance (Pty) Ltd" [error]="getFieldError('businessName')" />
+            <ccd-ui-input formControlName="registrationNumber" label="Registration number" placeholder="2025/123456/07" [error]="getFieldError('registrationNumber')" />
+          </div>
+
+          <div class="form-grid-2">
+            <label class="select-field">
+              <span>Industry</span>
+              <select class="ccd-input" formControlName="industry">
+                <option value="Financial Services">Financial Services</option>
+                <option value="Retail">Retail</option>
+                <option value="Logistics">Logistics</option>
+                <option value="Professional Services">Professional Services</option>
+              </select>
+            </label>
+
+            <label class="select-field">
+              <span>Team size</span>
+              <select class="ccd-input" formControlName="teamSize">
+                <option value="1-10">1–10</option>
+                <option value="11-50">11–50</option>
+                <option value="51-200">51–200</option>
+                <option value="200+">200+</option>
+              </select>
+            </label>
+          </div>
+        </section>
+      }
+
+      @if (currentStep === 2) {
+        <section class="step-panel">
+          <div>
+            <h3>Workspace admin</h3>
+            <p>This person will receive the invite and manage the initial setup.</p>
+          </div>
+
+          <ccd-ui-input formControlName="name" label="Full name" placeholder="Aaliyah Smith" autocomplete="name" [error]="getFieldError('name')" />
+
+          <div class="form-grid-2">
+            <ccd-ui-input formControlName="email" label="Work email" type="email" placeholder="admin@company.com" autocomplete="email" [error]="getFieldError('email')" />
+            <ccd-ui-input formControlName="phone" label="Phone" type="tel" placeholder="+27 82 000 0000" autocomplete="tel" />
+          </div>
+
+          <label class="select-field">
+            <span>Initial role</span>
+            <select class="ccd-input" formControlName="role">
+              <option value="Admin">Admin</option>
+              <option value="AccountsManager">Accounts manager</option>
+              <option value="Viewer">Viewer</option>
+            </select>
+          </label>
+        </section>
+      }
+
+      @if (currentStep === 3) {
+        <section class="step-panel">
+          <div>
+            <h3>Finance defaults</h3>
+            <p>These defaults help us format invoices, forecasts, and reminders correctly from day one.</p>
+          </div>
+
+          <div class="form-grid-2">
+            <label class="select-field">
+              <span>Default currency</span>
+              <select class="ccd-input" formControlName="currency">
+                <option value="ZAR">ZAR</option>
+                <option value="LKR">LKR</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+              </select>
+            </label>
+
+            <label class="select-field">
+              <span>Locale</span>
+              <select class="ccd-input" formControlName="locale">
+                <option value="en-ZA">English (South Africa)</option>
+                <option value="en-LK">English (Sri Lanka)</option>
+                <option value="en-US">English (United States)</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="form-grid-2">
+            <ccd-ui-input formControlName="paymentTerms" type="number" label="Default payment terms (days)" placeholder="30" [error]="getFieldError('paymentTerms')" />
+            <label class="select-field">
+              <span>Monthly invoice volume</span>
+              <select class="ccd-input" formControlName="invoiceVolume">
+                <option value="1-20">1–20 invoices</option>
+                <option value="21-100">21–100 invoices</option>
+                <option value="101-500">101–500 invoices</option>
+                <option value="500+">500+ invoices</option>
+              </select>
+            </label>
+          </div>
+        </section>
+      }
+
+      @if (currentStep === 4) {
+        <section class="step-panel">
+          <div>
+            <h3>Review and create</h3>
+            <p>Confirm the information below. You can still update company details later from settings.</p>
+          </div>
+
+          <div class="review-grid">
+            <div class="review-card">
+              <span>Business</span>
+              <strong>{{ form.value.businessName }}</strong>
+              <small>{{ form.value.registrationNumber || 'Registration pending' }}</small>
+            </div>
+            <div class="review-card">
+              <span>Admin</span>
+              <strong>{{ form.value.name }}</strong>
+              <small>{{ form.value.email }}</small>
+            </div>
+            <div class="review-card">
+              <span>Defaults</span>
+              <strong>{{ form.value.currency }} · {{ form.value.locale }}</strong>
+              <small>{{ form.value.paymentTerms }} day terms</small>
+            </div>
+          </div>
+
+          <label class="review-check">
+            <input type="checkbox" formControlName="agreeTerms" />
+            <span>I confirm that I’m authorised to create this workspace and agree to the CashDay platform terms.</span>
+          </label>
+          @if (getFieldError('agreeTerms')) {
+            <div class="terms-error">Please confirm before creating the workspace.</div>
+          }
+        </section>
+      }
+
+      <div class="onboarding-actions">
+        <a class="auth-secondary-link" routerLink="/auth/login">Back to sign in</a>
+
+        <div class="actions-right">
+          @if (currentStep > 1) {
+            <button type="button" class="ccd-btn btn-ghost" (click)="previousStep()">Back</button>
+          }
+
+          @if (currentStep < totalSteps) {
+            <button type="button" class="ccd-btn btn-primary" (click)="nextStep()">Continue</button>
+          } @else {
+            <button type="submit" class="ccd-btn btn-primary btn-lg" [disabled]="(loading$ | async) === true">
+              @if (loading$ | async) { Creating workspace… } @else { Create workspace }
+            </button>
+          }
+        </div>
+      </div>
+    </form>
+  }
+
+  <p class="auth-link mt-6 text-center">
+    Already have an account? <a routerLink="/auth/login">Sign in</a>
+  </p>
+</div>
