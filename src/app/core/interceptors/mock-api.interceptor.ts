@@ -7,7 +7,7 @@ const NOW_ISO = '2026-04-10T08:00:00Z';
 const MOCK_USERS = [
   {
     email: 'admin@cixor.com',
-    password: 'password123',
+    password: 'Password123!',
     user: {
       id: '1',
       name: 'Aaliyah Smith',
@@ -20,15 +20,29 @@ const MOCK_USERS = [
     },
   },
   {
-    email: 'accounts@cixor.com',
-    password: 'password123',
+    email: 'finance@cixor.com',
+    password: 'Password123!',
     user: {
       id: '2',
       name: 'Marcus Dlamini',
       firstName: 'Marcus',
       lastName: 'Dlamini',
-      email: 'accounts@cixor.com',
+      email: 'finance@cixor.com',
       role: 'AccountsManager',
+      businessId: 'biz-001',
+      businessName: 'Cixor Finance',
+    },
+  },
+  {
+    email: 'viewer@cixor.com',
+    password: 'Password123!',
+    user: {
+      id: '3',
+      name: 'Lebo Naidoo',
+      firstName: 'Lebo',
+      lastName: 'Naidoo',
+      email: 'viewer@cixor.com',
+      role: 'Viewer',
       businessId: 'biz-001',
       businessName: 'Cixor Finance',
     },
@@ -53,7 +67,7 @@ let mockUsers = [
     name: 'Marcus Dlamini',
     firstName: 'Marcus',
     lastName: 'Dlamini',
-    email: 'accounts@cixor.com',
+    email: 'finance@cixor.com',
     role: 'AccountsManager',
     status: 'Active',
     avatarUrl: '',
@@ -65,11 +79,11 @@ let mockUsers = [
     name: 'Lebo Naidoo',
     firstName: 'Lebo',
     lastName: 'Naidoo',
-    email: 'operations@cixor.com',
+    email: 'viewer@cixor.com',
     role: 'Viewer',
-    status: 'Invited',
+    status: 'Active',
     avatarUrl: '',
-    lastLoginAt: '',
+    lastLoginAt: '2026-04-09T16:20:00Z',
     createdAt: '2026-03-22T13:30:00Z',
   },
 ];
@@ -763,7 +777,9 @@ export const mockApiInterceptor: HttpInterceptorFn = (req, next) => {
 
   if (req.method === 'POST' && path.endsWith('/auth/login')) {
     const body = req.body as { email: string; password: string };
-    const match = MOCK_USERS.find(user => user.email === body?.email && user.password === body?.password);
+    const email = body?.email?.trim().toLowerCase();
+    const password = body?.password?.trim();
+    const match = MOCK_USERS.find(user => user.email.toLowerCase() === email && user.password === password);
 
     if (match) {
       return of(new HttpResponse({ status: 200, body: { user: match.user, tokens: makeTokens() } })).pipe(delay(250));
